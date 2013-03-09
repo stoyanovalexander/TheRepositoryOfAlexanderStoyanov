@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var number = 30;
+        var onTwo = number % 2;
+        var onThree = number % 3;
+        var onFive = number % 5;
+        var onSeven = number % 7;
+        if (onTwo == 0 | onThree == 0 | onFive == 0 | onSeven == 0)
+        {
+            jsConsole.writeLine(number + " is NOT prime");
+        }
+        else
+        {
+            jsConsole.writeLine(number+" is prime");
+        }
+   </script>
+</body>
+</html>
