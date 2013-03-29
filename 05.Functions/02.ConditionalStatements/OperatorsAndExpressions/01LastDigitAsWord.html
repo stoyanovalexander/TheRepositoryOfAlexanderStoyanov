@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<label for="tb-first">number: </label>
+	<input type="text" id="tb-number"/>
+	<br />							  
+	<a href="#" onclick="onClick()">Last Digit as word: </a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function printLastDigit()
+	    {
+	        var number = jsConsole.readInteger("#tb-number");
+	        var lastDigit = number % 10;
+	        switch (lastDigit)
+	        {
+	            case 0:
+	                jsConsole.writeLine(number + "→ Zero"); break;
+	            case 1:
+	                jsConsole.writeLine(number + "→ One"); break;
+	            case 2:
+	                jsConsole.writeLine(number + "→ Two"); break;
+	            case 3:
+	                jsConsole.writeLine(number + "→ Three"); break;
+	            case 4:
+	                jsConsole.writeLine(number + "→ Four"); break;
+	            case 5:
+	                jsConsole.writeLine(number + "→ Five"); break;
+	            case 6:
+	                jsConsole.writeLine(number + "→ Six"); break;
+	            case 7:
+	                jsConsole.writeLine(number + "→ Seven"); break;
+	            case 8:
+	                jsConsole.writeLine(number + "→ Eight"); break;
+	            case 0:
+	                jsConsole.writeLine(number + "→ Nine"); break;
+	            default:
+	                jsConsole.writeLine("You must enter somthing but not number");
+	        }
+	    }
+	    function onClick() {
+	        
+	        printLastDigit();
+	    }
+	</script>			  
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function campareNeighbours(array, index) {
+	        if ( (index == 0)&&(array[index]>array[1]) )
+            {
+	            jsConsole.writeLine("array["+0+"] is bigger than its neighbours");//return 0;
+	        }
+	        else if (index > 0 && index < array.length - 1 && array[index]>array[index+1] && array[index]>array[index-1]) 
+	        {
+	                jsConsole.writeLine(array[index] + " is bigger than its neigbours");//return i;
+	        }
+	        else if (array[index] == array[array.length - 1] && array[index] > array[array.length - 2]) {
+	            jsConsole.writeLine("array["+index+"] is bigger than its neighbours");//return array.length - 1;
+	        }
+	        else {
+	            jsConsole.writeLine("array["+index+"] is NOT bigger than its neighbours");
+	        }
+
+	       
+	    }
+	    var myArr = [23, 43, 52, 67, 74, 74];
+	    jsConsole.write("[")
+	    for (var i = 0; i < myArr.length - 1; i++) {
+	        jsConsole.write(myArr[i] + ",");
+	    }
+	    jsConsole.write(myArr[myArr.length - 1] + "]→ ");
+
+	    campareNeighbours(myArr,2);
+	    
+	</script>			  
+</body>
+</html>
