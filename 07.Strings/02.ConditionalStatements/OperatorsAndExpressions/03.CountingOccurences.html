@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=theString]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			/*thestring-decoration:none;*/	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			/*theString-decoration:underline;*/
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function countingOccurences(theString,theTarget)
+        {
+	        theString = theString.toLocaleLowerCase();
+	        theTarget = theTarget.toLocaleLowerCase();
+	        var startIndex=0;
+	        var occurenceIndex=0;
+	        var count=0;
+	        while (true)
+	        {
+	            occurenceIndex = theString.IndexOf(theTarget, startIndex);
+	            if (occurenceIndex > theString.length-1);
+	            {
+	                break;
+	            }
+	            
+	            
+	                startIndex = occurenceIndex + theTarget.length;
+	                count++;
+	            
+	        }
+	        jsConsole.writeLine("The result is: "+count);
+	    }
+	    var myString = "I play, you play, he play, they Play.";
+	    var myTarget = "play";
+	    jsConsole.writeLine(myString);
+	    jsConsole.writeLine(myTarget);
+	    countingOccurences(myString, myTarget);
+        
+	</script>			  
+</body>
+</html>
+   

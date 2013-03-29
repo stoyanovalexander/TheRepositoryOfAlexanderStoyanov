@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<label for="url">Enter a url : "http://www.abv.bg/login/password" </label>
+	<input id="tb-url" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="parsingURL()">Parse the URL to JSON:</a>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+
+	    function parsingURL() {
+	        var url = jsConsole.readString("#tb-url");
+	        jsConsole.writeLine(url);
+	        var protokol = url.substring(0, url.indexOf(":"));
+	        var server = url.substring(url.indexOf(":") + 3, url.indexOf("/", url.indexOf(":") + 3));
+	        var resource = url.substr(url.indexOf("/", url.indexOf(":") + 3) + 1)
+	        var URLJSON = { "Protokol": protokol, "Server": server, "Resource": resource };
+	        jsConsole.writeLine("Protokol :" + URLJSON.Protokol);
+	        jsConsole.writeLine("Server :" + URLJSON.Server);
+	        jsConsole.writeLine("Resource :" + URLJSON.Resource);
+	    }
+
+
+	</script>
+
+			  
+</body>
+</html>
