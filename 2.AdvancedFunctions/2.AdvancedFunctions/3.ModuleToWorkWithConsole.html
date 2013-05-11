@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var theMyConsole = (function () {
+            (function () {
+                var myConsole = document.createElement('div');
+
+                myConsole.id = 'theMyConsole';
+                myConsole.style.backgroundColor = '#fff';
+                myConsole.style.color = '#000';
+                myConsole.style.padding = '20px';
+                myConsole.style.border = '5px solid #aaa';
+
+                document.body.appendChild(myConsole);
+            })();
+
+            var console = document.getElementById('theMyConsole');
+
+            function getMessage(args) {
+                var msg = args[0];
+                var i,
+                    numStr;
+
+                for (i = 1; i < args.length; i++) {
+                    numStr = '{' + parseInt(i - 1) + '}';
+                    msg = msg.replace(numStr, args[i]);
+                }
+                return msg.toString();
+            }
+
+            function writeLine() {
+                var msg = getMessage(arguments);
+
+                var p = document.createElement('p');
+                var text = document.createTextNode(msg);
+
+                p.appendChild(text);
+                p.style.color = '#000';
+
+                console.appendChild(p);
+            }
+
+            function writeWarning() {
+                var warningMsg = getMessage(arguments);
+
+                var p = document.createElement('p');
+                var text = document.createTextNode(warningMsg);
+
+                p.appendChild(text);
+                p.style.color = 'green';
+                p.style.fontWeight = 'bold';
+
+                console.appendChild(p);
+            }
+
+            function writeError() {
+                var errorMsg = getMessage(arguments);
+
+                var p = document.createElement('p');
+                var text = document.createTextNode(errorMsg);
+
+                p.appendChild(text);
+                p.style.color = 'red';
+                p.style.fontWeight = 'bold';
+
+                console.appendChild(p);
+            }
+
+            return {
+                writeLine: writeLine,
+                writeError: writeError,
+                writeWarning: writeWarning
+            };
+        })();
+
+        
+        theMyConsole.writeWarning("Write the profesion of Siabonga Nomwete");
+        theMyConsole.writeError("Siabonga Nomwete is not dentist");
+        theMyConsole.writeLine("Siabonga Nomwete For President");
+
+    </script>
+</body>
+</html>

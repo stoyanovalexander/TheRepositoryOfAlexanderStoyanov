@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	   <script>
+	       var siabongasVehicles = (function () {
+	           // State enumerations 
+	           var afterburnSwithState = {
+	               "Activated": 1,
+	               "Deactivated": 0
+	           };
+	           var RotationDirectionState = {
+	               "Clockwise": 0,
+	               "CounterClockwise": 1
+	           };
+	           var AmphibianMode = {
+	               "Earth": 0,
+	               "Water": 1
+	           };
+                ////////////////////////////////////////////////////////////////////////////////////////
+	           Function.prototype.inherits = function (parent) {
+	               this.prototype = new parent();
+	               this.prototype.constructor = parent;
+	           };
+               /////////////////////////////////////////////////////////////////////////////////////////
+	           Function.prototype.extends = function (parent) {
+	               for (var i = 1; i < arguments.length; i += 1) {
+	                   var name = arguments[i];
+	                   this.prototype[name] = parent.prototype[name];
+	               }
+	               return this;
+	           }
+               ////////////////////////////////////////////////////////////////////////////////////////
+	           function PropulsionUnit() {
+	           }
+	           PropulsionUnit.prototype.createAcceleration = function () {
+	               return 0;
+	           }
+               ////////////////////////////////////////////////////////////////////////////////////////
+	           function Wheel(radius) {
+	               this.radius = radius;
+	           }
+
+	           Wheel.inherits(PropulsionUnit);
+
+	           Wheel.prototype.createAcceleration = function () {
+	               var acceleration = 2 * Math.PI * this.radius;
+	               return acceleration;
+	           }
+               ////////////////////////////////////////////////////////////////////////////////////////
+	           function PropellingNozzle(power, afterburnSwith) {
+	               this.power = power;
+	               this.afterburnSwith = afterburnSwith;
+	           }
+
+	           PropellingNozzle.inherits(PropulsionUnit);
+
+	           PropellingNozzle.prototype.createAcceleration = function () {
+	               if (this.afterburnSwith === afterburnSwithState.Activated) {
+	                   var acceleration = 2 * this.power;
+	                   return acceleration;
+	               }
+	               else if (this.afterburnSwith === afterburnSwithState.Deactivated) {
+	                   acceleration = this.power;
+	                   return acceleration;
+	               }
+	               else {
+	                   throw new Error("afterburnSwitch=0 or afterburnSwitch=1 anything else!")
+	               }
+	           }
+               ///////////////////////////////////////////////////////////////////////////////////
+	           function Propeller(finsCount, rotationDirection) {
+	               this.finsCount = finsCount;
+	               this.rotationDirection = rotationDirection;
+	           }
+
+	           Propeller.inherits(PropulsionUnit);
+
+	           Propeller.prototype.createAcceleration = function () {
+	               if (this.rotationDirection === RotationDirectionState.Clockwise) {
+	                   var acceleration = this.finsCount;
+	                   return acceleration;
+	               }
+	               else if (this.rotationDirection === RotationDirectionState.CounterClockwise) {
+	                   acceleration = -this.finsCount;
+	                   return acceleration;
+	               }
+	               else {
+	                   throw new Error("rotationDirection=0 or rotationDirection=1 anything else!");
+	               }
+	           }
+               ///////////////////////////////////////////////////////////////////////////////////////////////
+	           function Vehicle(speed, propulsionUnits) {
+	               this.speed = speed;
+	               this.propulsionUnits = propulsionUnits;
+	           }
+
+	           Vehicle.prototype.accelerate = function () {
+	               for (var i = 0; i < this.propulsionUnits.length; i++) {
+	                   this.speed += this.propulsionUnits[i].createAcceleration();
+	               }
+	               var acceleratedSpeed=this.speed;
+	               return acceleratedSpeed;
+	           }
+               ////////////////////////////////////////////////////////////////////////////////////////////////////
+	           function LandVehicle(speed, wheels) {
+	               Vehicle.apply(this, arguments);
+	           }
+
+	           LandVehicle.inherits(Vehicle);
+               /////////////////////////////////////////////////////////////////////////////////////////////
+	           function AirVehicle(speed, propellingNozzles) {
+	               Vehicle.apply(this, arguments);
+	           }
+
+	           AirVehicle.inherits(Vehicle);
+
+	           AirVehicle.prototype.switchAfterburners = function (afterburnSwith) {
+	               for (var i = 0, len = this.propulsionUnits.length; i < len; i++) {
+	                   if (this.propulsionUnits[i] instanceof PropellingNozzle) {
+	                       this.propulsionUnits[i].afterburnSwith = afterburnSwith;
+	                   }
+	               }
+	           }
+               ////////////////////////////////////////////////////////////////////////////////////////////////
+	           function WaterVehicle(speed, propellers) {
+	               Vehicle.apply(this, arguments);
+	           }
+
+	           WaterVehicle.inherits(Vehicle);
+
+	           WaterVehicle.prototype.setPropellersRotationDirection = function (rotationDirection) {
+	               for (var i = 0; i < this.propulsionUnits.length; i++) {
+	                   if (this.propulsionUnits[i] instanceof Propeller) {
+	                       this.propulsionUnits[i].rotationDirection = rotationDirection;
+	                   }
+	               }
+	           }
+               //////////////////////////////////////////////////////////////////////////////////////////////
+	           function Amphibian(speed, propellers, wheels, mode) {
+
+	               var propulsionUnits = [];
+	               for (var i = 0; i < propellers.length; i++) {
+	                   propulsionUnits.push(propellers[i]);
+	               }
+
+	               for (var j = 0; j < wheels.length; j++) {
+	                   propulsionUnits.push(wheels[i]);
+	               }
+
+	               Vehicle.call(this, speed, propulsionUnits);
+	               this.mode = mode;
+	           }
+
+	           Amphibian.inherits(Vehicle);
+	           Amphibian.extends(WaterVehicle, "setPropellersRotationDirection");
+
+	           Amphibian.prototype.accelerate = function () {
+	               if (this.mode === AmphibianMode.Earth) {
+	                   for (var i = 0; i < this.propulsionUnits.length; i++) {
+	                       if (this.propulsionUnits[i] instanceof Wheel) {
+	                           this.speed += this.propulsionUnits[i].createAcceleration();
+	                       }
+	                   }
+	                   var acceleratedSpeed = this.speed;
+	                   return acceleratedSpeed;
+	               }
+	               else if (this.mode === AmphibianMode.Water) {
+	                   for (var i = 0; i < this.propulsionUnits.length; i++) {
+	                       if (this.propulsionUnits[i] instanceof Propeller) {
+	                           this.speed += this.propulsionUnits[i].createAcceleration();
+	                       }
+	                   }
+	               }
+	               var acceleratedSpeed = this.speed;
+	               return acceleratedSpeed;
+	           }
+               ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	           return {
+	               afterburnSwithState: afterburnSwithState,
+	               RotationDirectionState: RotationDirectionState,
+	               AmphibianMode: AmphibianMode,
+	               Wheel: Wheel,
+	               PropellingNozzle: PropellingNozzle,
+	               Propeller: Propeller,
+	               LandVehicle: LandVehicle,
+	               AirVehicle: AirVehicle,
+	               WaterVehicle: WaterVehicle,
+	               Amphibian: Amphibian
+	           };
+	       })();
+           // Something like MAIN!
+	       var frontLeftSiabongaCarWheel = new siabongasVehicles.Wheel(5);
+	       var frontRightSiabongaCarWheel = new siabongasVehicles.Wheel(5);
+	       var backLeftSiabongaCarWheel = new siabongasVehicles.Wheel(5);
+	       var backRightSiabongaCarWheel = new siabongasVehicles.Wheel(5);
+	       var wheelsOfSiabngaCar = [frontLeftSiabongaCarWheel, frontRightSiabongaCarWheel, backLeftSiabongaCarWheel, backRightSiabongaCarWheel];
+	       var carOfSiabonga = new siabongasVehicles.LandVehicle(200, wheelsOfSiabngaCar);
+	       jsConsole.writeLine("carOfSiabonga acceleratedSpeed=" + carOfSiabonga.accelerate());
+	       jsConsole.writeLine();
+	       ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	       var firstSiabongaBoatPropeller = new siabongasVehicles.Propeller(10, 0);   // 0 means clockwise rotation direction, which means ADD 10 
+	       var secondSiabongaBoatPropeller = new siabongasVehicles.Propeller(5, 0);   // 0 means clockwise rotation direction, which means ADD 5
+	       var propellersOfSiabongaBoat = [firstSiabongaBoatPropeller, secondSiabongaBoatPropeller];
+	       var boatOfSiabonga = new siabongasVehicles.WaterVehicle(200, propellersOfSiabongaBoat);
+	       jsConsole.writeLine("boatOfSiabonga acceleratedSpeed=" + boatOfSiabonga.accelerate());
+	       jsConsole.writeLine();
+	       ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	       var firstSiabongaAirPlaneNozzle = new siabongasVehicles.PropellingNozzle(10, 0);
+	       var secondSiabongaAirPlaneNozzle = new siabongasVehicles.PropellingNozzle(20, 0);
+	       var NozzlesOfsiabongaAirPlane = [firstSiabongaAirPlaneNozzle, secondSiabongaAirPlaneNozzle];
+	       var airPlaneOfSiabonga = new siabongasVehicles.AirVehicle(1000, NozzlesOfsiabongaAirPlane);
+	       airPlaneOfSiabonga.switchAfterburners(1); // Change the state from 0(Deactivated) to 1(Activated) so will add  to speed 10*2 and 20*2
+	       jsConsole.writeLine("AirPlaneOfSiabonga acceleratedSpeed=" + airPlaneOfSiabonga.accelerate());
+	       jsConsole.writeLine();
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+           // Siabonga Amphibian is His car on top of which is his Boat;
+	       var wheelsOfSiabongaAmphibian = wheelsOfSiabngaCar;
+	       var propellersOfSiabongaAmphibian = propellersOfSiabongaBoat;
+	       var amphibianOfSiabonga = new siabongasVehicles.Amphibian(100, propellersOfSiabongaAmphibian, wheelsOfSiabongaAmphibian, 1); // 1 means amphibian is a boat.
+	       jsConsole.writeLine("amphibianOfSiabonga(as boat) acceleratedSpeed=" + amphibianOfSiabonga.accelerate());
+	       jsConsole.writeLine();
+	       amphibianOfSiabonga.mode = 0; // 0(mode) means amphibian is a car. 
+	       jsConsole.writeLine("amphibianOfSiabonga(as car) acceleratedSpeed="+amphibianOfSiabonga.accelerate());
+    </script>		  
+</body>
+</html>
