@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Slices", "Feb7\01.Slices.csproj", "{62F336E0-D18A-4745-AC4B-F8985802A91C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.MessageInBottle", "02.MessageInBottle\02.MessageInBottle.csproj", "{D7D7B876-F3FA-4D9F-BACE-31227283193E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "001.BassicLanguage", "001.BassicLanguage\001.BassicLanguage.csproj", "{DEBB12EC-4F67-4098-AB03-A6D8E07067DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "002.massageInABottle", "002.massageInABottle\002.massageInABottle.csproj", "{1370A369-301C-4368-A4C2-3B0415077BC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "003.Cooking", "003.Cooking\003.Cooking.csproj", "{4DAC683D-4FE5-4B7D-9F81-C499CD01626D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "004.Slices", "004.Slices\004.Slices.csproj", "{F74E4FA5-F989-4429-807D-C5126ACCE748}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62F336E0-D18A-4745-AC4B-F8985802A91C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62F336E0-D18A-4745-AC4B-F8985802A91C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62F336E0-D18A-4745-AC4B-F8985802A91C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62F336E0-D18A-4745-AC4B-F8985802A91C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D7B876-F3FA-4D9F-BACE-31227283193E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D7B876-F3FA-4D9F-BACE-31227283193E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D7B876-F3FA-4D9F-BACE-31227283193E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D7B876-F3FA-4D9F-BACE-31227283193E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEBB12EC-4F67-4098-AB03-A6D8E07067DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEBB12EC-4F67-4098-AB03-A6D8E07067DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEBB12EC-4F67-4098-AB03-A6D8E07067DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEBB12EC-4F67-4098-AB03-A6D8E07067DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1370A369-301C-4368-A4C2-3B0415077BC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1370A369-301C-4368-A4C2-3B0415077BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1370A369-301C-4368-A4C2-3B0415077BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1370A369-301C-4368-A4C2-3B0415077BC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DAC683D-4FE5-4B7D-9F81-C499CD01626D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DAC683D-4FE5-4B7D-9F81-C499CD01626D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DAC683D-4FE5-4B7D-9F81-C499CD01626D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DAC683D-4FE5-4B7D-9F81-C499CD01626D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74E4FA5-F989-4429-807D-C5126ACCE748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74E4FA5-F989-4429-807D-C5126ACCE748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74E4FA5-F989-4429-807D-C5126ACCE748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74E4FA5-F989-4429-807D-C5126ACCE748}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

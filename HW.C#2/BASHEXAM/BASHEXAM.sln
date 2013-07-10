@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BASHEXAM", "BASHEXAM\BASHEXAM.csproj", "{4443C87F-1ACC-46B2-96AE-56189A8C40D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabitInCircle", "RabitInCircle\RabitInCircle.csproj", "{C56D69A8-8BE1-4027-90A2-B989AC5EFB76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoTasks", "TwoTasks\TwoTasks.csproj", "{E6261C23-CA71-460E-8920-8EC74B6EFBCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4443C87F-1ACC-46B2-96AE-56189A8C40D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4443C87F-1ACC-46B2-96AE-56189A8C40D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4443C87F-1ACC-46B2-96AE-56189A8C40D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4443C87F-1ACC-46B2-96AE-56189A8C40D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C56D69A8-8BE1-4027-90A2-B989AC5EFB76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C56D69A8-8BE1-4027-90A2-B989AC5EFB76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C56D69A8-8BE1-4027-90A2-B989AC5EFB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C56D69A8-8BE1-4027-90A2-B989AC5EFB76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6261C23-CA71-460E-8920-8EC74B6EFBCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6261C23-CA71-460E-8920-8EC74B6EFBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6261C23-CA71-460E-8920-8EC74B6EFBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6261C23-CA71-460E-8920-8EC74B6EFBCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
