@@ -1,0 +1,46 @@
+﻿html, body, ul {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #fff;
+	font-family: Verdana, sans-serif;
+}
+
+.menu li > ul {
+    display: none;
+}
+
+.collapsed {
+	background: url('../images/collapsed.png');
+}
+.expanded {
+	background: url('../images/expanded.png');
+}
+.collapsed, .expanded {
+	background-repeat: no-repeat;
+	padding-left: 10px;
+	cursor: pointer;
+	background-position: left 5px;
+}
+
+.menu {
+	margin: 50px;
+	padding: 0px;
+	color: #fff;
+	width: 200px;
+    background: #555;
+}
+
+.menu li {
+	padding-left: 20px;
+	list-style-type: none;
+	text-align: left;
+	font-family: Verdana;
+	font-style: italic;
+	font-size: 12px;
+	font-weight: normal;
+    line-height: 28px;
+}
+

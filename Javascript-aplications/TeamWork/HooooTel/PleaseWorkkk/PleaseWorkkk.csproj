@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F4C7D89A-7C2D-4A7B-8885-9ECEEC6E9C2F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PleaseWorkkk</RootNamespace>
+    <AssemblyName>PleaseWorkkk</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AnimalHotel.html" />
+    <Content Include="css\qunit-1.11.0.css" />
+    <Content Include="css\style.css" />
+    <Content Include="images\cat1.png" />
+    <Content Include="images\cat10.png" />
+    <Content Include="images\cat10b.png" />
+    <Content Include="images\cat11.png" />
+    <Content Include="images\cat11b.png" />
+    <Content Include="images\cat12.png" />
+    <Content Include="images\cat12b.png" />
+    <Content Include="images\cat13.png" />
+    <Content Include="images\cat13b.png" />
+    <Content Include="images\cat14.png" />
+    <Content Include="images\cat14b.png" />
+    <Content Include="images\cat1b.png" />
+    <Content Include="images\cat2.png" />
+    <Content Include="images\cat2b.png" />
+    <Content Include="images\cat3.png" />
+    <Content Include="images\cat3b.png" />
+    <Content Include="images\cat4.png" />
+    <Content Include="images\cat4b.png" />
+    <Content Include="images\cat5.png" />
+    <Content Include="images\cat5b.png" />
+    <Content Include="images\cat6.png" />
+    <Content Include="images\cat6b.png" />
+    <Content Include="images\cat7.png" />
+    <Content Include="images\cat7b.png" />
+    <Content Include="images\cat8.png" />
+    <Content Include="images\cat8b.png" />
+    <Content Include="images\cat9.png" />
+    <Content Include="images\cat9b.png" />
+    <Content Include="images\catFood.png" />
+    <Content Include="images\catwoman.png" />
+    <Content Include="images\catWoman2.png" />
+    <Content Include="images\Cover.png" />
+    <Content Include="images\Doctor.png" />
+    <Content Include="images\dogFood.png" />
+    <Content Include="images\dogFood2.png" />
+    <Content Include="images\Dragon.png" />
+    <Content Include="images\Dragonb.png" />
+    <Content Include="images\dragonHealth.png" />
+    <Content Include="images\foodIndicator.png" />
+    <Content Include="images\grumpy.jpg" />
+    <Content Include="images\health.png" />
+    <Content Include="images\health1.png" />
+    <Content Include="images\healthIndicator.png" />
+    <Content Include="images\hercule.png" />
+    <Content Include="images\layout\bckgr-footer-dark.jpg" />
+    <Content Include="images\layout\bckgr-footer.jpg" />
+    <Content Include="images\layout\bckgr-header-dark.jpg" />
+    <Content Include="images\layout\bckgr-header.jpg" />
+    <Content Include="images\layout\bckgr-slice-dark.jpg" />
+    <Content Include="images\layout\bckgr-slice.jpg" />
+    <Content Include="images\layout\delete.png" />
+    <Content Include="images\layout\facebook.png" />
+    <Content Include="images\layout\google_plus.png" />
+    <Content Include="images\layout\off-dark.png" />
+    <Content Include="images\layout\off.png" />
+    <Content Include="images\layout\on-dark.png" />
+    <Content Include="images\layout\on.png" />
+    <Content Include="images\layout\pills.png" />
+    <Content Include="images\layout\pinterest.png" />
+    <Content Include="images\layout\rss.png" />
+    <Content Include="images\layout\settings-button.png" />
+    <Content Include="images\layout\smile.png" />
+    <Content Include="images\layout\stumbleupon.png" />
+    <Content Include="images\layout\tumblr.png" />
+    <Content Include="images\layout\twitter.png" />
+    <Content Include="images\Mood.png" />
+    <Content Include="images\pummy.png" />
+    <Content Include="images\share.jpg" />
+    <Content Include="images\X.png" />
+    <Content Include="images\Xb.png" />
+    <Content Include="scripts\1. functions.js" />
+    <Content Include="scripts\1. testing-qunit.js" />
+    <Content Include="scripts\HighScore.js" />
+    <Content Include="scripts\hotel.js" />
+    <Content Include="scripts\jquery-2.0.2.min.js" />
+    <Content Include="scripts\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="scripts\prototypal.js" />
+    <Content Include="scripts\qunit-1.11.0.js" />
+    <Content Include="scripts\tweet.js" />
+    <Content Include="scripts\WebStorageObject.js" />
+    <Content Include="sound\CatMetal.mp3" />
+    <Content Include="sound\nyan.mp3" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\highscore.js.orig" />
+    <Content Include="scripts\hotel.js.orig" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5978/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

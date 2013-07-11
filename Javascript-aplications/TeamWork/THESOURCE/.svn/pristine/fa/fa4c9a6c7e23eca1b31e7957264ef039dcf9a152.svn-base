@@ -1,0 +1,21 @@
+
+module("highscore.initialize");
+test("Creating a High Score, should return an object of type HighScore", function() {
+  var highscore = Object.create(HighScore);
+  var actual = HighScore.isPrototypeOf(highscore);
+  var expected = true;
+  equal(actual, expected);
+});
+
+// test("Creating a High Score, should return an object of type HighScore", function() {
+	// var name = "hotel";
+	// var capacity = 12;
+	// var hotel =  object.create(Hotel);
+	// hotel.initialize(name, capacity);
+  // highscore.initialize(hotel, mainmenu);
+  // var highscore = Object.create(HighScore);
+  // var actual = Hotel.isPrototypeOf(highscore.hotel);
+  // var expected = true;
+  // equal(actual, expected);
+// });
+

@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="SliderStyle.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <div id="wrapper">
+        <div id="imageWrapper"></div>
+        <div id="preview"></div>
+    </div>
+    <script>
+	if (!Object.create) {
+	           Object.create = function (obj) {
+	               function f() { };
+	               f.prototype = obj;
+	               return new f();
+	           }
+	       }
+
+	       if (!Object.prototype.extend) {
+	           Object.prototype.extend = function (properties) {
+	               function f() { };
+	               f.prototype = Object.create(this);
+	               for (var prop in properties) {
+	                   f.prototype[prop] = properties[prop];
+	               }
+	              
+	               return new f();
+	           }
+	       }
+
+	var Controler = (function () {
+		var Image = {
+			init: function (title, smallUrl, bigUrl) {
+				this.title = title;
+				this.smallUrl = smallUrl;
+				this.bigUrl = bigUrl;
+			}
+		}
+
+		var Button = {
+			init: function (id, title) {
+				this.id = id;
+				this.title = title;
+			}
+		};
+
+		var SlideControler = {
+			init: function (selectorImages, selectorPreview) {
+				this.wrapper = document.getElementById(selectorImages);
+				this.images = [];
+				this.preview = document.getElementById(selectorPreview);
+				this.currentImageNumber;
+			},
+
+			addImage: function (title, smallUrl, bigUrl) {
+				var img = Object.create(Image);
+				img.init(title, smallUrl, bigUrl);
+				this.images.push(img);
+			},
+
+			showBigImage: function (id) {
+				var img = document.createElement("img");
+				img.id = "preview-image";
+				img.setAttribute("title", this.images[id].title);
+				img.setAttribute("src", this.images[id].bigUrl);
+				img.setAttribute("alt", this.images[id].title);
+				img.style.width = "1050px";
+				img.style.height = "590px";
+				var oldImage = document.getElementById("preview-image");
+				if (oldImage) {
+					this.preview.removeChild(oldImage);
+				}
+				else {
+					this.addButton("left");
+					this.addButton("right");
+					this.attachPreviewEvents();
+				}
+				this.preview.appendChild(img);
+			},
+        
+			renderImages: function () {
+				var i = 0;
+				var fragment = document.createDocumentFragment();
+				for (i = 0; i < this.images.length; i++) {
+					var img = document.createElement("img");
+					img.id = i;
+					img.setAttribute("title", this.images[i].title);
+					img.setAttribute("src", this.images[i].smallUrl);
+					img.setAttribute("alt", this.images[i].title);
+					img.style.width = "160px";
+					img.style.height = "90px";
+
+					fragment.appendChild(img);
+				}
+
+				this.wrapper.appendChild(fragment);
+				var that = this;
+				this.addHandler(this.wrapper, "click", function (ev) {
+					if (!ev) {
+						ev = window.event;
+					}
+					if (ev.stopPropagation) {
+						ev.stopPropagation();
+					}
+					if (ev.preventDefault) {
+						ev.preventDefault();
+					}
+
+					var target = ev.target || ev.srcElement;
+					if (target instanceof HTMLImageElement) {
+						that.currentImageNumber = target.id;
+						that.showBigImage(that.currentImageNumber);
+					}
+				});
+			},
+
+			attachPreviewEvents: function(){
+				var that = this;
+				this.addHandler(this.preview, "click", function (ev) {
+					if (!ev) {
+						ev = window.event;
+					}
+					if (ev.stopPropagation) {
+						ev.stopPropagation();
+					}
+					if (ev.preventDefault) {
+						ev.preventDefault();
+					}
+
+					var target = ev.target || ev.srcElement;
+					if (target instanceof HTMLButtonElement) {
+						if (target.id == "leftButton" && that.currentImageNumber != 0) {
+							that.currentImageNumber--;
+							that.showBigImage(that.currentImageNumber);
+						}
+
+						if (target.id == "rightButton" && that.currentImageNumber != that.images.length - 1) {
+							that.currentImageNumber++;
+							that.showBigImage(that.currentImageNumber);
+						}
+					}
+				});
+			},
+
+			addButton: function (side) {
+				var button = Object.create(Button);
+				var btn = document.createElement("button");
+				btn.className = "button";
+				btn.style.position = "absolute";
+				btn.style.top = "450px";
+				if (side == "left") {
+					button.init("leftButton", side);
+					btn.style.left = "120px"
+					btn.innerHTML = "<";
+				}
+				if (side == "right") {
+					button.init("rightButton", side);
+					btn.style.left = "1093px"
+					btn.innerHTML = ">";
+				}
+
+				btn.id = button.id;
+				this.preview.appendChild(btn);
+			},
+
+			addHandler: function (element, eventType, eventHandler) {
+				if (element.addEventListener) {
+					element.addEventListener(eventType, eventHandler, false);
+				} else if (document.attachEvent) {
+					element.attachEvent("on" + eventType, eventHandler);
+				}
+				else {
+					element["on" + eventType] = eventHandler;
+				}
+			}
+		}
+
+		createSlideControler = function () {
+			return Object.create(SlideControler);
+		}
+		return {
+			createSlideControler: createSlideControler
+		}
+
+	})();
+
+
+
+        var slideControler = Controler.createSlideControler();
+        slideControler.init("imageWrapper", "preview");
+        slideControler.addImage("eagle 1", "http://3.bp.blogspot.com/-9l15LOpaU-0/T_bWF06GuWI/AAAAAAAAMaw/bbA5qoGnOhQ/s1600/Bald+Eagle4.jpg"
+		,"http://3.bp.blogspot.com/-9l15LOpaU-0/T_bWF06GuWI/AAAAAAAAMaw/bbA5qoGnOhQ/s1600/Bald+Eagle4.jpg");
+        slideControler.addImage("eagle 2", "http://www.robertotoole.com/wp-content/uploads/2012/04/Eagle_landing_wings_up_2012_Robert_OToole_Photography_D.jpg"
+		, "http://www.robertotoole.com/wp-content/uploads/2012/04/Eagle_landing_wings_up_2012_Robert_OToole_Photography_D.jpg");
+		slideControler.addImage("eagle 3", "http://www.tourismsquamish.com/files/eagle4_0.jpg"
+		, "http://www.tourismsquamish.com/files/eagle4_0.jpg");
+		slideControler.addImage("eagle 4", "http://www.hdwallpapers.in/walls/screaming_eagle-normal.jpg"
+		, "http://www.hdwallpapers.in/walls/screaming_eagle-normal.jpg");
+		slideControler.addImage("eagle 5", "http://blog.cleveland.com/metro/2008/01/baldeagle.jpg"
+		, "http://blog.cleveland.com/metro/2008/01/baldeagle.jpg");
+		slideControler.addImage("eagle 6", "http://beautifulcoolwallpapers.files.wordpress.com/2011/08/eagle_wallpaperhd.jpg"
+		, "http://beautifulcoolwallpapers.files.wordpress.com/2011/08/eagle_wallpaperhd.jpg");
+        slideControler.addImage("eagle 7", "http://api.ning.com/files/sOStUTCPGwtVgmgD*w*5YjgN5udo6X4XtAwd6DDWq2jIIATwd90xe6LDXmcGZrw-dZHfpVe5O0gWh*59oQjIjJl3N6Pp5wuw/Eagle.jpg"
+		, "http://api.ning.com/files/sOStUTCPGwtVgmgD*w*5YjgN5udo6X4XtAwd6DDWq2jIIATwd90xe6LDXmcGZrw-dZHfpVe5O0gWh*59oQjIjJl3N6Pp5wuw/Eagle.jpg");
+        slideControler.addImage("eagle 8", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT_VlstVi6h8zAssyR4XROuxTbTeW6wyGVd_wzFqF2yuJsZfqXA"
+		, "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT_VlstVi6h8zAssyR4XROuxTbTeW6wyGVd_wzFqF2yuJsZfqXA");
+        slideControler.addImage("eagle 9", "http://www.e-headhunters.co.uk/photos/eagle-claws.jpg"
+		, "http://www.e-headhunters.co.uk/photos/eagle-claws.jpg");
+        slideControler.addImage("eagle 10", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTbr8k0T35bTqaLkJ11M8Ie5y9zxqc6JMWVbPpAp8Z-Nr9GDLwx"
+		, "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTbr8k0T35bTqaLkJ11M8Ie5y9zxqc6JMWVbPpAp8Z-Nr9GDLwx");
+        slideControler.addImage("eagle 11", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSZW81cS4O8bGrnf6sf0ouDz0s7dMyChBkIy12nNRE5Z_Cef-Ad"
+		, "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSZW81cS4O8bGrnf6sf0ouDz0s7dMyChBkIy12nNRE5Z_Cef-Ad");
+        slideControler.addImage("eagle 12", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfA8MgrsSJKH2mj0caVInNXRJW0QAEnGVp0QOpl9gGq--gimgQ"
+		, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfA8MgrsSJKH2mj0caVInNXRJW0QAEnGVp0QOpl9gGq--gimgQ");
+        slideControler.addImage("eagle 13", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcReW_bTC3mAjblF26ldmBiI5C57bT8HlMbZRQYsRNY9KtGGsCFndQ"
+		, "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcReW_bTC3mAjblF26ldmBiI5C57bT8HlMbZRQYsRNY9KtGGsCFndQ");
+        slideControler.addImage("eagle 14", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTcknzt8OJ01lvJsnqZGn0uCD2HlsOKC4AIz3tV0aU1p8HuYW5m1w"
+		, "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTcknzt8OJ01lvJsnqZGn0uCD2HlsOKC4AIz3tV0aU1p8HuYW5m1w");
+        slideControler.addImage("eagle 15", "http://www.wallpaperpin.com/webdisk/eagle-see-flying-hd-wallpapers.jpg"
+		, "http://www.wallpaperpin.com/webdisk/eagle-see-flying-hd-wallpapers.jpg");
+        slideControler.addImage("eagle 16", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQF3qdNJLOW-4DhKPEk-m084t9TZmTrxAuNufpDM3ihS8DcEA3ojg"
+		, "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQF3qdNJLOW-4DhKPEk-m084t9TZmTrxAuNufpDM3ihS8DcEA3ojg");
+        slideControler.addImage("eagle 17", "http://imgace.com/wp-content/uploads/2011/10/upside-down-flying-eagle.png"
+		, "http://imgace.com/wp-content/uploads/2011/10/upside-down-flying-eagle.png");
+        slideControler.addImage("eagle 18", "http://4.bp.blogspot.com/-60TuRy5VjJY/TsSB7JanfhI/AAAAAAAABjU/4Q7WYOLEDh8/s1600/Jangan+Memusnah+Diri+Sendiri.jpg"
+		, "http://4.bp.blogspot.com/-60TuRy5VjJY/TsSB7JanfhI/AAAAAAAABjU/4Q7WYOLEDh8/s1600/Jangan+Memusnah+Diri+Sendiri.jpg");
+        
+        slideControler.renderImages();
+    </script>
+</body>
+</html>

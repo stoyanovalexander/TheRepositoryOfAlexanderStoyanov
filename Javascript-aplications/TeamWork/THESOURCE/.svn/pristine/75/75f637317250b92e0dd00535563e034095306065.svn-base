@@ -1,0 +1,40 @@
+html, body, ul, p {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+   	border: 1px solid black;
+	border-radius: 15px;
+	width: 275px;
+	height: 275px;
+	margin: 5px;
+	padding: 0;
+	display: inline-block;
+	*display: inline;
+	zoom: 1; 
+}
+
+#hotel {
+	zoom: 1;
+}
+
+#hotel:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.room {
+	width: 100px;
+	height: 100px;
+	background: #ccc;
+	border: 1px solid #666;
+	float: left;
+	margin: 10px;
+}
+
+.room img {
+	width: 90%;
+ 
+}

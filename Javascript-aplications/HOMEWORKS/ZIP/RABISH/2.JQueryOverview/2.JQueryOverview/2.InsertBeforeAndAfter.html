@@ -1,0 +1,41 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-2.0.2.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id ="myMan">SIABONGA</div>
+    </div>
+
+    <button id="addBefore">ADD BEFORE</button>
+    <button id="addAfter">ADD AFTER</button>
+
+    <script type="text/javascript">
+        jQuery.prototype.appendNewElement = function (elementToAppend) {
+            $(this).after(elementToAppend);
+        }
+
+        jQuery.prototype.prependNewElement = function (elementToPrepend) {
+            $(this).before(elementToPrepend);
+        }
+
+        var newElement = document.createElement("div");
+
+        $("#addBefore").on("click", function () {
+            var elementToPrepend = newElement.cloneNode(true);
+            $(elementToPrepend).addClass("prepended").text("THE MASTER OF THE SPORT");
+            $("#myMan").prependNewElement(elementToPrepend);
+        });
+
+        $("#addAfter").on("click", function () {
+            var elementToAppend = newElement.cloneNode(true);
+            $(elementToAppend).addClass("appended").text("NOMWETE");
+            $("#myMan").appendNewElement(elementToAppend);
+        });
+
+    </script>
+</body>
+</html>

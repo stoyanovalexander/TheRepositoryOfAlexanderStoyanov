@@ -1,0 +1,107 @@
+﻿var Hotel = {
+    initialize: function (name, rooms, capacity) {
+        this.name = name;
+        this.rooms = rooms;
+        this.capacity = capacity;
+    },
+
+    addRoom: function () {
+        //TODO: adds room to hotel. If capacity is full, do not add and show message
+    },
+
+    removeRoom: function () {
+        //TODO: remove room and its animal  
+    },
+    numOccupiedRooms: function() {
+        return this.rooms.length;
+    },
+    numFreeRooms: function() {
+        var rooms = this.capacity - this.numOccupiedRooms();
+        return rooms;
+    }
+};
+
+var Room = {
+    initialize: function (occupied, roomer) {
+        this.occupied = occupied;
+        this.roomer = roomer;
+    },
+
+    addRoomer: function () {
+        //TODO: add animal if room is free
+    },
+
+    removeRoomer: function () {
+        //TODO: remove animal if room is occupied
+    }
+};
+
+var Animal = {
+    initialize: function (name, age, health, hunger) {
+        this.name = name;
+        this.age = age;
+        this.health = health;
+        this.hunger = hunger;
+    }
+};
+
+var Cat = Animal.extend({
+    initialize: function (name, age, health, hunger, mood, image) {
+        this._super = Object.create(this._super);
+        this._super.initialize(name, age, health, hunger);
+        this.mood = mood;
+        this.image = image;
+    },
+
+    feed: function () {
+        //TODO:
+    },
+
+    goDoctor: function () {
+        //TODO:
+    },
+
+    goWalk: function () {
+        //TODO:
+    },
+
+    introduce: function() {
+        return this._super.name; // for testing purposes
+    }
+});
+
+
+// sample test, before we learn js unit testing
+var grumpy = Object.create(Cat);
+grumpy.initialize("Grumpy", 3, 7, 100, 100, "images/grumpy.jpg");
+
+var room13 = Object.create(Room);
+room13.initialize(true, grumpy);
+
+console.log(grumpy.introduce());
+
+// One more cat
+var pummy = Object.create(Cat);
+pummy.initialize("pummy", 9, 7, 100, 100, "images/pummy.jpg");
+
+var room23 = Object.create(Room);
+room23.initialize(true, pummy);
+
+console.log(pummy.introduce());
+
+// Hercule cat 
+
+var hercule = Object.create(Cat);
+hercule.initialize("hercule", 6, 6, 100, 100, "images/hercule.jpg");
+
+var room33 = Object.create(Room);
+room33.initialize(true, hercule);
+
+
+var sanMarino = Object.create(Hotel);
+sanMarino.initialize("San Marino", [room33, room13, room23], 6);
+
+console.log(hercule.introduce());
+
+console.log("occupied: " + sanMarino.numOccupiedRooms());
+console.log("free: " + sanMarino.numFreeRooms());

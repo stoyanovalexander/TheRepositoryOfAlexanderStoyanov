@@ -1,0 +1,19 @@
+﻿var hungerSum=0;
+var moodSum=0
+var healthSum=0;
+var theSum=0;
+var passedTime=0;
+		var currentInterval = setInterval(function () {
+			passedTime += 1000;
+			var hungerSum=0;
+var moodSum=0
+var healthSum=0;
+			if(passedTime%1000==0){
+			for(var i=0;i=sanMarino.rooms.length;i++){
+				hungerSum+=sanMarino.rooms[i].roomer._super.hunger*10;
+				moodSum+=sanMarino.rooms[i].roomer.mood*10;
+				healthSum+=sanMarino.rooms[i].roomer._super.health;
+				}
+				theSum+=hungerSum+moodSum+healthSum;
+			}
+         }, 1000);

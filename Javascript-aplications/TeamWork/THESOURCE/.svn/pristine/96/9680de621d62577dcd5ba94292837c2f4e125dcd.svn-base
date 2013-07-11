@@ -1,0 +1,21 @@
+module("SocialShareMenu.create");
+test("should create 2 correct different SocialShareMenu objects",   
+  function(){
+	var socialMenu = Object.create(SocialShareMenu);
+    socialMenu.create();
+	
+	var socialMenuSecond = Object.create(SocialShareMenu);
+    socialMenuSecond.create();
+
+	notDeepEqual(socialMenu, socialMenuSecond, "Two different objects of SocialShareMenu are created");
+  });
+  
+test("should create correct SocialShareMenu object",   
+  function(){
+	var socialMenu = Object.create(SocialShareMenu);
+    socialMenu.create();
+	socialMenu.render();
+
+	equal(0,$("#social-menu").length, "The social menu is successfully created");
+  });
+ 

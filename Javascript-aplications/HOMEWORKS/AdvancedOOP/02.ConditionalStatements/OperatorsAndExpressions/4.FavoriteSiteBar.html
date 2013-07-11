@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #favoriteSiteBarContainer {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            overflow:scroll;
+
+        }
+
+        a {
+            margin-left: 5px;
+        }
+
+        .FavoriteSiteBarParagraph {
+    
+            width:100px;
+            height:100px;
+            vertical-align:bottom;
+            background:url('imgs/folder.png') 0 0 no-repeat;
+            padding-top:60px;
+            padding-left:5px;
+            box-sizing:border-box;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="favoriteSiteBar.display()">FavoriteSiteBar</button>
+    <script>
+        Function.prototype.inherit = function (parent) {
+            var oldPrototype = this.prototype;
+            var prototype = new parent();
+            this.prototype = Object.create(prototype);
+            this.prototype._super = prototype;
+            for (var prop in oldPrototype) {
+                this.prototype[prop] = oldPrototype[prop];
+            }
+        }
+
+        var Class = (function () {
+            function createClass(properties) {
+                var f = function () {
+                    this.init.apply(this, arguments);
+                }
+
+                for (var prop in properties) {
+                    f.prototype[prop] = properties[prop];
+                }
+                if (!f.prototype.init) {
+                    f.prototype.init = function () { }
+                }
+                return f;
+            }
+
+            return {
+                create: createClass,
+            };
+        }());
+
+        var URL = Class.create({
+            init: function (title, url) {
+                this.title = title;
+                this.url = url;
+            }
+        });
+        var Folder = Class.create({
+            init: function (title, setOfUrls) {
+                this.title = title;
+                this.setOfUrls = setOfUrls;
+            }
+        });
+
+        var FavoriteSiteBar = Class.create({
+            init: function (setOfUrls, setOfFolders) {
+                this.setOfUrls = setOfUrls;
+                this.setOfFolders = setOfFolders;
+                this.container = document.createElement("div");
+                this.count = 0;
+            },
+            display: function () {
+                this.container.id = "favoriteSiteBarContainer";
+                document.body.appendChild(this.container);
+                if (this.count == 0) {
+                    var urlsHeader = document.createElement("h3");
+                    urlsHeader.innerHTML = "Favorite Sites:";
+
+                    this.container.appendChild(urlsHeader);
+                    this._displaySetOfUrls();
+
+                    var foldersHeader = document.createElement("h3");
+                    foldersHeader.innerHTML = "Favorite Groups Of Sites:";
+                    this.container.appendChild(foldersHeader);
+                    this._displaySetOfFolders();
+
+                    this.count += 1;
+                }
+            },
+            _displaySetOfUrls: function () {
+                var setOfUrls = this.setOfUrls;
+                for (var i = 0; i < setOfUrls.length; i++) {
+                    var url = document.createElement("a");
+                    url.innerHTML = setOfUrls[i].title;
+                    url.href = setOfUrls[i].url;
+                    url.target = "_blank";
+
+                    this.container.appendChild(url);
+                }
+            },
+            _displaySetOfFolders: function () {
+                var folders = this.setOfFolders;
+                for (var i = 0; i < folders.length; i++) {
+                    var paragraph = document.createElement("p");
+                    paragraph.id = folders[i].title;
+                    paragraph.innerHTML = folders[i].title;
+                    paragraph.className = "FavoriteSiteBarParagraph";
+                    paragraph.onclick = function (ev) {
+                        if (ev.target.childElementCount == 0) {
+                            var index;
+                            for (var l = 0; l < folders.length; l++) {
+                                if (ev.target.id == folders[l].title) {
+                                    index = l;
+                                    break;
+                                }
+                            }
+                            for (var j = 0; j < folders[index].setOfUrls.length; j++) {
+                                var url = document.createElement("a");
+                                url.href = folders[index].setOfUrls[j].url;
+                                url.innerHTML = folders[index].setOfUrls[j].title;
+                                url.target = "_blank";
+
+                                ev.target.style.height = (100 + j * 30) + "px";
+                                ev.target.appendChild(document.createElement("br"));
+                                ev.target.appendChild(url);
+                            }
+                        }
+                        else {
+                            ev.target.innerHTML = ev.target.id;
+                            ev.target.style.height = "90px";
+                        }
+                    }
+                    this.container.appendChild(paragraph);
+                }
+            }
+        });
+
+        var  livescore= new URL("LiveScore", "http://www.livescore.com/");
+
+        var youtube = new URL("youtube", "http://www.youtube.com/");
+        var vbox = new URL("vbox", "http://vbox7.com/");
+        var videos = new Folder("Videos", [youtube, vbox]);
+
+        var wimbledon = new URL("wimbledon", "wimbledonhttps://www.facebook.com/wimbledon");
+        var usOpen = new URL("usOpen", "http://www.ticketexchangebyticketmaster.com/USTA/us-open-tennis-tickets/?Keyword=us+open&GCID=1460&keyword=us%20open");
+        var tennisTournaments = new Folder("TennisTournaments", [wimbledon, usOpen]);
+
+        var favoriteSiteBar = new FavoriteSiteBar([livescore], [videos, tennisTournaments]);
+
+    </script>
+</body>
+</html>

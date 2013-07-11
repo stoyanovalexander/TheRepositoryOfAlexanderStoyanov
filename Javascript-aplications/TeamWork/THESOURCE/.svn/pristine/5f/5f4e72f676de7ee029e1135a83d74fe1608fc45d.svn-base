@@ -1,0 +1,20 @@
+module("highscore.initialize");
+test("should set correct name and room number to the hotel",   
+function(){
+	var name = "hotel";
+	var capacity = 12;
+	var hotel =  object.create(hotel);
+	hotel.initialize(name, capacity);
+	
+	var mainmenu = object.create(mainmenu);
+	 mainMenu.create(sanMarino);
+        mainMenu.render();
+	
+	var highscore =  object.create(highscore);
+	highscore.initialize(hotel, mainmenu);
+	
+	//equal(highscore instance of Highscore,true "The highscore is high score!");
+	//equal(highscore.hotel, hotel, "the hotel is expected hotel");
+	//equal(highscore.score, 0, "the score at first moment is 0");
+	//equal(hotel.mainmenu, mainmenu, "the mainmenu is expected mainmenu");	
+});

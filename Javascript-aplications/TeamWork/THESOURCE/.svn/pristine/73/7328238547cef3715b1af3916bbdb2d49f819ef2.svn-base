@@ -1,0 +1,376 @@
+﻿var MainMenu = {
+    create: function (hotel) {
+        this.hotel = hotel;
+        this.menu = $("<div></div>");
+        //this.addRoom = 
+    },
+    addRoom: function () {
+
+    },
+    addCat: function (name) {
+        var cat = Object.create(Cat);
+        cat.initialize(name, 10, 10, 10, 10);
+        this.hotel.addCat(cat);
+        this.hotel.render();
+    },
+    renameHotel: function(newName) {
+        this.hotel.rename(newName);
+        this.renderName();
+    },
+    renameHotelForm: function() {
+        var _self = this;
+        var form = $("<form />");
+        var itemForm = $("<div></div>");
+        var input = $("<input />");
+        var button = $("<button />").text('Rename');
+        button.on("click", function(ev) {
+            ev.preventDefault();
+            _self.renameHotel(input.val());
+        });
+        form.append(input).append(button);
+        itemForm.append(form);
+        return itemForm;
+    },
+    addCatForm: function() {
+        var _self = this;
+        var form = $("<form />");
+        var itemForm = $("<div></div>");
+        var input = $("<input />");
+        var button = $("<button />").text('Add');
+        button.on("click", function(ev) {
+            ev.preventDefault();
+            if (input.val().length > 0)
+            {
+                _self.addCat(input.val());
+            }
+        });
+        form.append(input).append(button);
+        itemForm.append(form);
+        return itemForm;
+    },
+    renderName: function() {
+        var hotelName = this.hotel.getName();
+        $("h1").text(hotelName);
+    },
+    muteAutio: function(){
+        var button = $("<button />").text('Audio');
+
+        button.on('click', function (ev) {
+            ev.preventDefault();
+            var audio = document.getElementById('audio-bc');
+            if (audio.muted == true) {
+                audio.muted = false;
+            }
+            else {
+                audio.muted = true;
+            }
+            
+        });
+
+        return button;
+    },
+    showSettings: function() {
+        $("#settings").toggle();
+    },
+    render: function () {
+        var settings = $("<div>");
+        settings.attr('id', 'settings');
+        this.menu.attr('id', 'hotel-menu');
+        var itemName = $("<h1></h1>");
+        
+
+        var settingsBtn = $("<button />").text('settings');
+
+        settingsBtn.on('click', this.showSettings);
+        this.menu.append(settingsBtn).append(itemName);
+        settings.append(this.addCatForm()).append(this.renameHotelForm()).append(this.muteAutio()).hide();
+        var body = $("body");
+        body.prepend(this.menu);
+        body.prepend(settings);
+        this.renderName();
+        this.hotel.render();
+    }
+};
+
+var Hotel = {
+    initialize: function (name, capacity) {
+        _self = this;
+        this.name = name;
+        this.rooms = [];
+        this.capacity = capacity;
+        this.occupied = 0;
+        for (var j = 0; j < this.capacity; j++) {
+            var room = Object.create(Room);
+            room.initialize();
+            this.rooms.push(room);
+        }
+    },
+
+    //TODO: adds room to hotel.
+    addRoom: function (room) {
+        this.rooms.push(room);
+    },
+
+    addCat: function (cat) {
+        for (var i = 0; i < this.rooms.length; i++) {
+            if (this.rooms[i].isFree()) {
+                this.rooms[i].addRoomer(cat);
+                this.occupied += 1;
+                break;
+            }
+        }
+    },
+    rename: function(name) {
+        this.name = name;
+    },
+
+    removeRoom: function () {
+        //TODO: remove room and its animal  
+        if (this.rooms.length > 0) {
+            this.rooms.pop(rooms[rooms.length - 1]);
+            //$("#hotel").append(newRoom);
+        } else {
+            console.log("You can not remove room. There are no rooms!");
+        }
+
+    },
+    numOccupiedRooms: function () {
+        return this.occupied;
+    },
+    getName: function () {
+        return this.name;
+    },
+    numFreeRooms: function () {
+        var rooms = this.capacity - this.occupied;
+        return rooms;
+    },
+    render: function () {
+        $("#hotel").html('');
+        if (this.rooms.length > 0) {
+            for (var i = 0; i < this.rooms.length; i++) {
+                var room = this.rooms[i].render();
+                this.rooms[i].id = i;
+                room.attr('id', 'room' + i);
+                $("#hotel").append(room);
+                $('#room' + i + ' > div > img').attr('id', 'cat' + i);
+            }
+        }
+
+        var _self = this;
+
+        var timer = 0;
+
+        var interval = setInterval(function () {
+            timer++;
+            if (_self.rooms.length > 0) {
+                for (var i = 0; i < _self.rooms.length; i++) {
+                    if (_self.rooms[i].roomer != null) {
+                        var room = $('#room' + i + ' > div > span')[0];
+                        room.innerHTML = "<img src='images/healthIndicator.png' />   " + _self.rooms[i].roomer._super.health + "    " + "<img src='images/foodIndicator.png' />   " + _self.rooms[i].roomer._super.hunger;
+
+                        if (timer % 3 == 0) {
+                            var image = $('#room' + i + ' > div > img');
+                            var src = image.attr('src');
+
+                            if (src.indexOf('b') != -1) {
+                                src = src.substring(src.indexOf('/'), src.indexOf('b'));
+                                image.attr('src', 'images' + src + '.png');
+                            }
+                            else {
+                                src = src.substring(src.indexOf('/'), src.indexOf('.'));
+                                image.attr('src', 'images' + src + 'b.png');
+                            }
+                        }
+                    }
+                }
+            }
+        }, 1000);
+    }
+};
+
+var Room = {
+    initialize: function () {
+        var _self = this;
+        this.occupied = false;
+        this.roomer = null;
+        this.id = null;
+    },
+
+    addRoomer: function (cat) {
+        //TODO: add animal if room is free
+        this.roomer = cat;
+        this.occupied = true;
+    },
+    isFree: function () {
+        if (this.occupied === false) {
+            return true;
+        }
+        else return false;
+    },
+
+    removeRoomer: function () {
+        //TODO: remove animal if room is occupied
+        if (this.roomer != null) {
+            this.roomer = null;
+            this.occupied = false;
+            $('#room' + this.id + ' > h2').remove();
+            $('#room' + this.id + ' > div').remove();
+            $('#room' + this.id + ' > a').remove();
+        }
+    },
+    render: function () {
+        var _self = this;
+        var room = $("<div></div>");
+        room.css({ 'width': '150px', 'height': '200px', 'text-align': 'center', 'background-color': 'white', 'padding': '10px' });
+        room.attr('class', 'room');
+
+        if (this.roomer != null) {
+            var name = $("<h2></h2>");
+            name.text(this.roomer.introduce());
+
+            var removeCat = $('<a href="#">X</a>');
+            removeCat.css({ 'position': 'relative', 'top': '-210px', 'left': '70px', 'text-decoration': 'none', 'color': 'black' });
+            removeCat.on('mouseover', function () {
+                removeCat.css({ 'position': 'relative', 'top': '-210px', 'left': '70px', 'text-decoration': 'underline' });
+            });
+            removeCat.on('mouseleave', function () {
+                removeCat.css({ 'position': 'relative', 'top': '-210px', 'left': '70px', 'text-decoration': 'none' });
+            });
+            removeCat.on('click', function () {
+                _self.removeRoomer();
+            });
+
+            room.append(name).append(this.roomer.portrait()).append(removeCat);
+        }
+
+        return room;
+    }
+};
+
+var Animal = {
+    initialize: function (name, age, health, hunger) {
+        this.name = name;
+        this.age = age;
+        this.health = health;
+        this.hunger = hunger;
+    }
+};
+
+var generatedCats = []; //to be added into namespace afterwards, checker for cats
+
+var Cat = Animal.extend({
+    initialize: function (name, age, health, hunger, mood) {
+        this._super = Object.create(this._super);
+        this._super.initialize(name, age, health, hunger);
+        this.mood = mood;
+        this.catid = null;
+
+        var generateNumber = Math.floor((Math.random() * 14) + 1);
+
+        while ($.inArray(generateNumber, generatedCats) > -1 && generatedCats.length <= 13)
+        {
+            generateNumber = Math.floor((Math.random() * 14) + 1);
+        }
+
+        generatedCats.push(generateNumber);
+
+        this.image = "images/cat" + generateNumber + ".png";
+        var _self = this;
+        var passedTime = 0;
+        var startHunger = this._super.hunger;
+
+        var currentInterval = setInterval(function () {
+
+            passedTime += 1000;
+
+            if (_self._super.hunger == 0) {
+                _self._super.hunger = startHunger;
+                _self._super.health--;
+            }
+
+            if (passedTime % 1000 == 0) {
+                passedTime = 0;
+                _self._super.hunger--;
+            }
+
+            if (_self._super.health == 0) {
+                _self._super.hunger = 0;
+                clearInterval(currentInterval);
+            }
+
+        }, 500);
+    },
+
+    feed: function (event) {
+        //TODO:
+    },
+
+    goDoctor: function () {
+        //TODO:
+    },
+
+    goWalk: function () {
+        //TODO:
+    },
+
+    introduce: function () {
+        return this._super.name; // for testing purposes
+    },
+    portrait: function () {
+        var div = $('<div>');
+        var img = $("<img>");
+        img.attr('src', this.image);
+        img.attr('alt', this._super.name);
+        img.attr('class', 'draggable');
+        img.attr('draggable', true);
+        img.attr('ondragstart', 'drag(event)');
+        img.attr('ondrop', 'findCat(event)');
+        img.attr('ondragover', 'allowDrop(event)');
+
+        div.append(img);
+        div.append("<span> <img src='images/healthIndicator.png'  />   " + this._super.health + "    " + " <img src='images/foodIndicator.png' />   " + this._super.hunger + "</span>");
+        return div;
+    }
+});
+
+var sanMarino = Object.create(Hotel);
+sanMarino.initialize("San Marino", 14);
+
+var mainMenu = Object.create(MainMenu);
+mainMenu.create(sanMarino);
+mainMenu.render();
+
+function drag(ev) {
+    ev.dataTransfer.setData("dragged-id", ev.target.id);
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+};
+
+function cure(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("dragged-id");
+    if (data.substring(0, 3) == "cat") {
+        roomId = data.substring(data.indexOf('t') + 1);
+        console.log(sanMarino.rooms[parseInt(roomId)]);
+        sanMarino.rooms[parseInt(roomId)].roomer._super.health += 1;
+    }
+}
+
+function findCat(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("dragged-id");
+    if (data == "food") {
+        var roomId = event.target.parentNode.parentNode.id;
+        roomId = roomId.substring(roomId.indexOf('m') + 1);
+        console.log(sanMarino.rooms[parseInt(roomId)]);
+
+        if (sanMarino.rooms[parseInt(roomId)].roomer._super.hunger + 5 > 10) {
+            sanMarino.rooms[parseInt(roomId)].roomer._super.hunger = 10;
+        }
+        else {
+            sanMarino.rooms[parseInt(roomId)].roomer._super.hunger += 5;
+        }
+    };
+}

@@ -1,0 +1,39 @@
+1. Class Animal
+- Properties - name; age; 
+
+2. Class Cat
+- Properties - base: name, age;
+			     health;
+			     spirit;
+				image;
+				hunger;
+- Methods - feed(); // restore hunger when it reach 0
+		  goHospital(); // restore health when it reach 0
+		  goWalk(); // restore spirit when it reach 0
+ // I think that napping is a cat's duty, so we shouldn't mess with that :)
+
+4. Class Room
+- Properties - occupied; // true or false
+		    roomer - object Cat; // default is null?
+- Methods - settle(obj); // set the roomer
+
+4. Class Hotel
+- Property - name;
+	       rooms[];
+             capacity - rooms.length;
+- Methods - addRoom();
+            addAnimal(catObject, roomObject) { 
+               roomObject.settle(catObject)
+            };
+		 removeAnimal(catObject) // here we have to know which is the room, to set its occupied to false;
+
+5. Class GameMenu
+Game options:
+- New game // create hotel with default number rooms
+- Save game (to storage)
+- Load game (from storage)
+Hotel options
+- Rename
+- Add animal
+- Remove animal
+- Add room

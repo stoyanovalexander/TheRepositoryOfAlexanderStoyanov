@@ -1,0 +1,29 @@
+1. Class Animal
+- Properties - name, age, 
+
+2. Class Cat
+- Properties - inherits animal, health, image to show
+- Methods - feed, go to doctor, go for a walk, nap (restores health)
+
+3. 3 Kinds of Cats - inherits cat
+- first wants to be feed more
+- second wants to go for a walk
+- third has lower health so needs doctor
+- more kind of cats can be added
+
+4. Class Room - contains one animal
+- Property - kind of animal to hold
+
+4. Class Hotel
+- Property - array of rooms
+- Methods - add animal, remove animal
+
+5. Class GameMenu
+Game options:
+- New game
+- Save game (to storage)
+- Load game (from storage)
+Hotel options
+- Add animal
+- Remove animal
+- 

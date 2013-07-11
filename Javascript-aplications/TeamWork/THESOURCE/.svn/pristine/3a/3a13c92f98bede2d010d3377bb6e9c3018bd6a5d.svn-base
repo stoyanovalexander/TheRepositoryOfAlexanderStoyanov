@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Animal hotel</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="scripts/jquery-2.0.2.min.js"></script>
+    <script src="scripts/prototypal.js"></script>
+</head>
+<body>
+    <audio id="audio-bc" src="sound/nyan.mp3" autoplay="autoplay" loop="loop"></audio>
+    <div id="hotel"></div>
+    <div id="actions-holder" style="display: inline-block;">
+        <div style="height: 200px; border: 1px solid black; border-radius: 10px; padding:10px; margin-top: 10px; text-align: center">
+            <h2 style="padding: 0; margin: 0">Doctor</h2>
+            <img src="images/doctor.png" ondragover="allowDrop(event)" ondrop="cure(event)" id="doctor" style=""/>
+        </div>
+        <div style="height: 200px; border: 1px solid black; border-radius: 10px; padding:10px; margin-top: 20px; text-align: center">
+            <h2 style="padding: 0; margin: 0">Food</h2>
+            <img src="images/catFood.png" draggable="true" ondragstart="drag(event)" id="food" style=""/>
+        </div>
+		<div style="height: 200px; border: 1px solid black; border-radius: 10px; padding:10px; margin-top: 20px; text-align: center">
+            <h2 style="padding: 0; margin: 0">Cats-walker</h2>
+            <img src="images/catwoman.png" draggable="true" ondragstart="drag(event)" id="doctor" style="height: 180px; width: 150px "/>
+        </div>
+    </div>
+    <script type="text/javascript" src="scripts/hotel.js"></script>
+</body>
+</html>

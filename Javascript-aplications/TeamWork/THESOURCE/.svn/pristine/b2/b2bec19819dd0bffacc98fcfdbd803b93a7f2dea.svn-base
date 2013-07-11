@@ -1,0 +1,112 @@
+html, body, ul, p {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2 {
+	margin: 0;
+}
+
+h1 {
+	display: block;
+	float: left;
+}
+
+button {
+	border: 0;
+	background: none;
+}
+
+#hotel {
+	zoom: 1;
+}
+
+#hotel:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.room {
+	width: 100px;
+	height: 100px;
+	background: #ccc;
+	border: 1px solid #666;
+	float: left;
+	margin: 10px;
+}
+
+#hotel-menu {
+	zoom: 1;
+	background: #004962;
+	color: #fff;
+	padding-left: 20px;
+	height: 40px;
+}
+
+#hotel-menu > div:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+#hotel-menu div > div {
+	float: left;
+	position: relative;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-transform: uppercase;
+	line-height: 40px;
+}
+
+#hotel-menu button {
+	width: 100px;
+	height: 25px;
+}
+
+#hotel-menu #settings-btn {
+	background: url('../images/layout/settings-button.png');
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	float: left;
+	margin-right: 20px;
+}
+
+#settings {
+	position: absolute;
+	top: 40px;
+	left: 0;
+	width: 300px;
+	background: #004962;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	z-index: 1000;
+}
+#settings input{
+	background: #2797be;
+	border: 1px solid #036;
+	border-radius: 5px;
+	height: 26px;
+	padding-left: 10px;
+	color: white;
+	margin-top: 10px;
+}
+#settings button {
+	background: #2797be;
+	border: 1px solid #036;
+	border-radius: 5px;
+	cursor: pointer;
+}
+#settings #audio-btn {
+	width: 30px;
+	height: 30px;
+	background: url('../images/layout/on.png');
+	border: 0;
+	margin-top: 5px;
+}
+#settings #audio-btn.off {
+	background: url('../images/layout/off.png');
+}
+

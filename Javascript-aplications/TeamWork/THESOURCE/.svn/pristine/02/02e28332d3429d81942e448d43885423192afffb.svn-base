@@ -1,0 +1,21 @@
+﻿
+
+
+var theSum=0;
+var passedTime=0;
+		var currentInterval = setInterval(function () {
+			
+			var moodSum=0
+			var healthSum=0;
+			var hungerSum=0;
+			for(var i=0;i=sanMarino.rooms.length;i++){
+				hungerSum+=sanMarino.rooms[i].roomer._super.hunger*10;
+				moodSum+=sanMarino.rooms[i].roomer.mood*10;
+				healthSum+=sanMarino.rooms[i].roomer._super.health;
+				}
+				theSum+=hungerSum+moodSum+healthSum;
+			}
+			
+			console.log("g");
+         }, 1000);
+    

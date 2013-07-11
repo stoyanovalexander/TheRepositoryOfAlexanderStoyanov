@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Animal hotel</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="scripts/jquery-2.0.2.min.js"></script>
+    <script src="scripts/prototypal.js"></script>
+</head>
+<body>
+    <audio id="audio-bc" src="sound/nyan.mp3" autoplay="autoplay"></audio>
+    <div id="hotel"></div>
+    <div id="actions-holder">
+        <img src="images/doctor.png" ondragover="allowDrop(event)" ondrop="cure(event)" id="doctor" />
+        <img src="images/catFood.png" draggable="true" ondragstart="drag(event)" id="food" />
+    </div>
+    <script type="text/javascript" src="scripts/hotel.js"></script>
+</body>
+</html>

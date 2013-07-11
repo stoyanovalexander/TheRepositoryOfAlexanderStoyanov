@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-2.0.2.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+ 
+        th, td{
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="forTheTable"></div>
+    <script>
+        var students = [];
+        students.push({ firstName: "Siabonga", lastName: "Nomwete", grade: 2 });
+        students.push({ firstName: "Huren", lastName: "Nlchl", grade: 3 });
+        students.push({ firstName: "Docun", lastName: "Nigeriiski", grade: 5 });
+        students.push({ firstName: "Hakan", lastName: "Bairaktar", grade: 6 });
+
+        $("#forTheTable").append("<table />");
+        $("table").append("<thead />");
+        $("thead").append("<tr><th>first name</th><th>last name</th><th>grade</th></tr>");
+        $("table").append("<tbody />");
+
+        var rows = $.map(students, function (student) {
+            return "<tr><td>" + student.firstName + "</td><td>" +
+                student.lastName + "</td><td>" + student.grade + "</td></tr>";
+        });
+
+        for (var i = 0; i < students.length; i++) {
+            $("tbody").append(rows[i]);
+        }
+   </script>
+</body>
+</html>

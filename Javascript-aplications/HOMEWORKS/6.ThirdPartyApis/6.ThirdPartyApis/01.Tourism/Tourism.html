@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Online Map Tourism</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <link href="styles/StyleSheet1.css" rel="stylesheet" />
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript" src="scripts/external/jquery-2.0.2.js"></script>
+    <script src="scripts/online-map.js"></script>
+
+
+</head>
+<body>
+    <div id="slider">
+        <div id="wrapper">
+            <div id="map-canvas"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="scripts/slider.js"></script>
+    <script>
+        var slider = Object.create(Slider);
+        slider.init();
+
+        slider.addCoord('44.444075, 26.106155'); // bukurest
+        slider.addCoord('44.804250, 20.469906'); // beograde
+        slider.addCoord('41.997263, 21.425872'); // skopie
+        slider.addCoord('41.331967, 19.820602'); // tirane
+        slider.addCoord('37.965854, 23.708067'); // athina
+        slider.addCoord('39.926588, 32.793331'); // ankara
+        slider.addCoord('48.875554, 2.358885'); // paris
+        slider.addCoord('52.512878, 13.402462'); // berlin
+        slider.addCoord('50.085344, 14.418697'); // praha
+        slider.addCoord('48.202710, 16.385250'); // wien
+
+        slider.render();
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="scripts/qunit-1.11.0.css">
+      <script src="scripts/jquery-2.0.2.min.js"></script>
+    <script src="scripts/WebStorageObject.js"></script>
+    <script src="scripts/prototypal.js"></script>
+    <script type="text/javascript" src="scripts/hotel.js"></script>
+	<script type="text/javascript" src="scripts/highscore.js"></script>
+</head>
+<body>
+  <div id="qunit">
+  </div>
+   
+  <script type="text/javascript" src="scripts/qunit-1.11.0.js"></script>
+  <script type="text/javascript" src="scripts/qunit-testing.js"></script> 
+  <script type="text/javascript" src="scripts/hotel_tests.js"></script> 
+</body>
+</html>

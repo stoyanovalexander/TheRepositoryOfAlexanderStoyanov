@@ -1,0 +1,69 @@
+﻿body * {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #555;
+}
+#slider {
+  zoom: 1;
+  width: 960px;
+  margin: 30px auto;
+  margin-top: 25px;
+}
+#slider button,
+#slider #wrapper {
+  float: left;
+}
+#slider button {
+  border: 0;
+  background-repeat: no-repeat;
+  width: 65px;
+  height: 65px;
+  cursor: pointer;
+  margin-top: 238px;
+}
+#slider #btn-next:hover {
+  -webkit-transform-origin: 55% 50%;
+  -moz-animation: btn-next 3.9s ease-in-out infinite alternate;
+  -o-animation: btn-next 3.9s ease-in-out infinite alternate;
+  -webkit-animation: btn-next 3.9s ease-in-out infinite alternate;
+  animation: btn-next 3.9s ease-in-out infinite alternate;
+}
+#slider #btn-prev:hover {
+  -webkit-transform-origin: 45% 50%;
+  -moz-animation: btn-prev 3.9s ease-in-out infinite alternate;
+  -o-animation: btn-prev 3.9s ease-in-out infinite alternate;
+  -webkit-animation: btn-prev 3.9s ease-in-out infinite alternate;
+  animation: btn-prev 3.9s ease-in-out infinite alternate;
+}
+#slider #btn-next {
+  background: url('../images/arrow-slide.png');
+  transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+#slider #btn-prev {
+  background: url('../images/arrow-slide-next.png');
+  transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+#slider #wrapper {
+  width: 770px;
+  height: 480px;
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 1px 1px 20px #000;
+}
+#slider:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+#map-canvas {
+  margin: 0;
+  padding: 0;
+  height: 480px;
+  width: 770px;
+}

@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Animal hotel</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="scripts/jquery-2.0.2.min.js"></script>
+    <script src="scripts/prototypal.js"></script>
+</head>
+<body>
+    <audio id="audio-bc" src="sound/nyan.mp3" autoplay="autoplay" loop="loop"></audio>
+    <div id="wrapper">
+        <div id="hotel"></div>
+    
+    
+    <div id="actions-holder">
+        <div>
+            <h2>Doctor</h2>
+            <img src="images/doctor.png" ondragover="allowDrop(event)" ondrop="cure(event)" id="doctor"/>
+			<span id='doctors-left'>10<span> 
+        </div>
+        <div>
+            <h2>Food</h2>
+            <img src="images/catFood.png" draggable="true" ondragstart="drag(event)" id="food"/>
+        </div>
+		<div>
+            <h2>Walk</h2>
+            <img src="images/catwoman2.png" ondragover="allowDrop(event)" ondrop="catWalk(event)" id="cats-walker" />
+        </div>
+    </div>
+    </div>
+    <footer>
+        <ul id="flickrs"></ul>
+        <p>Copyright Kumqwat Team 2013 &copy; All rights reserved.</p>
+    </footer>
+	
+    <script type="text/javascript" src="scripts/hotel.js"></script>
+	
+	
+	<script type="text/javascript" src="scripts/HighScore.js"></script>
+	
+	
+	<script type="text/javascript" src="scripts/tweet.js"></script>
+	<script type="text/javascript" src="scripts/highscore.js"></script>
+
+    <script type="text/javascript">
+        var sanMarino = Object.create(Hotel);
+        sanMarino.initialize("San Marino Hotel", 18);
+
+        var mainMenu = Object.create(MainMenu);
+        mainMenu.create(sanMarino);
+        mainMenu.render();
+
+        var socialMenu = Object.create(SocialShareMenu);
+        socialMenu.create();
+        socialMenu.render();
+    </script>
+
+   <!-- <script type="text/javascript">
+        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?",
+            function(data){
+            $.each(data.items, function(i,item){
+                var litem = $("<li/>");
+                var link = $("<a/>");
+                link.attr("href", item.link);
+                link.attr("target", "_blank");
+                link.append($("<img/>").attr("src", item.media.m));
+                litem.append(link).appendTo("#flickrs");
+                if ( i == 5 ) return false;
+            });
+        });
+    </script>-->
+</body>
+</html>

@@ -1,0 +1,17 @@
+module("Highscore.initialize");
+test("should set correct name and room number to the Hotel",   
+  function(){
+	var name = "Hotel";
+	var capacity = 12;
+	var hotel =  Object.create(Hotel);
+	hotel.initialize(name, capacity);
+	
+	var mainMenu = Object.create(MainMenu);
+	
+	var highscore =  Object.create(Highscore);
+	highscore.initialize(hotel, mainMenu);
+	
+	equal(highscore.hotel, hotel, "The hotel is expected hotel");
+	equal(highscore.score, 0, "The score at first moment is 0");
+	equal(hotel.mainMenu, mainMenu, "The mainMenu is expected mainMenu");	
+  });

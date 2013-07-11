@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	   <script>
+	       Function.prototype.inherit = function (parent) {
+	           var oldPrototype = this.prototype;
+	           var prototype = new parent();
+	           this.prototype=Object.create(prototype);
+	           this.prototype._super = prototype;
+	           for (var prop in oldPrototype) {
+	               this.prototype[prop] = oldPrototype[prop];
+	           }
+	       }
+
+	       var Class = (function () {
+	           function createClass(properties) {
+	               var f = function () {
+	                   this.init.apply(this, arguments);
+	               }
+
+	               for (var prop in properties) {
+	                   f.prototype[prop] = properties[prop];
+	               }
+	               if (!f.prototype.init) {
+	                   f.prototype.init = function () { }
+	               }
+	               return f;
+	           }
+
+	           return {
+	               create: createClass,
+	           };
+	       }());
+
+	       var School = Class.create({
+	           init: function (name, town, classes) {
+	               this.name = name;
+	               this.town = town;
+	               this.classes = classes;
+	           },
+
+	           intorduce: function () {
+	               return "School introducement- Name: " + this.name + ", Town: " + this.town +
+                       ", classes count: " + this.classes.length;
+	           }
+	       });
+
+	      
+	       var Person = Class.create({
+	           init: function (fname, lname, age) {
+	               this.fname = fname;
+	               this.lname = lname;
+	               this.age = age;
+	           },
+
+	           introduce: function () {
+	               return "Introducement-Name: " + this.fname + " " + this.lname + ", " +
+                       "Age: " + this.age;
+	           }
+	       });
+
+	       var Teacher = Class.create({
+	           init: function (fname, lname, age, discipline) {
+	               //Person.init.apply(this, arguments);
+	               this._super.init(fname, lname, age)
+	               this.discipline = discipline;
+	           },
+
+	           introduce: function () {
+	               return this._super.introduce() + ", Discipline: " + this.discipline;
+	           }
+	       });
+
+	       Teacher.inherit(Person);
+
+	       var Student = Class.create({
+	           init: function (fname, lname, age, grade) {
+                   this._super.init(fname,lname,age)
+	               //Person.init.apply(this, arguments);
+	               this.grade = grade;
+	           },
+
+	           introduce: function () {
+	               return this._super.introduce() + ", Grade: " + this.grade;
+	               //return Person.introduce.apply(this) + ", Grade: " + this.grade;
+	           }
+	       });
+
+	       Student.inherit(Person);
+
+	       var SchoolClass = Class.create({
+	           init: function (name, capacity, students, formTeacher) {
+	               this.name = name;
+	               this.capacity = capacity;
+	               this.students = students;
+	               this.formTeacher = formTeacher;
+	           },
+
+	           introduce: function () {
+	               var someClass = "Name:" + this.name + ", Capacity:" + this.capacity + ", Students:";
+	               for (var i = 0; i < this.students.length; i++) {
+	                   someClass += this.students[i].introduce() + ", ";
+	               }
+
+	               someClass += "Form-teacher" + this.formTeacher.introduce();
+	               return someClass;
+	           }
+	       });
+
+	       jsConsole.writeLine("Some students introduce");
+	       var siabongcho = new Student("Siabonga", "Nomwete", 20, 4);
+	       jsConsole.writeLine(siabongcho.introduce());
+
+	       var hurencho = new Student("Huren", "Nlchl", 19, 5);
+	       jsConsole.writeLine(hurencho.introduce());
+
+	       var mohamedcho = new Student("Mohamed", "All-Ahmed", 11, 3);
+	       jsConsole.writeLine(mohamedcho.introduce());
+	       jsConsole.writeLine();
+
+	       jsConsole.writeLine("Some teachers introduce");
+	       var mrIvanov = new Teacher("Ivan", "Ivanov", 44, "Literature");
+	       jsConsole.writeLine(mrIvanov.introduce());
+
+	       var mrGaberova = new Teacher("Elena", "Gaberova", 33, "English");
+	       jsConsole.writeLine(mrGaberova.introduce());
+
+	       var mrManolev = new Teacher("Manol", "Manolev", 55, "History");
+	       jsConsole.writeLine(mrManolev.introduce());
+	       jsConsole.writeLine();
+
+	       jsConsole.writeLine("Some classes introduce");
+	       var sevenA = new SchoolClass("sevenA", 25, new Array(mohamedcho), mrGaberova);
+	       jsConsole.writeLine(sevenA.introduce());
+	       jsConsole.writeLine();
+
+	       var sevenB = new SchoolClass("sevenB", 26, new Array(hurencho, siabongcho), mrIvanov);
+	       jsConsole.writeLine(sevenB.introduce());
+	       jsConsole.writeLine();
+
+	       jsConsole.writeLine("Some school intoduce")
+	       var matevski = new School("Matevski", "Plvdiv", new Array(sevenB, sevenA));
+           jsConsole.writeLine(matevski.intorduce());
+    </script>		  
+</body>
+</html>
+

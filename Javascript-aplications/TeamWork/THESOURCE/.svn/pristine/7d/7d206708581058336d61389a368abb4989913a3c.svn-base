@@ -1,0 +1,56 @@
+html, body, ul, p {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2 {
+	margin: 0;
+}
+
+#hotel {
+	zoom: 1;
+}
+
+#hotel:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.room {
+	width: 100px;
+	height: 100px;
+	background: #ccc;
+	border: 1px solid #666;
+	float: left;
+	margin: 10px;
+}
+
+
+
+#hotel-menu {
+	zoom: 1;
+	background: #004962;
+	color: #fff;
+	padding-left: 20px;
+}
+
+#hotel-menu > div:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+#hotel-menu div > div {
+	float: left;
+	position: relative;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-transform: uppercase;
+	line-height: 40px;
+}
+
+#hotel-menu button {
+	width: 50px;
+	height: 25px;
+}

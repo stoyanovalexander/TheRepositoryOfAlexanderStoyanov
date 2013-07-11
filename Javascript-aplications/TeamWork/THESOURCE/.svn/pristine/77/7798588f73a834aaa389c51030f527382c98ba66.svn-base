@@ -1,0 +1,30 @@
+module("Hotel.initialize");
+test("should set correct name and room number to the Hotel",   
+  function(){
+	var name = "Hotel";
+	var capacity = 12;
+	
+	var hotel =  Object.create(Hotel);
+	hotel.initialize(name, capacity);
+	
+	equal(hotel.name, "Hotel");
+	equal(hotel.occupied, 0);
+	equal(hotel.rooms.length, 12);	
+  });
+  
+  test("should create different instances of Hotel",   
+  function(){
+	var name = "Hotel1";
+	var capacity = 10;
+	
+	var hotelFirst =  Object.create(Hotel);
+	hotelFirst.initialize(name, capacity);
+	hotelFirst.hasDragon = true;
+	
+	ok(hotelFirst.hasDragon, "hotelfirst.hasDragon = true");
+	
+	var hotelSecond =  Object.create(Hotel);
+	hotelSecond.initialize(name, 12);
+	
+  deepEqual(hotelFirst.capacity, hotelSecond.capacity, "Should have different values of capacity");
+  });

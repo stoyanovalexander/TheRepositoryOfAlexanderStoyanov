@@ -1,0 +1,14 @@
+test("2+3 should be 5", function() {
+  var a = 2;
+  var b = 3;
+  var actual = 5;
+  var expected = a + b;
+  equal(actual, expected);
+});
+
+test("Creating a Cat, should return an object of type Cat", function() {
+  var firstCat = Object.create(Cat);
+  var actual = firstCat instanceof Cat;
+  var expected = true
+  equal(actual, expected);
+});

@@ -1,0 +1,9 @@
+module("Cat Initialize");
+test("Setting correct cat name", function() {
+  var cat = Object.create(Cat);
+  var name = "Pepsi";
+  cat.initialize(name, 10, 10, 10, 20);
+  var actual = cat.introduce();
+  var expected = name;
+  equal(actual, expected);
+});

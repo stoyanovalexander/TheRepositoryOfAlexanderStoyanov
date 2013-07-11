@@ -1,0 +1,15 @@
+module("Room Initialize");
+test("Creating a Room, should return an object of type Room", function() {
+  var room = Object.create(Room);
+  var actual = Room.isPrototypeOf(room);
+  var expected = true;
+  equal(actual, expected);
+});
+
+test("Initializing a Room, the room should be empty", function() {
+  var newroom = Object.create(Room);
+  newroom.initialize();
+  var actual = newroom.occupied;
+  var expected = false;
+  equal(actual, expected);
+});
