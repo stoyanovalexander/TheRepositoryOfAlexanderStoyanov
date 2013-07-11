@@ -1,0 +1,110 @@
+body {
+    font-family: Arial;
+}
+
+section {
+	border: 2px solid rgb(0,0,0);
+	border-radius: 10px;
+    height: 533px;
+    width: 753px;
+    border: 2px solid rgb(0,0,0);
+}
+
+nav {
+	border-bottom: 2px solid rgb(0,0,0);
+	padding: 10px 113px 33px;
+    margin: 0 25px 0;
+    text-align: center;
+    font-size: 23px;
+}
+
+nav ul li {
+    float: left;
+	margin-right: 5px;
+  }
+  
+ul, fieldset {
+	text-align: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    float: left;
+}
+
+
+
+nav ul li a {
+	color: rgb(10,175,240);
+	font-weight: bold;
+}
+
+article {
+	border: 2px solid rgb(0,0,0);
+    width: 483px;
+    height: 463px;
+    float: left;
+    margin: 10px;
+}
+
+fieldset {
+	border: 2px solid rgb(0,0,0);
+    height: 140px;
+    width: 223px;
+    margin: 5px 1px 0 5px;
+    padding: 2px 2px 0 2px;
+    font-size: 16px;
+    border: 2px solid black;
+}
+
+fieldset legend {
+	margin-left: 25px;
+	font-size: 20px;
+	text-align: center;
+	padding: 0 10px;
+	margin-left: 25px;
+}
+
+	fieldset ul:first-of-type li {
+    	margin: 5px 5px 10px 5px;
+	}
+
+    fieldset ul:last-of-type li {
+        text-align: left;
+        margin: 30px 0 -20px 0;
+    }
+
+.img {
+    width: 123px;
+}
+
+aside {
+    padding-top: 50px;
+	padding-left: 10px;
+    float: left;
+    width: 203px;
+}
+
+    aside ul {
+        width: 220px;
+        font-size: 20px;
+        margin: 10px 0 0 -5px;
+    }
+
+    aside li:nth-child(3n+1) {
+        float: left;
+        margin: 20px 0 0 -5px;
+    }
+
+    aside ul li input {
+        width: 180px;
+        margin: 15px 0 0 -20px;
+    }
+
+    aside ul li:nth-child(3n+2) {
+        float: left;
+        margin: 20px 0 0 25px;
+    }
+
+    aside ul li:nth-child(3n+8) {
+        margin-left: 40px;
+    }

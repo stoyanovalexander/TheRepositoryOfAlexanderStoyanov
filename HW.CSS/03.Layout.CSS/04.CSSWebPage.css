@@ -1,0 +1,178 @@
+/*css*/
+body {
+	background: rgb(240,240,240);
+	margin: 4em 11%;
+	font-family: verdana;
+}
+table{
+	border: 2px solid rgb(255,255,255);
+}
+table .inner{
+	border: 1px solid rgb(0,0,0);
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+nav {
+	font-size: 13px;
+	width: 163px;
+	float: left;
+}
+nav img {
+	margin:0px 3px 0px 0px;
+	float: left;
+}
+nav a {
+	text-decoration: none;
+	color: rgb(0,0,0);
+}
+nav, header,footer, section {
+	padding: 10px 5px;
+}
+
+dt {
+	color: rgb(145,10,10);
+	padding-top: 13px;
+	font-weight: bold;
+	color: #900B09;
+}
+
+article a, aside a {
+	color: #b5312f;
+}
+
+h2 , section{
+	font-size: 13px;
+	line-height: 19px;
+}
+
+button {
+	width: 110px;
+	border: 1px solid rgb(0,0,0);
+}
+
+.leftSide{
+	background-image:url(http://devevolution.com/wp-content/uploads/2013/01/leftarrow.png); 
+	height: 20px;
+	background-position: 3px 3px;  
+    background-color: transparent; 
+    background-repeat: no-repeat;  
+    cursor: pointer;                 
+    padding-left: 13px;     
+    vertical-align: middle;
+	margin-left: -7px;
+}
+
+.rightSide {
+	background-image:url(http://devevolution.com/wp-content/uploads/2013/01/rightarrow.png); 
+	background-position: 93px 3px;
+	padding-right: 13px;
+    background-color: transparent; 
+    background-repeat: no-repeat;  
+    cursor: pointer;       
+    height: 20px;                
+    vertical-align: middle; 
+}
+
+section {
+	width: 600px;
+	float: left;
+	border: 1px solid #808080;
+	background: #fff;
+}
+
+header {
+	font-size: 14px;
+	font-family:  Verdana;
+	border-bottom: 1px solid rgb(130,130,130);
+	margin-left: 0;
+}
+
+h1 {
+	margin: 0 0 15px -5px;
+}
+
+article {
+	padding: 10px 0;
+}
+
+h3 {	
+	color: rgb(255,255,255);
+	background: rgb(130,130,130);
+	font-size: 16px;
+}
+
+section article img {
+	margin: 13px; 
+	float: left;
+}
+
+p {
+	padding-top: 15px;
+	text-align: left;
+}
+
+footer {
+	border-top:1px solid rgb(130,130,130);
+	border-bottom: 1px solid rgb(130,130,130);
+	margin-bottom: 20px;
+	margin-left: 0px;
+}
+
+aside {
+	width: 180px;
+	float: left;
+	text-align: center;
+	font-size: 13px;
+	margin-left: 5px;
+}
+
+aside h4 {
+	background: rgb(130,130,130);
+	color: rgb(255,255,255);
+	padding-bottom: 2px;
+}
+
+div {
+	padding-bottom: 5px;
+	border: 1px solid rgb(130,130,130);
+	margin-bottom: 2px;
+	background: rgb(255,255,255);
+} 
+
+input[type="text"] {
+	width: 110px;
+	height: 20px;
+	background: transparent;
+	border: 1px solid #75a2c2;
+	margin: 8px 0 5px 10px;
+}
+aside p {
+	background: rgb(255,255,255);
+	border: 1px solid rgb(130,130,130);
+	text-align: center;
+	padding:5px;
+	margin-bottom: 2px;
+ }
+
+form button {
+	background: transparent;
+	width: 22px;
+	margin: 8px 0 0px 0px;
+	border-radius: 4px;
+	cursor: pointer;
+ }
+ 
+ aside button[type="button"] {
+	border: 1px solid rgb(120,160,195);
+	color: rgb(100,215,255);
+	height: 40px;
+	width: 120px;
+	margin: 2px 0 5px 0px;
+	background: rgb(215,240,255);
+	font-weight: bold;
+ }
+ 
+ 
+ 

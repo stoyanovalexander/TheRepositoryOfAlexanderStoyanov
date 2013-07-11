@@ -1,0 +1,66 @@
+body, section, article, h1,div ,button{
+	margin:0;
+	padding:0;
+}
+	
+section{
+	background-color:#eee;
+	width:504px;
+	border-radius:10px;
+	margin:10px;
+	font-family:Verdana, sans-serif;
+	height:540px;
+}
+
+h1{	
+	font-size:1.2em;
+	font-weight:normal;
+	margin-left:10px;
+	padding-bottom:10px;
+	padding-top:20px;
+}
+	
+article{
+	background-color:#fff;
+	border:1px solid #a6a6a6;
+	width: 480px;
+	margin:12px;
+	margin-top:15px;
+	height:140px;		
+}
+
+img{
+	float:left;
+	margin:15px;
+	border:1px solid #a6a6a6;
+}
+
+p{
+	margin-right:10px;
+	margin-bottom:0;
+	line-height:110%;
+}
+span{
+	font-weight:bold;
+}
+
+div{
+	width:140px;
+	margin-left:150px;
+	margin-top:15px;
+	float:left;
+}
+
+button{
+	background:url('img/btn-Listen.png');
+	height:29px;
+	width:72px;
+	color:#fff;
+	border: 2px solid #650000;
+	border-top-color:#E38382;
+    border-left-color:#9C2829;	
+}
+
+.Add{
+	width:62px;
+}

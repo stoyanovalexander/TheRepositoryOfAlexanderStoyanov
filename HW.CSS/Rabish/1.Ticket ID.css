@@ -1,0 +1,12 @@
+/*CSS Document*/
+table{
+	background-color:#ffffff;
+	font-size:13px;
+	font-family:Arial;
+}
+table th{
+	color:adadad;
+	font-size:19px;
+	text-align:left;
+	font-weight:normal;
+}

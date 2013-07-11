@@ -1,0 +1,41 @@
+#main-menu a {
+    display:block;
+    width:150px;
+    color:black;
+}
+
+#main-menu ul li a {
+    color:grey;
+}
+
+#main-menu, #main-menu ul {
+    padding:0;
+    margin:0;
+}
+#main-menu li {
+    list-style:none;
+}
+
+.sub {
+margin-left:5px;
+}
+
+#main-menu li ul { 
+    display:none; 
+
+}
+#main-menu li:hover ul { 
+    display:block; 
+}
+
+a:hover, a:active {
+    text-decoration:underline;
+}
+
+a, a:link, a:visited {
+    text-decoration:none;
+}
+
+#main-menu li a:hover, #main-menu li ul li:hover {
+    text-decoration:underline;
+}

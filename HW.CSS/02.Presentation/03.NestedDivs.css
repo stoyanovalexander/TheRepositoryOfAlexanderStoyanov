@@ -1,0 +1,15 @@
+/*CSS Document*/
+body{
+	width:100%;
+}
+div{
+	width:90%;
+	background-color:black;
+	border:1px solid red;
+	border-radius:53px;
+	padding:0;
+	margin:0;
+}
+.hidden{
+	display:none;
+}

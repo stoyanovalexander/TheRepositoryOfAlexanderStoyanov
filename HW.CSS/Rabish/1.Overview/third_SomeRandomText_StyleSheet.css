@@ -1,0 +1,55 @@
+﻿body {
+    background-color: rgb(193, 192, 192);
+    margin: 10px;
+}
+
+h1 {
+    color: rgb(253, 255, 219);
+    font-size: 45px;
+    text-align: center;
+}
+
+article header h1 {
+    font-size: 32px;
+    text-align: left;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li a {
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.current {
+    background-color: rgba(255, 255, 255,0.5);
+}
+
+nav ul li:nth-child(4) {
+    text-decoration: underline;
+    color: white;
+}
+
+p {
+    font-size: 18px;
+}
+
+article footer p {
+    font-size: 14px;
+    text-align: left;
+}
+
+footer p a {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    font-size: 18px;
+    text-align: center;
+}

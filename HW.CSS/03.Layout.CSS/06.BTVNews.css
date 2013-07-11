@@ -1,0 +1,96 @@
+
+body{
+	padding:0;
+	margin:0;
+	background: rgb(0,0,0);
+	font-family: Arial;
+}
+a{
+	text-decoration:none;
+	padding:0;
+	margin:0;
+}
+
+ul, li{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+
+div#container{
+	width: 689px;
+	min-height: 364px;
+	
+	margin:100px auto 0 auto;
+	
+	background: rgb(30,55,65);
+	border: 1px solid rgb(50,115,140);
+	border-radius: 10px;
+	padding-bottom: 10px;
+}
+
+nav{
+	width:100%;
+	height:34px;
+	margin: 10px 0;
+}
+
+nav ul li a{
+	padding: 0 13px;
+	line-height: 34px;
+	font-size: 13px;
+	font-weight:bold;
+	float:left;
+	margin-right:1px;
+}
+nav ul li a#color{
+	background:rgb(75,95,105);
+	color:rgb(115,155,175);
+}
+
+nav ul li a#noColor{
+	color: rgb(255,255,255);
+	background rgb(30,55,65);
+}
+
+nav ul li a:hover{
+	text-decoration: underline;
+}
+
+aside{
+	float:left;
+	margin-bottom: 10px; 
+	height:auto;
+}
+aside ul li{
+	width: 263px;
+	padding: 10px;
+}
+aside ul li a{
+	color: rgb(130,165,155);
+	font-size:13px;
+	font-weight:bold;
+}
+
+aside ul li:first-child a{
+	color: rgb(255,255,255);
+}
+
+aside ul li:hover, aside ul li:first-child{
+	border: 1px solid rgb(20,100,100);
+	border-right:none;
+	border-left:none;
+	background: rgb(0,150,140);
+}
+
+aside ul li:last-child{
+	border-bottom:none;
+}
+
+.video{
+	float:left;
+	background:url('http://img543.imageshack.us/img543/115/picmhj.jpg');
+	width:393px;
+	height:283px;
+}

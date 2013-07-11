@@ -1,0 +1,43 @@
+.menu{
+padding=0px;
+margin=0px;
+}
+.menu a {
+    display:block;
+    width:160px;
+    color:rgb(0,0,0);
+}
+
+.sublist a {
+    color:grey;
+}
+
+/*.menu, */.menu ul {
+    padding:0;
+    margin:0;
+}
+.menu li {
+    list-style:none;
+}
+
+.sublist {
+margin-left:5px;
+}
+
+.sublist-menu{ 
+    display:none;
+
+}
+.menu li a:hover, .menu li ul li:hover {
+    text-decoration:underline;
+}
+a:hover, a:active {
+    text-decoration:underline;
+}
+.menu li:hover ul { 
+    display:block; 
+}
+a, a:link, a:visited {
+    text-decoration:none;
+}
+

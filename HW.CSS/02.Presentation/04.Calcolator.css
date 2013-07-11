@@ -1,0 +1,107 @@
+/*CSS Doctype*/
+body {
+    font-family:Arrial;
+	font-size:13px;
+}
+.divBiggest{
+	width:450px;
+	height:450px;
+	border:1px solid black;
+	background:rgb(193,223,253);
+	border-radius:10px;
+}
+.divCalcolator{
+	margin-left:10px;
+	margin-right:10px;
+	width:430px;
+	height:40px;
+}
+.imgCalcolator{
+	width:430px;
+	height:40px;
+}
+.divSmaller1 {
+    padding:5px;
+	margin-left:10px;
+	margin-right:10px;
+	height:390px;
+	background:rgb(233,243,253);
+    border:1px solid;
+}
+.divTopPart{
+	border:none;
+	height:20px;
+	margine:none;
+}
+.tableOne{
+	margin:none;
+}
+.viewWidth{
+	width:35px;
+}
+.spanUnderline{
+	text-decoration:underline;
+}
+.line{
+	border-top:1px solid rgb(210,210,220);
+	width:450px;
+}
+button {
+    width: 38px;
+    height: 37px;
+    background:rgba(233,243,253,0.7);
+    border: 1px solid rgb(100,100,100);
+    border-radius:2px;
+}
+button:hover, #numbers:hover, #DarkButton:hover{
+    background:rgba(255,170,15,0.5);
+}
+#numbers {
+	background:rgba(215,230,240,0.5);
+}
+#DarkButton{
+	background:rgb(233,243,253);
+}
+.long {
+    width:80px;
+}
+.tall {
+    height: 78px;
+}
+table {
+    background:rgb(233,243,253);
+}
+.bordered {
+	width:150px;
+    border:1px rgb(100,100,100) solid;
+    border-radius: 3px;
+    padding-right: 10px;
+}
+#second-display {
+    width:415px;
+    border:1px rgb(100,100,100) solid;
+    border-radius:3px;
+    margin-bottom:5px;
+	background:rgb(233,243,253);
+}
+#second-display td {
+    padding:0px;
+    line-height:100%;
+}
+#second-display tr:nth-of-type(2n) {
+    padding:10px;
+    color:rgb(100,100,100);
+}
+#display {
+    width:410px;
+    height:25px;
+    border:1px rgb(100,100,100) solid;
+    border-radius:3px;
+    margin-bottom:5px;
+	margin-top:10px;
+    font-size:20px;
+    text-align:right;
+    padding-top:15px;
+    padding-right:5px;
+	background:rgb(255,255,255);
+}
