@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+	<div>Hello, stranger!</div>
+	<h1>Welcome to Runners Home<sup>TM</sup></h1>
+	<div>Runners Home<sup>TM</sup> is dedicated to providing you with:</div>
+	<ul type="disc">
+	<li>the most-up-to date information on running races</li>
+	<li>the best resources for runners</li>
+	</ul>
+	<div>
+	<img src="aaa/imges[8].jpg"/>
+	</div>
+</body>
+</html>
