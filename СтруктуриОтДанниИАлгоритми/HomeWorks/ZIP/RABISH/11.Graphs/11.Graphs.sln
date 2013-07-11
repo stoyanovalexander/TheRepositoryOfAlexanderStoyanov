@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.CableTvCompany", "02.CableTvCompany\02.CableTvCompany.csproj", "{6565040D-F749-47D7-A697-800A97036E24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.FriendsInNeed", "01.FriendsInNeed\01.FriendsInNeed.csproj", "{2C15B9B1-D871-4354-AFE3-7DBA17AC86DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6565040D-F749-47D7-A697-800A97036E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6565040D-F749-47D7-A697-800A97036E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6565040D-F749-47D7-A697-800A97036E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6565040D-F749-47D7-A697-800A97036E24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C15B9B1-D871-4354-AFE3-7DBA17AC86DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C15B9B1-D871-4354-AFE3-7DBA17AC86DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C15B9B1-D871-4354-AFE3-7DBA17AC86DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C15B9B1-D871-4354-AFE3-7DBA17AC86DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

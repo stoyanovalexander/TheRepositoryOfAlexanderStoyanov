@@ -1,0 +1,28 @@
+   Task.2
+ 
+   long CalcCount(int[,] matrix)
+   {
+	long count=0;
+	for(int row=0; row<matrix.GetLength(0); row++)
+	{
+		if(matrix[row,0]%2==0)
+		{
+			for(int col=0;col<matrix.GetLength(1); col++)
+			{
+				if(matrix[row,col]>0)
+				{
+					count++;
+				}
+			}
+		}
+	}
+	
+	return count;
+   }
+
+   the number of elementary steps=1[from "long count=0"]+1[from "return count"]+
+   (n/2[from "if(matrix[row,0]%2==0)"]*m/2[from "if(matrix[row,col]>0)"])
+
+   the number of elementary steps=2+((n/2)*(m/2))=2+(n*m)/4 => O(n,m)=n*m
+
+   answer: O(n,m)=n*m

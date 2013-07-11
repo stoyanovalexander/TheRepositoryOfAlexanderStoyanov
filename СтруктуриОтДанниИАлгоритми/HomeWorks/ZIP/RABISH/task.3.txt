@@ -1,0 +1,27 @@
+   Task.3
+
+   long calcSum(int[,] matrix, int row)
+   {
+	long sum=0;
+	for(int col=0; col<matrix.GetLength(0); col++)
+	{
+		sum+=matrix[row,col];
+	}
+	
+	if(row+1<matrix.GetLength(1))
+	{
+		sum+=CalcSum(matrix, row+1);
+	}
+	
+	return sum;
+   }
+
+   Console.WriteLine(CalcSum(matrix,0)) // from first row so wil be added all rows so (*n);
+   //if was (matrix,1)=>(*(n-1)), if was (matrix,2)=>(*(n-2)) and so on
+
+   the number of elementary steps=1[from "long sum=0"]+m[from the"for" loop]
+   *n[from the recursion]+1[from "return sum"]
+
+   the number of elementary steps=1+m*n+1=1+m*n+1 => O(n,m)=m*n
+
+   answer: O(n,m)=m*n;

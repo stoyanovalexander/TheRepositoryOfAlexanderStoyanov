@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.WordsOccurences", "3.WordsOccurences\3.WordsOccurences.csproj", "{F17B6D29-DB9D-4317-BC69-637696E20847}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.ImplementPriorityQueue", "1.ImplementPriorityQueue\1.ImplementPriorityQueue.csproj", "{5F434C98-2960-4EC8-BA27-B1B85989184C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.LargeColectionOfProducts", "2.LargeColectionOfProducts\2.LargeColectionOfProducts.csproj", "{22BA8B81-0473-42A3-9AD0-0E7C084D90BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F17B6D29-DB9D-4317-BC69-637696E20847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F17B6D29-DB9D-4317-BC69-637696E20847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F17B6D29-DB9D-4317-BC69-637696E20847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F17B6D29-DB9D-4317-BC69-637696E20847}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F434C98-2960-4EC8-BA27-B1B85989184C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F434C98-2960-4EC8-BA27-B1B85989184C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F434C98-2960-4EC8-BA27-B1B85989184C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F434C98-2960-4EC8-BA27-B1B85989184C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22BA8B81-0473-42A3-9AD0-0E7C084D90BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22BA8B81-0473-42A3-9AD0-0E7C084D90BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22BA8B81-0473-42A3-9AD0-0E7C084D90BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22BA8B81-0473-42A3-9AD0-0E7C084D90BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

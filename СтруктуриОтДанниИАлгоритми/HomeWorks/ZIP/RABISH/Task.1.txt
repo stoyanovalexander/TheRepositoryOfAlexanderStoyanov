@@ -1,0 +1,37 @@
+  Task.1
+  long Compute(int[] arr)
+  {
+	long count=0;
+	for(int i=0; i<arr.Length;i++)
+	{
+		int start=0;
+		int end=arr.Length-1;
+		while(start<end)
+		{
+			if(arr[start]<arr[end])
+			{
+				start++;
+				count++;
+			}
+			
+			else
+			{
+				end--;
+			}
+		}
+		
+		return count;
+	}
+  }
+
+  Number ofelementary steps=1[from "long count=0"]+
+  (1[from "start=0"]+1[from "end=0"]+n/2*2[from the "if"]+n/2[from the "else"])*
+  n[from the "for" loop]+1(from "return")
+
+  Number ofelementary steps=1+(1+1+n/2*2+n/2)*n+1=2+(2+n+n/2)*n=2+(n*(3/2)+2)*n
+  Number ofelementary steps=3/2(n*n)+2*n+2=> O(n)=n*n
+
+  answer:  O(n)=n*n
+
+
+
