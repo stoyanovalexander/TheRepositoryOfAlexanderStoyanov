@@ -1,0 +1,78 @@
+﻿
+
+body, div, a, form, fieldset, legend, input, button {
+    margin: 0;
+    padding: 0;
+}
+
+.gradient(@color-start,@per-start,@color-end,@per-end) {
+    background: @color-start; /* Old browsers */
+    background: -moz-linear-gradient(left, @color-start @per-start, @color-end @per-end); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(@per-start,@color-start), color-stop(@per-end,@color-end)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, @color-start @per-start,@color-end @per-end); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, @color-start @per-start,@color-end @per-end); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, @color-start @per-start,@color-end @per-end); /* IE10+ */
+    background: linear-gradient(to right, @color-start @per-start,@color-end @per-end); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0084', endColorstr='#070056',GradientType=1 ); /* IE6-9 */
+}
+
+body {
+    margin-left: 50px;
+    font-size: 16px;
+    font-family: Verdana,Geneva;
+
+    div#wrapper {
+        width: 1024px;
+
+        a.current {
+            font-weight: bold;
+        }
+
+        form.invisible {
+            display: none;
+        }
+
+        a.btn-login-form {
+            color: black;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        form {
+			width:450px;
+            .gradient(#ffffff,0%,#5A5A5A,100%);
+
+            fieldset {
+                border: 2px solid black;
+                border-radius: 2px;
+                text-align: right;
+                padding-right: 75px;
+
+                legend {
+                    padding: 0 10px;
+                    font-style: italic;
+                    font-size: 1.7em;
+                    font-weight: bold;
+                }
+
+                input {
+                    border: none;
+                    border-radius: 10px;
+                    padding: 10px 15px;
+                    margin: 5px;
+                    .gradient(#020202,0%,#ffffff,100%);
+                }
+
+                button {
+                    margin: 5px;
+                    padding: 5px 10px;
+                    border: 2px solid black;
+                    border-radius: 15px;
+                    font-size: 1.1em;
+                    .gradient(#010101,0%,#FCFCFC,100%);
+                }
+            }
+        }
+    }
+}
+
