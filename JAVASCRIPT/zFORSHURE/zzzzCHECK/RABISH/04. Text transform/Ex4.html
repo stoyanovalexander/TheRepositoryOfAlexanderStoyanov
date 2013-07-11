@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>04. Text transform</title>
+
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+                function tagsToLowCase (str, startIndex, endIndex, indent) {
+                    startOpenTagToLowCase = str.indexOf("<", startIndex + 1);
+                    endOpenTagToLowCase = str.indexOf(">", startIndex + indent) + 1;
+                    openTagToLowCase = str.substring(startOpenTagToLowCase,endOpenTagToLowCase);
+                    str = str.replace(openTagToLowCase, openTagToLowCase.toLowerCase());
+                            
+                    startOpenTagToLowCase = str.lastIndexOf("<", endIndex - indent);
+                    endOpenTagToLowCase = str.lastIndexOf(">", endIndex - 1);
+                    closeTagToLowCase = str.substring(startOpenTagToLowCase,endOpenTagToLowCase);
+                    str = str.replace(closeTagToLowCase, closeTagToLowCase.toLowerCase());
+                    return str;
+                  }
+
+                function upCase (str, nestedToBePossible) {
+                    var startIndex = 0;
+                    var endIndex = 0;
+                    var indent = 7;
+                  
+                    while (true) {
+                        if (str.indexOf("<upcase>", startIndex) != -1) {
+                            startIndex = str.indexOf("<upcase>", startIndex) + 1;
+                            endIndex = str.indexOf("</upcase>", endIndex) + 1;
+                            var innerText = str.substring(startIndex + indent,endIndex - 1);
+                            var innerUpperText = innerText.toUpperCase();
+                            str = str.replace(innerText, innerUpperText);
+                            isNested = (nestedToBePossible || (text.indexOf("<lowcase>") > text.indexOf("<upcase>") && text.indexOf("</lowcase>") < text.indexOf("</upcase>")) || (text.indexOf("<mixcase>") > text.indexOf("<upcase>") && text.indexOf("</mixcase>") < text.indexOf("</upcase>")));
+                            if (isNested == true) {
+                                str = tagsToLowCase(str, startIndex, endIndex, indent);
+                            }
+                            str = str.replace("<upcase>", "");
+                            str = str.replace("</upcase>", "");
+                        } else {
+                            break;
+                        }
+                    } 
+                    return str;
+                }
+
+               function lowCase (str) {
+                    var startIndex = 0;
+                    var endIndex = 0;
+
+                    while (true) {
+                        if (str.indexOf("<lowcase>", startIndex) != -1) {
+                            startIndex = str.indexOf("<lowcase>", startIndex) + 1;
+                            endIndex = str.indexOf("</lowcase>", endIndex) + 1;
+                            var innerText = str.substring(startIndex + 8, endIndex - 1);
+                            var innerLowerText = innerText.toLowerCase();
+                            str = str.replace(innerText, innerLowerText);
+                            str = str.replace("<lowcase>", "");
+                            str = str.replace("</lowcase>", "");
+                        } else {
+                            break;
+                        }
+                    } 
+                    return str;
+                }
+                
+                 function mixCase (str, nestedToBePossible) {
+                    var startIndex = 0;
+                    var endIndex = 0;
+                    var indent = 8;
+                    var innerMixText = "";
+                    while (true) {
+                        if (str.indexOf("<mixcase>", startIndex) != -1) {
+                            startIndex = str.indexOf("<mixcase>", startIndex) + 1;
+                            endIndex = str.indexOf("</mixcase>", endIndex) + 1;
+                            var innerText = str.substring(startIndex + indent, endIndex - 1);
+                            innerMixText = innerText;
+                        
+                            for (var i = 0; i < innerText.length ; i++) {
+                                if(i % 2 == 0) {
+                                    innerMixText = innerMixText.replace(innerMixText[i], innerMixText[i].toUpperCase());
+                                    
+                                } else {
+                                    innerMixText = innerMixText.replace(innerMixText[i], innerMixText[i].toLowerCase());
+                                }
+                            }
+                            str = str.replace(innerText, innerMixText);
+                            isNested = (nestedToBePossible || (text.indexOf("<lowcase>") > text.indexOf("<mixcase>") && text.indexOf("</lowcase>") < text.indexOf("</mixcase>")) || (text.indexOf("<upcase>") > text.indexOf("<mixcase>") && text.indexOf("</upcase>") < text.indexOf("</mixcase>")));
+                            if (isNested == true) {
+                                str = tagsToLowCase(str, startIndex, endIndex, indent);
+                            }
+                            str = str.replace("<mixcase>", "");
+                            str = str.replace("</mixcase>", "");
+                        } else {
+                            break;
+                        }
+                    } 
+                    return str;
+                }
+
+               var text = "We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>. We <mixcase>don't</mixcase> have <lowcase>anything</lowcase> else.";
+               var finalStr = text;
+
+               nestedToBePossible = (text.indexOf("<lowcase>") > text.indexOf("<mixcase>") || text.indexOf("<lowcase>") > text.indexOf("<upcase>") || text.indexOf("<upcase>") > text.indexOf("<mixcase>") || text.indexOf("<upcase>") > text.indexOf("<lowcase>") || text.indexOf("<mixcase>") > text.indexOf("<lowcase>") || text.indexOf("<mixcase>") > text.indexOf("<upcase>"))
+
+               if (nestedToBePossible || (text.indexOf("<lowcase>") > text.indexOf("<upcase>") && text.indexOf("</lowcase>") < text.indexOf("</upcase>")) || (text.indexOf("<mixcase>") > text.indexOf("<upcase>") && text.indexOf("</mixcase>") < text.indexOf("</upcase>"))) {
+                    finalStr = upCase(finalStr,nestedToBePossible);
+                    finalStr = mixCase(finalStr,nestedToBePossible);  
+                    finalStr = lowCase(finalStr,nestedToBePossible);                 
+                    
+                } if (nestedToBePossible || (text.indexOf("<lowcase>") > text.indexOf("<mixcase>") && text.indexOf("</lowcase>") < text.indexOf("</mixcase>")) || (text.indexOf("<upcase>") > text.indexOf("<mixcase>") && text.indexOf("</upcase>") < text.indexOf("</mixcase>"))) {
+                    finalStr = mixCase(finalStr,nestedToBePossible); 
+                    finalStr = lowCase(finalStr,nestedToBePossible);
+                    finalStr = upCase(finalStr,nestedToBePossible);                  
+                }
+               
+               document.write("Text: " + text);
+               document.write("<br> After transformation: " + finalStr);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Compare Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>
+            Write a script that compares two char arrays lexicographically (letter by letter).
+        </p>
+    </div>
+    <label for="tb-numbers1">First array - Enter numbers, separated by comma ",": </label>
+	<input id="tb-numbers1" type="text" class="js-console-input" />
+    <br />
+    <label for="tb-numbers2">Second array - Enter numbers, separated by comma ",": </label>
+	<input id="tb-numbers2" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="onBtnClickCompare()">Compare two arrays lexicographically!</a>
+	<br />
+    <div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+    <script>
+        function onBtnClickCompare() {
+            var arr1 = jsConsole.readNumbersArray("#tb-numbers1", ",");
+            var arr2 = jsConsole.readNumbersArray("#tb-numbers2", ",");
+            var length;
+            if (arr1.length <= arr2.length) {
+                length = arr1.length;
+            }
+            else {
+                length = arr2.length;
+            }
+            for (var i = 0; i < length; i++)
+            {
+                if (arr1[i] == arr2[i])
+                {
+                    jsConsole.writeLine("array1[{" + i + "}] = array2[{" + i + "}] = " + arr1[i]);
+                }
+                else if (arr1[i] > arr2[i])
+                {
+                    jsConsole.writeLine("array1[{" + i + "}] = " + arr1[i] + " > array2[{" + i + "}] = " + arr2[i]);
+                }
+                else if (arr1[i] < arr2[i])
+                {
+                    jsConsole.writeLine("array1[{" + i + "}] = " + arr1[i] + " < array2[{" + i + "}] = " + arr2[i]);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

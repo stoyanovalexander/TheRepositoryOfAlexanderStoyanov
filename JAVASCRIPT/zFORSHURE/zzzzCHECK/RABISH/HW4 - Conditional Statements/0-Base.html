@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div class="input">
+			<label for="tb-first">First number: </label>
+			<input type="text" id="tb-first"/>
+		</div>							  
+		<div class="input">		
+			<label for="tb-second">Second number: </label>
+			<input type="text" id="tb-second"/>
+		</div>
+		<div id="inputbutton">
+			<a href="#" onclick="onFindBiggerButtonClick()">Find bigger</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onFindBiggerButtonClick() {
+			var first = jsConsole.readFloat("#tb-first");
+			var second = jsConsole.readFloat("#tb-second");
+			var bigger = first;
+
+			if (bigger < second) {
+				bigger = second;
+			}
+
+			jsConsole.writeLine("the bigger is: " + bigger);
+		}											
+	</script>			  
+</body>
+</html>

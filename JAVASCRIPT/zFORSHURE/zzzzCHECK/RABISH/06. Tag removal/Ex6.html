@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>06. Tag removal</title>
+
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            function tagRemoval(str) {
+                var start, end;
+
+                 while (true) {
+                    if (str.indexOf("<",start) != -1) {
+                        start = str.indexOf("<", start);
+                        end = str.indexOf(">")+1;
+                        tagRemove = str.substring(start, end);
+                        str = str.replace(tagRemove, "");
+                    } else {
+                        break;
+                    }
+                }
+                return str;
+            }
+
+            text = "<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>";
+            document.write("<html><head><title>Sample site</title></head><body><div>text<div>more text</div>" + "and more...</div>in body</body></html>");
+            document.write('<br><br>After tag removal: ' + tagRemoval(text));
+        </script>
+    </body>
+</html>

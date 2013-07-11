@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HTML content</title>
+    <link href="AllTasks.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a function that extracts the content of a html page given as text. 
+          The function should return anything that is in a tag, without the tags-->
+
+    <div id="js-console"></div>
+
+    <!--Java script code -->
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var text = '<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>';
+
+        //testing
+        text = extract(text);
+        jsConsole.writeLine(text);
+
+        //algorithm
+        function extract(text) {
+            var start = text.indexOf('<');
+            var end = text.indexOf('>');
+            while (start != -1) {
+                text = text.replace(text.substring(start, end + 1), " ");
+                start = text.indexOf('<', start + 1);
+                end = text.indexOf('>', end + 1);
+            }
+            return text;
+        }
+
+    </script>
+</body>
+</html>

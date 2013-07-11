@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>02. Bracket Expression</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <script src="scripts/string-extensions.js"></script>
+</head>
+<body>
+    <label for="tb-text">Expression: </label>
+    <input id="tb-expression" type="text" class="js-console-input" value=")(a+b))"/>
+    <a href="#" class="js-console-btn" onclick="Solve()">Check</a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Solve() {
+            var inputStr = jsConsole.read("#tb-expression");
+            var isCorrect = CheckExpression(inputStr);
+
+            // Print the result
+            jsConsole.writeLine("Brackets put correctly: " + isCorrect);
+        }
+
+        // Check expression for correctly put brackets
+        function CheckExpression(str) {
+            var stack = 0;
+
+            for (var i = 0; i < str.length; i++) {
+                if (str[i] === ")") {
+                    if (stack == 0) {
+                        return false;
+                    }
+                    stack--;
+                }
+                else if (str[i] === "(") {
+                    stack++;
+                }
+            }
+
+            return stack == 0;
+        }
+    </script>
+</body>
+</html>

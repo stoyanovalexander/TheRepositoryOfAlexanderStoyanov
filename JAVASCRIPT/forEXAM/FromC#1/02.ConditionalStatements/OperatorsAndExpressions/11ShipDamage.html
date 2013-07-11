@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function Solve(args)
+	    {
+	        var sx1 = parseInt(args[0]);
+	        var sy1 = parseInt(args[1]);
+	        var sx2 = parseInt(args[2]);
+	        var sy2 = parseInt(args[3]);
+	        var h = parseInt(args[4]);
+	        var cx1 = parseInt(args[5]);
+	        var cy1 = parseInt(args[6]);
+	        var cx2 = parseInt(args[7]);
+	        var cy2 = parseInt(args[8]);
+	        var cx3 = parseInt(args[9]);
+	        var cy3 = parseInt(args[10]);
+	        
+	        var minSx = Math.min(sx1, sx2);
+	        var minSy = Math.min(sy1, sy2);
+	        var maxSx = Math.max(sx1, sx2);
+	        var maxSy = Math.max(sy1, sy2);
+
+	        // hit points Y coordinate
+	        var hitCy1 = 2 * h - cy1;
+	        var hitCy2 = 2 * h - cy2;
+	        var hitCy3 = 2 * h - cy3;
+
+	        // hit points X coordinate
+	        var hitCx1 = cx1;
+	        var hitCx2 = cx2;
+	        var hitCx3 = cx3;
+
+	        var damage = 0;
+
+            // Angles
+	        if ((hitCx1 == minSx && hitCy1 == minSy) ||
+                (hitCx1 == minSx && hitCy1 == maxSy) ||
+                (hitCx1 == maxSx && hitCy1 == minSy) ||
+                (hitCx1 == maxSx && hitCy1 == maxSy))
+	        {
+	            damage = damage + 25;
+	        }
+	        if ((hitCx2 == minSx && hitCy2 == minSy) ||
+                (hitCx2 == minSx && hitCy2 == maxSy) ||
+                (hitCx2 == maxSx && hitCy2 == minSy) ||
+                (hitCx2 == maxSx && hitCy2 == maxSy)) {
+	            damage = damage + 25;
+	        }
+	        if ((hitCx3 == minSx && hitCy3 == minSy) ||
+                (hitCx3 == minSx && hitCy3 == maxSy) ||
+                (hitCx3 == maxSx && hitCy3 == minSy) ||
+                (hitCx3 == maxSx && hitCy3 == maxSy)) {
+	            damage = damage + 25;
+	        }
+
+
+            // Sides
+	        if ((hitCx1 == minSx && hitCy1 > minSy && hitCy1<maxSy) ||
+                (hitCx1 == maxSx && hitCy1 > minSy && hitCy1<maxSy) ||
+                (hitCy1 == minSy && hitCx1 > minSx && hitCx1<maxSx) ||
+                (hitCy1 == maxSy && hitCx1 > minSx && hitCx1<maxSx))
+	        {
+	            damage = damage + 50;
+	        }
+	        if ((hitCx2 == minSx && hitCy2 > minSy && hitCy2 < maxSy) ||
+                (hitCx2 == maxSx && hitCy2 > minSy && hitCy2 < maxSy) ||
+                (hitCy2 == minSy && hitCx2 > minSx && hitCx2 < maxSx) ||
+                (hitCy2 == maxSy && hitCx2 > minSx && hitCx2 < maxSx))
+	        {
+	            damage = damage + 50;
+	        }
+	        if ((hitCx3 == minSx && hitCy3 > minSy && hitCy3 < maxSy) ||
+                (hitCx3 == maxSx && hitCy3 > minSy && hitCy3 < maxSy) ||
+                (hitCy3 == minSy && hitCx3 > minSx && hitCx3 < maxSx) ||
+                (hitCy3 == maxSy && hitCx3 > minSx && hitCx3 < maxSx)) {
+	            damage = damage + 50;
+	        }
+
+            
+	        // Inside
+	        if (hitCx1 > minSx && hitCx1 < maxSx && hitCy1 > minSy && hitCy1 < maxSy)
+	        {
+	            damage = damage + 100;
+	        }
+	        if (hitCx2 > minSx && hitCx2 < maxSx && hitCy2 > minSy && hitCy2 < maxSy)
+	        {
+	            damage = damage + 100;
+	        }
+	        if (hitCx3 > minSx && hitCx3 < maxSx && hitCy3 > minSy && hitCy3 < maxSy)
+	        {
+	            damage = damage + 100;
+	        }
+	        return damage + "%";
+	    }
+
+	    function handleIO()
+	    {
+	        var args = [];
+	        args[0] = "-11";
+	        args[1] = "6";
+	        args[2] = "-6";
+	        args[3] = "3";
+	        args[4] = "1";
+	        args[5] = "-9";
+	        args[6] = "-3";
+	        args[7] = "-12";
+	        args[8] = "-4";
+	        args[9] = "-6";
+	        args[10] = "-1";
+	        jsConsole.writeLine(Solve(args));
+	    }
+	    handleIO();
+
+	    //static void Main(string[] args)
+	    //{
+        //    int sx1 = int.Parse(Console.ReadLine());
+	    //int sy1 = int.Parse(Console.ReadLine());
+	    //int sx2 = int.Parse(Console.ReadLine());
+	    //int sy2 = int.Parse(Console.ReadLine());
+	    //int h = int.Parse(Console.ReadLine());
+	    //int cx1 = int.Parse(Console.ReadLine());
+	    //int cy1 = int.Parse(Console.ReadLine());
+	    //int cx2 = int.Parse(Console.ReadLine());
+	    //int cy2 = int.Parse(Console.ReadLine());
+	    //int cx3 = int.Parse(Console.ReadLine());
+	    //int cy3 = int.Parse(Console.ReadLine());
+
+	    //int minSx = Math.Min(sx1,sx2);
+	    //int maxSx = Math.Max(sx1, sx2);
+	    //int minSy = Math.Min(sy1, sy2);
+	    //int maxSy = Math.Max(sy1, sy2);
+
+	    //// Hit Points
+	    //cy1 = 2 * h - cy1;
+	    //cy2 = 2 * h - cy2;
+	    //cy3 = 2 * h - cy3;
+
+	    //int damage = 0;
+
+	    //// Corners
+	    //if (((cx1 == minSx) && (cy1 == minSy)) ||
+        //    ((cx1 == minSx) && (cy1 == maxSy)) ||
+        //    ((cx1 == maxSx) && (cy1 == minSy)) ||
+        //    ((cx1 == maxSx) && (cy1 == maxSy)))
+	    //{
+	    //    damage = damage + 25;
+	    //}
+	    //if (((cx2 == minSx) && (cy2 == minSy)) ||
+        //    ((cx2 == minSx) && (cy2 == maxSy)) ||
+        //    ((cx2 == maxSx) && (cy2 == minSy)) ||
+        //    ((cx2 == maxSx) && (cy2 == maxSy)))
+	    //{
+	    //    damage = damage + 25;
+	    //}
+	    //if (((cx3 == minSx) && (cy3 == minSy)) ||
+        //    ((cx3 == minSx) && (cy3 == maxSy)) ||
+        //    ((cx3 == maxSx) && (cy3 == minSy)) ||
+        //    ((cx3 == maxSx) && (cy3 == maxSy)))
+	    //{
+	    //    damage = damage + 25;
+	    //}
+
+	    //// Sides
+	    //if(((cx1==minSx)&&(cy1>minSy)&&(cy1<maxSy))||
+        //    ((cx1==maxSx)&&(cy1>minSy)&&(cy1<maxSy))||
+        //    ((cy1==minSy)&&(cx1>minSx)&&(cx1<maxSx))||
+        //    ((cy1==maxSy)&&(cx1>minSx)&&(cx1<maxSx)))
+	    //{
+	    //    damage=damage+50;
+	    //}
+	    //if(((cx2==minSx)&&(cy2>minSy)&&(cy2<maxSy))||
+        //    ((cx2==maxSx)&&(cy2>minSy)&&(cy2<maxSy))||
+        //    ((cy2==minSy)&&(cx2>minSx)&&(cx2<maxSx))||
+        //    ((cy2==maxSy)&&(cx2>minSx)&&(cx2<maxSx)))
+	    //{
+	    //    damage=damage+50;
+	    //}
+	    //if(((cx3==minSx)&&(cy3>minSy)&&(cy3<maxSy))||
+        //    ((cx3==maxSx)&&(cy3>minSy)&&(cy3<maxSy))||
+        //    ((cy3==minSy)&&(cx3>minSx)&&(cx3<maxSx))||
+        //    ((cy3==maxSy)&&(cx3>minSx)&&(cx3<maxSx)))
+	    //{
+	    //    damage=damage+50;
+	    //}
+
+	    //// In side
+	    //if ((cx1 > minSx) && (cx1 < maxSx) && (cy1 > minSy) && (cy1 < maxSy))
+	    //{
+	    //    damage = damage + 100;
+	    //}
+	    //if ((cx2 > minSx) && (cx2 < maxSx) && (cy2 > minSy) && (cy2 < maxSy))
+	    //{
+	    //    damage = damage + 100;
+	    //}
+	    //if ((cx3 > minSx) && (cx3 < maxSx) && (cy3 > minSy) && (cy3 < maxSy))
+	    //{
+	    //    damage = damage + 100;
+	    //}
+
+
+	    
+	</script>			  
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Replace White Spaces</title>
+    <link href="AllTasks.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a function that replaces non breaking white-spaces in a text with &nbsp;-->
+
+    <div id="js-console"></div>
+
+    <!--Java script code -->
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var text = 'We are living in a yellow submarine. We don\'t have anything else.';
+
+        //testing
+        jsConsole.writeLine(text);
+        jsConsole.writeLine(replaceWhiteSpaces(text));
+
+        //upper casing
+        function replaceWhiteSpaces(text) {
+            text = text.replace(/ /g, '&amp;nbsp;')
+            return text;
+        }
+
+    </script>
+</body>
+</html>

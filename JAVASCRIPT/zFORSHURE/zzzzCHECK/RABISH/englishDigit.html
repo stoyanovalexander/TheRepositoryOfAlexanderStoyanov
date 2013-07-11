@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>English Digit</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <form>
+            <label for ="a">
+                Enter digit:
+            </label>
+            <input type="text" id="a" />
+        </form>
+     </header>
+        <nav>
+            <a href="#" onclick="showValue()">Show English word</a>
+        </nav>
+    <article>
+        <div id="js-console">
+            <script src="scripts/js-console.js"></script>
+            <script>
+                function showValue() {
+                    var digit = jsConsole.readInteger("#a");
+
+                    var enWord;
+                    switch (digit) {
+                        case 1: enWord = "one"; break;
+                        case 2: enWord = "two"; break;
+                        case 3: enWord = "three"; break;
+                        case 4: enWord = "four"; break;
+                        case 5: enWord = "five"; break;
+                        case 6: enWord = "six"; break;
+                        case 7: enWord = "seven"; break;
+                        case 8: enWord = "eight"; break;
+                        case 9: enWord = "nine"; break;
+                        default: enWord = "Display only digits between 1 and 9"; break;
+                    }
+                    jsConsole.writeLine(enWord);
+                }
+
+            </script>
+        </div>
+    </article>
+</body>
+</html>

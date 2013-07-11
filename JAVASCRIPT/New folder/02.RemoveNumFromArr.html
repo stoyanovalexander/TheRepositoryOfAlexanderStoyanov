@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    Array.prototype.remove = function (element)
+	    {
+	        //var newArr = [];
+	        //for (var i in this) {
+	        //    if (this[i] != element) {
+	        //        newArr.push(this[i]);
+	        //    }
+	        //}
+	        //return newArr;
+	        var newArr = [];
+	        for (var i=0;i<this.length;i++) {
+	            if (this[i] !== element) {
+	                newArr.push(this[i]);
+	            }
+	        }
+	        return newArr;
+	    }
+
+	    var myArr = [4, 34, 44, 44, 41, 4, 44, 44, 1, 1, 6, 2, 7];
+	    var numberToRemove = 44;
+	    var myArrAfterRemoving = myArr.remove(numberToRemove);
+	    jsConsole.write("[");
+	    for (var i = 0; i < myArr.length - 1; i++)
+	    {
+	        jsConsole.write(myArr[i]+",");
+	    }
+	    jsConsole.write(myArr[myArr.length - 1] + "]→ (no)"+numberToRemove);
+	    jsConsole.writeLine();
+	    jsConsole.write("[");
+	    for (var i = 0; i < myArrAfterRemoving.length-1;i++ )
+	    {
+	        jsConsole.write(myArrAfterRemoving[i]+",");
+	    }
+	    jsConsole.write(myArrAfterRemoving[myArrAfterRemoving.length-1]);
+	    jsConsole.write("]");
+	 
+
+	</script>			  
+</body>
+</html>

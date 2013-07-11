@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+
+</head>
+<body>
+<div id="input">
+    <div class="input">
+    <label for="first">Input number: </label>
+    <input type="text" id="first"/>
+    </div>    
+    <div id="button">
+    <button type="button"
+        onclick="onClickPrintResult()">Result</button>
+    </div>
+    </div>
+<div id="js-console">
+</div>
+<script src="scripts/js-console.js">	
+</script>	
+<script>
+    function onClickPrintResult() {
+        var input = jsConsole.readInteger("#first");
+        var lastDigit = input % 10;
+        jsConsole.writeLine(ReturnLastDigitAsText(lastDigit))
+    }
+
+    function ReturnLastDigitAsText(num) {
+        switch (num) {
+            case 1:
+                return "One";
+                break;
+            case 2:
+                return "Two";
+                break;
+            case 3:
+                return "Three";
+                break;
+            case 4:
+                return "Four";
+                break;
+            case 5:
+                return "Five";
+                break;
+            case 6:
+                return "Six";
+                break;
+            case 7:
+                return "Seven";
+                break;
+            case 8:
+                return "Eight";
+                break;
+            case 9:
+                return "Nine";
+                break;
+            default:
+                return "Zero";
+                break;
+        }
+    }
+</script>	
+</body>
+</html>

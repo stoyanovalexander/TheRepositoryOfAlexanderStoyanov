@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>06. Extract HTML Content</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <script src="scripts/string-extensions.js"></script>
+</head>
+<body>
+    <label for="tb-text">String: </label>
+    <input id="tb-text" type="text" class="js-console-input" value="http://www.devbg.org/forum/index.php"/>
+    <a href="#" class="js-console-btn" onclick="Solve()">Parse</a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Solve() {
+            var inputStr = jsConsole.read("#tb-text");
+            var jsonObj = ParseURL(inputStr);
+
+            // Print the result
+            jsConsole.writeLine("{protocol: \"{0}\",<br />server: \"{1}\",<br />resource: \"{2}\"}".format(jsonObj.protocol, jsonObj.server, jsonObj.resource));
+        }
+
+        // Extract using regex
+        function ParseURL(str) {
+            var protocol = str.substring(0, str.indexOf(":"));
+            var server = str.substring(str.indexOf(":") + 3, str.indexOf("/", str.indexOf(":") + 3));
+            var resource = str.substr(str.indexOf("/", str.indexOf(":") + 3));
+
+            return {
+                protocol: protocol,
+                server: server,
+                resource: resource
+            };
+        }
+
+        // format string
+        if (!String.prototype.format) {
+            String.prototype.format = function () {
+                var args = arguments;
+                return this.replace(/{(\d+)}/g, function (match, number) {
+                    return typeof args[number] != 'undefined'
+                      ? args[number]
+                      : match
+                    ;
+                });
+            };
+        }
+    </script>
+</body>
+</html>

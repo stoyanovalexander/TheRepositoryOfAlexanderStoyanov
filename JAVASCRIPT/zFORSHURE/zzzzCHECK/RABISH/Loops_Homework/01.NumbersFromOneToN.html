@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>Numbers from 1 to N</title>
+<link href="styles/js-console.css" rel="stylesheet" />
+
+</head>
+<body>
+<div>
+<span><label for="check">Show task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a script that prints all the numbers from 1 to N.</span>
+<textarea id="input1" placeholder="Enter a number bigger than one."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var n = document.getElementById("input1").value;
+var outTxt = "";	
+for(var i=1; i<=n; i++){
+	outTxt += i+" ";
+	}
+	if(outTxt==""){
+		outTxt = "Incorrect input!";
+	}
+//ends here	
+	document.getElementById("output").innerHTML = outTxt;
+}
+
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</body>
+</html>

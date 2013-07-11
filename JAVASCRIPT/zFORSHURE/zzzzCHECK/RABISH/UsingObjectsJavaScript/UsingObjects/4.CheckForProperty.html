@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="js-console.js"></script>
+
+<!--    Write a function that checks if a given object contains a given property-->
+
+    <script>
+        function hasProperty(obj, property) {
+
+            return obj.hasOwnProperty(property);
+        }
+
+        var arr = [1, 2, 3, 4, 5];
+        var student = {
+            name: "ivan",
+            age: 34
+        };
+        
+        jsConsole.writeLine(hasProperty(arr, "length"));
+        jsConsole.writeLine(hasProperty(student, "nsss"));
+
+    </script>
+
+
+</body>
+</html>

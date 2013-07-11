@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function Solve(args)
+	    {
+	        var b = parseInt(args[0]);
+	        var n = parseInt(args[1]);
+	        var nums = [];
+	        var apearancesOfB = [];
+	        for (var i = 0; i < n; i++)
+	        {
+	            nums[i] = parseInt(args[i + 2]);
+	            var count = 0;
+	            while (nums[i] != 0)
+	            {
+	                if ((nums[i] & 1) == b)
+	                {
+	                    count++;
+	                }
+	                nums[i] = nums[i] >> 1;
+	            }
+	            apearancesOfB[i] = count;
+	        }
+	        var result = "";
+	        for (var i = 0; i < apearancesOfB.length; i++)
+	        {
+	            result += apearancesOfB[i] + "\r\n";
+	        }
+	        return result;;
+	    }
+
+	    function holdSolveIO()
+	    {
+	        var args=[];
+	        args[0]="0";
+	        args[1] = "4";
+	        args[2] = "20";
+	        args[3] = "1337";
+	        args[4] = "2147483648";
+	        args[5] = "4000000000";
+	        jsConsole.writeLine(Solve(args));
+	    }
+	    holdSolveIO();
+        //     int b = int.Parse(Console.ReadLine());
+	    //    int n = int.Parse(Console.ReadLine());
+
+	    //    for (int i = 1; i <= n; i++)
+	    //    {
+        //        int count = 0;
+        //        long num = long.Parse(Console.ReadLine());
+        //        while (num != 0)
+	    //    {
+        //            if ((num & 1) == b)
+	    //    {
+        //                count++;
+	    //    }
+	    //num = num >> 1;
+	    //}
+	    //Console.WriteLine(count);
+	    //}
+	</script>			  
+</body>
+</html>

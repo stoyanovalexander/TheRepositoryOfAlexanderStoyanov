@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Template</title>
+    <link href="AllTasks.css" rel="stylesheet" />
+</head>
+<body>
+     <!--Write a function that creates a HTML UL using a template for every HTML LI.
+         The source of the list should an array of elements. Replace all placeholders marked with –{…}–  
+         with the value of the corresponding property of the object. -->
+
+    <div id="js-console"></div>
+
+    <!--Java script code -->
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+        function generateList(people, template) {
+            var props = [];
+            var peopleList = [];
+            peopleList.push("<ul>");
+
+            for (var prop in people[0]) {
+                props.push(prop);
+            }
+
+            for (var i = 0; i < people.length; i++) {
+                peopleList.push("<li>");
+                var liContent = template;
+
+                for (var prop in people[0]) {
+                    liContent = liContent.replace(new RegExp('\\{' + prop + '\\}', "g"), people[i][prop]);
+                }
+
+                peopleList.push(liContent);
+                peopleList.push("</li>");
+            }
+            peopleList.push("</ul>");
+            return peopleList.join('');
+        }
+
+        var people = [{ name: "Ivan", age: 24 }, { name: "Stefan", age: 49 }, { name: "Miro", age: 52 }, { name: "Vesi", age: 17 }];
+        var divPeople = document.getElementById("list-item");
+        var template = divPeople.innerHTML;
+        var peopleList = generateList(people, template);
+
+        divPeople.innerHTML = peopleList;
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>04. Change Text</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <script src="scripts/string-extensions.js"></script>
+</head>
+<body onload="ImplementMixedCase()">
+    <label for="tb-text">String: </label>
+    <input id="tb-text" type="text" class="js-console-input" value="We are <mixcase>living <upcase>test</upcase></mixcase> in a <upcase>yellow <lowcase>submarine</lowcase></upcase>. We <mixcase>don't</mixcase> have <lowcase>anything</lowcase> else."/>
+    <a href="#" class="js-console-btn" onclick="Solve()">Change</a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Solve() {
+            var inputStr = jsConsole.read("#tb-text");
+            var outputStr = ChangeText(inputStr);
+
+            // Print the result
+            jsConsole.writeLine(outputStr);
+        }
+
+        // Change text
+        function ChangeText(input) {
+            var reUp = /<upcase>(.*?)<\/upcase>/gi;
+            var reLow = /<lowcase>(.*?)<\/lowcase>/gi;
+            var reMix = /<mixcase>(.*?)<\/mixcase>/gi;
+
+            var result = input;
+
+            // Replace tags' content (recursively)
+            result = result.replace(reUp, function (match, group) {
+                return ChangeText(group.toUpperCase());
+            });
+
+            result = result.replace(reLow, function (match, group) {
+                return ChangeText(group.toLowerCase());
+            });
+
+            result = result.replace(reMix, function (match, group) {
+                return ChangeText(group.toMixedCase());
+            });
+
+            return result;
+        }
+
+        // Implement string.toMixedCase()
+        function ImplementMixedCase() {
+            if (!String.prototype.toMixedCase) {
+                String.prototype.toMixedCase = function () {
+                    if (this == null) {
+                        throw new TypeError();
+                    }
+
+                    var casing;
+                    var size = this.length;
+                    var result = "";
+
+                    for (var i = 0; i < size; i++) {
+                        casing = getRandomInt(0, 1);
+                        if (casing === 0) {
+                            result += this[i].toLowerCase();
+                        }
+                        else {
+                            result += this[i].toUpperCase();
+                        }
+                    }
+
+                    return result;
+                };
+            }
+        }
+
+        // Get a random int
+        function getRandomInt(min, max) {
+            var r = Math.floor(Math.random() * (max - min + 1)) + min;
+            return r;
+        }
+    </script>
+</body>
+</html>

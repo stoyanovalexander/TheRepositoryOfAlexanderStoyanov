@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+        //=============================================================================================================================================
+	    function Solve(args) {
+	        var arrSides = args[0].split(" ");
+
+	        var row = parseInt(arrSides[0]);
+	        var col = parseInt(arrSides[1]);
+
+	        var startPoint = args[1].split(" ");
+	        var startRow = parseInt(startPoint[0]);
+	        var startCol = parseInt(startPoint[1]);
+	        //var row = parseInt(arrSides[0]);
+	        //var col = parseInt(arrSides[1]);
+
+
+	        //var startPoint = args[1].split(" ");
+
+	        //var startRow = parseInt(startPoint[0]);
+	        //var startCol = parseInt(startPoint[1]);
+
+	        var visitedArr = [];
+	        var arr = [];
+	        //var tempArr = [];
+	        var tempString = "";
+
+	        //var bestSum = 0;
+	        var sum = 0;
+
+	        var out = "out ";
+	        var lost = "lost ";
+
+	        for (var i = 0; i < row; i++) {
+	            var tempArr = [];
+	            visitedArr[i] = [];
+	            tempString = args[i + 2];
+	            for (var j = 0; j < col; j++) {
+	                tempArr[j] = tempString[j];
+	                visitedArr[i][j] = 0;
+	            }
+	            arr.push(tempArr);
+	        }
+
+	        var currentRow = startRow;
+	        var currentCol = startCol;
+	       
+	        
+	        while (currentRow >= 0 && currentRow < row && currentCol >= 0 && currentCol < col) //&& visitedArr[currentRow][currentCol] !== 1)
+	        {
+	            sum = sum + currentRow * col + currentCol + 1;
+	            visitedArr[currentRow][currentCol] = 1;
+	            if (arr[currentRow][currentCol] === "l") {
+	                currentCol--;
+	            }
+	            if (arr[currentRow][currentCol] === "r") {
+	                currentCol++;
+	            }
+	            if (arr[currentRow][currentCol] === "u") {
+	                currentRow--;
+	            }
+	            if (arr[currentRow][currentCol] ==="d") {
+	                currentRow++;
+	            }
+	        }
+	        return "out "+sum;
+
+	        //return "out" + sum;
+
+	        //if (visitedArr[currentRow][currentCol] === 0) {
+	        //    return "lost " + sum;
+	        //}
+	        //else {
+	        //    return "out " + sum;
+	        //}
+	    }
+
+	   //function Solve(args) {
+	   //     var sides = args[0].split(" ");
+
+	   //     var row = parseInt(sides[0]);
+	   //     var col = parseInt(sides[1]);
+	        
+
+	   //     var start = args[1].split(" ");
+	   //     var startRow = parseInt(start[0]);
+	   //     var startCol = parseInt(start[1]);
+ 
+	   //     var sum = 0;
+	   //     var tempArray = new Array(col);
+	   //     var arr=new Array(row);
+	   //     var visited=(row);
+	   //     var tempString="";
+
+	   //     for (var i = 0; i < row; i++)
+	   //     {
+	   //         visited[i] = new Array(col);
+	   //         tempString += args[i + 2];
+	   //         for (var j = 0; j < col; j++)
+	   //         {
+	   //             tempArray = tempString[j];
+	   //             visited[i][j] = 0;
+	   //         }
+	   //         arr.push(tempArray);
+	   //     }
+	   //     return arr[0][0];
+	   // }
+
+	    function handleIO() {
+	        var args = [];
+	        args[0] = "3 4";
+	        args[1] = "1 3";
+	        args[2] = "lrrd";
+	        args[3] = "dlll";
+	        args[4] = "rddd";
+	        jsConsole.writeLine(Solve(args));
+	    }
+	    handleIO();
+	</script>			  
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>From One to N not divisble by 3 and 7</title>
+
+
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a script that prints all the numbers from 1 to N, that are not divisible by 3 and 7 at the same time.</span>
+<textarea id="input1" placeholder="Enter a number."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var n = document.getElementById("input1").value;
+var outTxt = "";	
+for(var i=1; i<=n; i++){
+	if((i%3!=0) || (i%7!=0)){
+		outTxt += i+" ";
+	}
+	}
+	if(outTxt==""){
+		outTxt = "Invalid input!";
+	}
+//ends here	
+	document.getElementById("output").innerHTML = outTxt;
+}
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</body>
+</html>

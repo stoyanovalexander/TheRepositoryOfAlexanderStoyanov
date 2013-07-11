@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+	    <title>Arrays</title>
+        <link href="styles/js-console.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <p>Our array: [9, 6, 4, 1, 1, 1, 1, 1, 3, 6, 7, 6, 7, 7, 7]</p>
+        <br />
+        <div id="js-console"></div>
+        <script src="scripts/js-console.js"></script>
+
+	    <script>
+	        var arr = [9, 6, 4, 1, 1, 1, 1, 1, 3, 6, 7, 6, 7, 7, 7];
+	        var currentSeq = 1;
+	        var maxSeq = 0;
+	        var element = 0;
+
+            //Finding the max seq
+	        for (var i = 0; i < arr.length - 1; i++) {
+	            if (arr[i] == arr[i + 1]) {
+	                currentSeq++;
+	                if (currentSeq > maxSeq) {
+	                    maxSeq = currentSeq;
+	                    element = arr[i];
+	                }
+	            }
+	            else {
+	                currentSeq = 1;
+	            }
+	        }
+
+	        //Print
+	        jsConsole.writeLine("Maximal sequence in the array: ");
+	        jsConsole.write(arr + " --> ");
+	        for (var i = 0; i < maxSeq; i++) {
+	            jsConsole.write(element + " ");
+	        }
+	    </script>
+    </body>
+</html>

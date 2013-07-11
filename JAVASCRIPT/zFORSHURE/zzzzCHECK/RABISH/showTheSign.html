@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Show The Sign</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <form>
+        <label for="a">A:</label>
+        <input type="text" id="a" />
+        <label for="b">B:</label>
+        <input type="text" id="b" />
+        <label for="c">C:</label>
+        <input type="text" id="c" />
+    </form>
+    <a href="#" onclick="showSign()">Show Sign</a>
+    <div id="js-console">
+
+    
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function showSign() {
+            var a = jsConsole.readInteger("#a");
+            var b = jsConsole.readInteger("#b");
+            var c = jsConsole.readInteger("#c");
+            var sign = '-'
+            if ((a > 0) && (b > 0) && (c > 0)) {
+                sign = '+'
+            }
+            jsConsole.writeLine('Sign is: ' + sign);
+        }
+
+    </script>
+    </div>
+</body>
+</html>

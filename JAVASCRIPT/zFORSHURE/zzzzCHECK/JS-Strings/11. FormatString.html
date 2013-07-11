@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>09. Extract Emails</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <script src="scripts/string-extensions.js"></script>
+</head>
+<body>
+    <a href="#" class="js-console-btn" onclick="Solve()">Test Formatting</a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Solve() {
+
+            var outputStr1 = stringFormat("Hello {0}!", "Peter");
+           
+            var format = "{0}, {1}, {0} text {2}";
+            var outputStr2 = stringFormat(format, 1, "Pesho", "Gosho");
+
+            // Print the result
+            jsConsole.writeLine(outputStr1);
+            jsConsole.writeLine(outputStr2);
+        }
+
+        // Format
+        function stringFormat() {
+            var args = Array.prototype.slice.call(arguments, 0);
+            var formatString = args[0];
+            args.splice(0, 1);
+
+            return formatString.replace(/{(\d+)}/g, function (match, number) {
+                return typeof args[number] != 'undefined'
+                  ? args[number]
+                  : match
+                ;
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>8.Trapezoid's area</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+    <script src="scripts/js-console.js"></script>
+    <style>
+		#a, #b, #h {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+     <label for="a">A: </label>
+	<input type="text" id="a" />
+
+     <label for="b">B: </label>
+	<input type="text" id="b" />
+
+     <label for="h">H: </label>
+	<input type="text" id="h" />
+
+	<br />
+	<a href="#" onclick="calcArea()">Area is</a>
+
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+	<script>
+	    function calcArea() {
+	        var a = jsConsole.readInteger("#a");
+	        var b = jsConsole.readInteger("#b");
+	        var h = jsConsole.readInteger("#h");
+	       
+	        var area = (((a + b) / 2) * h);
+	        jsConsole.writeLine(area);
+	        
+	    }
+	</script>
+
+</body>
+</html>

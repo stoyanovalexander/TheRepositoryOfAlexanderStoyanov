@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Contained Substring</title>
+    <link href="AllTasks.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a JavaScript function that finds how many times 
+         a substring is contained in a given text (perform case insensitive search).
+		
+         Example: The target substring is "in". The text is as follows:
+         We are living in an yellow submarine. We don't have anything else. 
+         Inside the submarine is very tight. So we are drinking all the day. 
+         We will move out of it in 5 days.
+	     
+            The result is: 9.-->
+
+
+    <!--Create label text area and button for reading of the number-->
+    <form>
+        <label for="substring">Enter a substring</label>
+        <input type="text" id="substring" />
+        <input type="button" value="Check" id="button" />
+    </form>
+    <div id="js-console"></div>
+
+    <!--Java script code -->
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var text = 'We are living in an yellow submarine. We don\'t have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days.';
+        jsConsole.writeLine(text);
+        //Make listener on the button
+        var button = document.getElementById('button');
+        button.addEventListener('click', function () {
+            var substring = jsConsole.read("#substring");
+
+            //algorithm
+            text = text.toLowerCase();
+            var count = 0;
+            var start = text.indexOf(substring);
+            while (start != -1) {
+                start = text.indexOf(substring, start + 1);
+                count++;
+            }
+
+            //Printing of the result
+            jsConsole.writeLine('The substring "' + substring + '" is contained ' + count + ' times in the text.');
+        });
+    </script>
+</body>
+</html>

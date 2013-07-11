@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>7.IsPrime</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+    <script src="scripts/js-console.js"></script>
+    <style>
+		#number {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+     <label for="number">Please enter a number: </label>
+	<input type="text" id="number" />
+	<br />
+	<a href="#" onclick="IsPrime()">Check</a>
+
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+	<script>
+	    function IsPrime() {
+	        var number = jsConsole.readInteger("#number");
+	        var divider = 2;
+			var maxDivider = Math.sqrt(number);
+			var prime = true;
+
+			while (prime && (divider <= maxDivider))
+			{
+				if (number % divider == 0)
+				{
+					prime = false;
+				}
+				divider++;
+			}
+			
+			if(prime)
+            {
+                jsConsole.writeLine("The number is prime");
+            }
+            else
+            {
+                jsConsole.writeLine("The number is not prime");
+            }
+	        
+	    }
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>02. Correct brackets</title>
+
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            function checkBrackets(str) {
+                var s;
+                str = str.replace(/[^{}[\]()]/g, '');
+
+                while ( s != str ) { 
+                    s = str;
+                    str = str.replace(/{}|\[]|\(\)/g, '')
+                }
+                return !str;
+            }
+
+            var str1 = "b+c)(d+e)(g*f";
+            var str2 = "(a+b)(d+e)";
+            if (checkBrackets(str)) {            
+                document.write("Correct brackets: " + str);
+            } else {
+                document.write("Incorrect brackets: " + str);
+            }
+        </script>
+    </body>
+</html>

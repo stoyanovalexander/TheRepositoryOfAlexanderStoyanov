@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>08. Replace Tags</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <script src="scripts/string-extensions.js"></script>
+</head>
+<body>
+    <label for="tb-text">String: </label>
+    <input id="tb-text" type="text" class="js-console-input" value='<p>Please visit <a href="http://academy.telerik.com">our site</a> to choose a training course. Also visit <a href="www.devbg.org">our forum</a> to discuss the courses.</p>' />
+    <a href="#" class="js-console-btn" onclick="Solve()">Replace Tags</a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Solve() {
+            var inputStr = jsConsole.read("#tb-text");
+            var outputStr = ReplaceTags(inputStr);
+
+            // Print the result
+            jsConsole.writeLine(outputStr);
+        }
+
+        // Replace Tags
+        function ReplaceTags(str) {
+            str = str.replace(/<a href="/g, '[URL=');
+            str = str.replace(/<\/a>/g, '[/URL]');
+            str = str.replace(/">/g, ']');
+            return str;
+        }
+    </script>
+</body>
+</html>

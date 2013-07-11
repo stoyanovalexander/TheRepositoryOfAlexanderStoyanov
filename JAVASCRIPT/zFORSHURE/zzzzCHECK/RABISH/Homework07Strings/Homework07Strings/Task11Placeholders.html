@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Placeholders</title>
+    <link href="AllTasks.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a function that formats a string using placeholders.
+         The function should work with up to 30 placeholders and all types. -->
+
+    <div id="js-console"></div>
+
+    <!--Java script code -->
+    <script src="scripts/js-console.js"></script>
+    <script>
+        //testing
+        var format = "{0}, {1}, {0} text {2}";
+        var str = stringFormat(format, 1, "Pesho", "Gosho");
+        jsConsole.writeLine(str);
+
+        //algorithm
+        function stringFormat() {
+            var output = arguments[0];
+
+            for (var i = 1; i < arguments.length; i++)
+                output = output.replace(new RegExp('\\{' + (i - 1) + '\\}', "g"), arguments[i]);
+
+            return output;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function Solve(args)
+	    {
+	        var s = parseInt(args[0]);
+	        var n = parseInt(args[1]);
+	        var nums = [];
+	        for (var i = 0; i < n; i++)
+	        {
+	            nums[i] = parseInt(args[i + 2]);
+	        }
+
+	        var combinations = Math.pow(2, n) - 1;
+	        var count = 0;
+	        for (var i = 1; i <= combinations; i++)
+	        {
+	            sum = 0;
+	            for (var j = 0; j < n; j++)
+	            {
+	                if (((i >> j)&1) == 1)
+	                {
+	                    sum = sum + nums[j];
+	                }
+	            }
+	            if (sum == s)
+	            {
+	                count++;
+	            }
+	        }
+	        return count;
+	    }
+
+	    function handleIO()
+	    {
+	        var args = [];
+	        args[1] = "0";
+	        args[2] = "5";
+	        args[3] = "-2";
+	        args[4] = "-1";
+	        args[5] = "1";
+	        args[6] = "6";
+	        args[7] = "3";
+	        jsConsole.writeLine(Solve(args));
+	    }
+	    handleIO();
+	    //long s = long.Parse(Console.ReadLine());
+	    //int n = int.Parse(Console.ReadLine());
+
+	    //long count = 0;
+	    //long[] num = new long[n];
+	    //for (long i = 0; i < n; i++)
+	    //{
+        //    num[i] = long.Parse(Console.ReadLine());
+	    //}
+        //long combinations=(long)Math.Pow(2.0,n)-1;  // 1<<n-1
+        //for (long i = 1; i <= combinations; i++)
+	    //{
+        //    long sum=0;
+        //    for (int j = 0; j < n; j++)
+	    //{
+        //        if (((i >> j) & 1) == 1)
+	    //{
+        //            sum = sum + num[j];
+	    //}
+	    //}
+        //    if (sum == s)
+	    //{
+        //        count++;
+	    //}
+	    //}
+        //Console.WriteLine(count);
+	</script>			  
+</body>
+</html>

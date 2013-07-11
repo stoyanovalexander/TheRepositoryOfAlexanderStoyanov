@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Greater</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="inputForm">
+    <form>
+        <label for="a">
+            A = ?
+        </label>
+        <input type="text" id="a" />
+        <label for="b">
+            B = ?
+        </label>
+        <input type="text" id="b" />
+   </form>
+    <a href="#" onclick="findBiggerButton()">Find Bigger</a>
+    </div>
+    <div id="js-console">
+    <script src="scripts/js-console.js"></script>
+    <script>
+            function findBiggerButton() {
+            var a = jsConsole.readFloat("#a");
+            var b = jsConsole.readFloat("#b");
+            if (b > a) {
+                a = b;
+            }
+            jsConsole.writeLine('A = ' + a);
+            }
+     </script>
+     </div>
+</body>
+</html>

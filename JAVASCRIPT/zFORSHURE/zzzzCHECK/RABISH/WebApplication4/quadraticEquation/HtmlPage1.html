@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>JS Console - Example</title>
+<link href="styles/js-console.css" rel="stylesheet" />
+
+</head>
+<body>
+<div id="inputdiv">
+<div class="input">
+<label for="tb-first">First number: </label>
+<input type="text" id="tb-first"/>
+</div>	
+<div class="input">	
+<label for="tb-second">Second number: </label>
+<input type="text" id="tb-second"/>
+</div>
+<div class="input">	
+<label for="tb-second">Third number: </label>
+<input type="text" id="tb-third"/>
+</div>
+<div id="inputbutton">
+<a href="#" onclick="onFindBiggerButtonClick()">Calc equation</a>
+</div>
+</div>
+<div id="console">
+</div>
+<script src="scripts/js-console.js">	
+</script>	
+<script>
+
+    function onFindBiggerButtonClick() {
+        var a = jsConsole.readFloat("#tb-first");
+        var b = jsConsole.readFloat("#tb-second");
+        var c = jsConsole.readFloat("#tb-third");
+        var x1;
+        var x2;
+        var determinant;
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+            jsConsole.writeLine("a, b, c must be a number");
+        }
+        else {
+            jsConsole.writeLine("Roots of ax" + '\u00B2' + "+bx+c:");
+            if (a != 0) {
+                determinant = b * b - 4 * a * c;
+                if (determinant > 0) {
+                    x1 = (-b + Math.sqrt(determinant)) / (2 * a);
+                    x2 = (-b - Math.sqrt(determinant)) / (2 * a);
+                    jsConsole.writeLine("x1= " + x1 + "; x2= " + x2);
+                }
+                if (determinant == 0) {
+                    x1 = (-b) / (2 * a);
+                    jsConsole.writeLine("x1,2 = " + x1);
+                }
+                if (determinant < 0) {
+                    jsConsole.writeLine("There is no real roots");
+                }
+            }
+            else if (b != 0) {
+                x1 = (-c) / b;
+                jsConsole.writeLine("x1,2 = " + x1);
+            }
+            else {
+                jsConsole.writeLine("No quadratic equation");
+            }
+        }
+
+    }
+</script>	
+</body>
+</html>

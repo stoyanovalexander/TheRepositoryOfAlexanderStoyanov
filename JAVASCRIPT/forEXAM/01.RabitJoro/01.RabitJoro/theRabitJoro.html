@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        function Solve(args)
+        {
+            var positions = args[0].split(", ");
+            for (var i = 0; i < positions.length; i++)
+            {
+                positions[i] = parseInt(positions[i]);
+            }
+            for (var possitionStart = 0; possitionStart < positions.length; possitionStart++)
+            {
+                var maxJumpsCount = 0;
+                for (var stepLen = 1; stepLen <= positions.length; stepLen++)
+                {
+                    var currentPossition = possitionStart;
+                    var jumpsCount = 0;
+                    var visited = {};
+                    visited[currentPossition]=false;
+                    while (!visited[currentPossition])
+                    {
+                        visited[currentPossition] = true;
+                        jumpsCount++;
+                        var lastPossition = currentPossition;
+                        currentPossition = currentPossition + stepLen;
+                        if (currentPossition >= positions.length)
+                        {
+                            currentPossition = currentPossition - positions.length;
+                        }
+                        if (positions[currentPossition] < positions[lastPossition])
+                        {
+                            break;
+                        }
+                    
+                    }
+                    if (jumpsCount + maxJumpsCount)
+                    {
+                        maxJumpsCount = jumpsCount;
+                    }
+                }
+            }
+            return maxJumpsCount;
+        }
+
+        function handleSolveIO()
+        {
+            var args = [];
+            args[0] = "1, -2, -3, 4, -5, 6, -7, -8";
+            console.log("fdeffsdfdsfdfsd");
+            console.log(Solve(args));
+        }
+    </script>
+</head>
+<body onload="handleSolveIO">
+
+</body>
+</html>

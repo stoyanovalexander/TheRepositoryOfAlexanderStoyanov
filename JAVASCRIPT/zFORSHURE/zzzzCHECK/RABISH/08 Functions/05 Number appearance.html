@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Number appearance</title>
+	<link href="../console-styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <p>Write a function that counts how many times given number appears in given array. Write a test function to check if the function is working correctly.</p>
+    <label for="input-number">Write number to count for:</label>
+    <input type="text" id="input-number">
+    <label for="input-array">Enter array splited by spaces " ":</label>
+    <input type="text" id="input-array">
+    <br>
+    <button onclick="onClick()">Enter :)</button>
+    <button onclick="countAppTest()">Function test.</button>
+    <br>
+	<div id="js-console"></div>
+	<script src="../console-js/js-console.js"></script>
+	<script>
+        function onClick() {
+            var number = document.getElementById("input-number").value;
+            if (number == null || number == "")
+                return jsConsole.writeLine("enter number");
+            var arr = document.getElementById("input-array").value;
+            arr = arr.split(" ");
+
+            jsConsole.writeLine("Number count: " + countAppearances(number, arr));
+        }
+
+        function countAppearances(number, arr) {
+            var count = 0;
+            for (var i = 0; i < arr.length; i += 1) {
+                if (arr[i] === number)
+                    count++;
+            }
+            return count;
+        }
+
+        function countAppTest() {
+            var arr = [1,2,1,3];
+            jsConsole.writeLine(countAppearances(1,arr) == 2);
+            jsConsole.writeLine(countAppearances(0,arr) == 0);
+            arr = [1];
+            jsConsole.writeLine(countAppearances(1,arr) == 1);
+               
+
+        }
+	</script>
+</body>
+</html>
+                                                                                 
+

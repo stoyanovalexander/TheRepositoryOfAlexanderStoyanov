@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Quadratic Equation</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <form>
+            <label for="a">
+                Enter A:
+            </label>
+            <input type="text" id="a" />
+            <label for="b">
+                Enter B:
+            </label>
+            <input type="text" id="b" />
+            <label for="c">
+                Enter C:
+            </label>
+            <input type="text" id="c" />
+        </form>
+    </header>
+    <nav>
+        <a href="#" onclick="calculate()" >Calculate</a>
+    </nav>
+    <article>
+        <div id="js-console">
+            <script src="scripts/js-console.js"></script>
+            <script>
+                function calculate() {
+                    var a = jsConsole.readInteger("#a");
+                    var b = jsConsole.readInteger("#b");
+                    var c = jsConsole.readInteger("#c");
+                    var discriminant = ((b * b) - (4 * (a * c)));
+                    if (discriminant == 0) {
+                        jsConsole.writeLine('one real root');
+                    } else if (discriminant > 0) {
+                        jsConsole.writeLine('two real roots');
+                    } else if (discriminant < 0) {
+                        jsConsole.writeLine('no roots');
+                    }
+
+                    jsConsole.writeLine(discriminant);
+                }
+            </script>
+        </div>
+
+    </article>
+</body>
+</html>

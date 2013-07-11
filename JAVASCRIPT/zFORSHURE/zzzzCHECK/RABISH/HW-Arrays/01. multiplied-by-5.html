@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+	    <title>Arrays</title>
+        <link href="styles/js-console.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <p>Our array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]</p>
+        <a href="#" onclick="multiplBy5()">Print the array (elements multiplied by 5)</a>
+        <br />
+        <div id="js-console"></div>
+        <script src="scripts/js-console.js"></script>
+
+	    <script>
+	        function multiplBy5() {
+	            var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+	            for (var i = 0; i < arr.length; i++) {
+	                jsConsole.writeLine(arr[i]*5);
+	            }
+	        }
+	    </script>
+    </body>
+</html>

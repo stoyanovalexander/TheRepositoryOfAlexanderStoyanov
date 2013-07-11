@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function Solve(args)
+	    {
+	        var n = parseInt(args[0]);
+	        var matrix = [];
+	        for (var i = 0; i < n; i++)
+	        {
+	            for (var j = 0; j < n; j++)
+	            {
+	                matrix[i][j] = 1 + i + (n * j);
+	            }
+	        }
+	        var result = "";
+	        for (var i = 0; i < n; i++)
+	        {
+	            for (var j = 0; j < n-1; j++)
+	            {
+	                result += matrix[i][j] + "  ";
+	            }
+	            result += matrix[i][n];
+	            result += "\r\n";
+	        }
+	        matrix[1][1] = 33;
+	        return matrix[1][1];
+	    }
+
+	    function handleIO()
+	    {
+	        var args = [];
+	        args[0] = "4";
+	        jsConsole.writeLine(Solve(args));
+	    }
+	    handleIO();
+	    
+	    //    // Print the array
+        //for (int i = 0; i < n; i++)
+	    //{
+        //    for (int j = 0; j < n; j++)
+	    //{
+        //        Console.Write("{0,5}", matrix[i, j]);
+	    //}
+        //    Console.WriteLine();
+	    //}
+	</script>			  
+</body>
+</html>

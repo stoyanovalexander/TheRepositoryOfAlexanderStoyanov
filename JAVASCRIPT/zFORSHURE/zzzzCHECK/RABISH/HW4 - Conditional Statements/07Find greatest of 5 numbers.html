@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div class="input">
+			<label for="tb-first">First number: </label>
+			<input type="text" id="tb-first"/>
+		</div>							  
+		<div class="input">		
+			<label for="tb-second">Second number: </label>
+			<input type="text" id="tb-second"/>
+		</div>
+		<div class="input">		
+			<label for="tb-second">Third number: </label>
+			<input type="text" id="tb-third"/>
+		</div>
+		<div class="input">		
+			<label for="tb-second">Forth number: </label>
+			<input type="text" id="tb-forth"/>
+		</div>
+		<div class="input">		
+			<label for="tb-second">Fifth number: </label>
+			<input type="text" id="tb-fifth"/>
+		</div>
+		<div id="inputbutton">
+			<a href="#" onclick="onFindBiggerButtonClick()">Find greatest</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+	    function onFindBiggerButtonClick() {
+	        var arr = new Array(5);
+			arr[0] = jsConsole.readFloat("#tb-first");
+			arr[1] = jsConsole.readFloat("#tb-second");
+			arr[2] = jsConsole.readFloat("#tb-third");
+			arr[3] = jsConsole.readFloat("#tb-forth");
+			arr[4] = jsConsole.readFloat("#tb-fifth");
+			var theBiggest = arr[0];
+			var i;
+
+			if (isNaN(arr[0]) || isNaN(arr[1]) || isNaN(arr[2]) || isNaN(arr[3]) || isNaN(arr[4]))
+			{
+			    jsConsole.writeLine("all must be numbers");
+			}
+			else
+			{			    
+			    for (i = 1; i < arr.length; i++) {
+			        if (theBiggest < arr[i]) {
+			            theBiggest = arr[i];
+			        }
+			    }
+			    jsConsole.writeLine("Greatest number is: " + theBiggest);
+			}
+
+
+		}											
+	</script>			  
+</body>
+</html>
+

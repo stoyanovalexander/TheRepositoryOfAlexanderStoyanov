@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    var a = {
+	        a: 5,
+	        b: 4,
+	        c: 3,
+	    }
+
+	    var b = Object.create(a);
+	    for (var i in b) {
+	        jsConsole.write(b[i]);
+	    }
+
+	    function clone(obj) {
+	        if (obj == null || "Object" != typeof obj)
+	        {
+	            return obj;
+	        }
+	        if (obj instanceof Array) {
+	            var copy = [];
+	            for (var i = 0 ; i < obj.length ; i++) {
+	                copy[i] = clone(obj[i]);
+	            }
+	            return copy;
+	        }
+
+	        if (obj instanceof Object) {
+	            var copy = {};
+	            for (var attr in obj) {
+	                if (obj.hasOwnProperty(attr)) {
+	                    copy[attr] = clone(obj[attr]);
+	                }
+	            }
+	            return copy;
+	        }
+	    }
+        
+	    var c = clone(a);
+	    jsConsole.writeLine();
+	    for (var i in c) {
+	        jsConsole.write(c[i]);
+	    }
+	    jsConsole.writeLine();
+	    jsConsole.writeLine("after changing C, B is still uncanged so the copy must be deep");
+        
+	    c = 2334234;
+	    jsConsole.writeLine("C");
+	    jsConsole.writeLine(c);
+	    jsConsole.writeLine();
+	    jsConsole.writeLine();
+	    jsConsole.writeLine("B");
+	    var b = Object.create(a);
+	    for (var i in b) {
+	        jsConsole.write(b[i]);
+	    }
+	</script>			  
+</body>
+</html>

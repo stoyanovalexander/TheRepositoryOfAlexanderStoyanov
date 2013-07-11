@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Last digit of a number</title>
+	<link href="../console-styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <p>Write a function that returns the last digit of given integer as an English word. Examples: 512 = "two", 1024 = "four", 12309 = "nine"</p>
+    <label for="input-number">Enter number: </label>
+    <input type="text" id="input-number">
+    <br>
+    <button onclick="onClick()">Enter :)</button>
+    <br>
+	<div id="js-console"></div>
+	<script src="../console-js/js-console.js"></script>
+	<script>
+        function onClick() {
+            var number = document.getElementById("input-number").value;;
+            number = number[number.length-1];
+            jsConsole.writeLine("Last digit is " + getDigitWord(number));
+        }
+
+        function getDigitWord(digit) {
+            var digitWord = "";
+            switch(digit) {
+                case '0':
+                    digitWord = "zero";
+                    break;
+                case '1':
+                    digitWord = "one";
+                    break;
+                case '2':
+                    digitWord = "two";
+                    break;
+                case '3':
+                    digitWord = "three";
+                    break;
+                case '4':
+                    digitWord = "four";
+                    break;
+                case '5':
+                    digitWord = "five";
+                    break;
+                case '6':
+                    digitWord = "six";
+                    break;
+                case '7':
+                    digitWord = "seven";
+                    break;
+                case '8':
+                    digitWord = "eight";
+                    break;
+                case '9':
+                    digitWord = "nine";
+                    break;
+                default:
+            	    digitWord = "ERROR";
+            }
+            return digitWord;
+        }
+
+	</script>
+</body>
+</html>

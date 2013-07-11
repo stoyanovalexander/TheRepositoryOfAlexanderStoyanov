@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+
+</head>
+<body>
+	<div id="inputdiv">
+		<div class="input">
+			<label for="tb-first">Enter X: </label>
+			<input type="text" id="tb-first"/>
+		</div>							  
+		<div class="input">		
+			<label for="tb-second">Enter Y: </label>
+			<input type="text" id="tb-second"/>
+		</div>
+		<div id="inputbutton">
+			<a href="#" onclick="onFindBiggerButtonClick()">Is point in circle K(0,5)</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onFindBiggerButtonClick() {
+			var X = jsConsole.readFloat("#tb-first");
+			var Y = jsConsole.readFloat("#tb-second");
+			var Xc = 1;
+			var Yc = 1;
+			var radius = 3;
+			var XL = -1;
+			var YL = 1;
+			var width = 6;
+			var height = 3;
+			var XR = XL + width;        
+			var YR = YL - height;  
+            var InCircle = false;
+            var InRec = false;
+
+            if (((X - Xc) * (X - Xc) + (Y - Yc) * (Y - Yc)) < radius * radius)
+			{
+                InCircle = true;
+			}
+            else
+			{
+                InCircle = false;
+			}
+
+            if ((X > XL && X < XR) && (Y < YL && Y > YR))
+			{
+                InRec = true;
+			}
+            else
+			{
+                InRec = false;
+			}
+				jsConsole.writeLine(InCircle.toString() + InRec.toString());
+            if (InCircle == true && InRec == false)
+			{
+                jsConsole.writeLine("Point (" + X + "," + Y +") is within circle K((" + Xc +","+ Yc +")," + radius + ") and out of rectangle R(top=" + XL + ", left=" + YL + ", width=" + width + ", height={" + height + ").");
+			}
+            else
+			{
+                jsConsole.writeLine("Point (" + X + "," + Y +") is within circle K((" + Xc +","+ Yc +")," + radius + ") and out of rectangle R(top=" + XL + ", left=" + YL + ", width=" + width + ", height={" + height + ") is NOT correct.");
+			}	
+
+		}											
+	</script>			  
+</body>
+</html>

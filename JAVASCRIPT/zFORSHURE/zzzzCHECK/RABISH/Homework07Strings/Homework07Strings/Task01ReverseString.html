@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Reverse string</title>
+    <link href="AllTasks.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a JavaScript function reverses string and returns itExample: "sample"  "elpmas".-->
+
+    <!--Create label text area and button for reading of the number-->
+    <form>
+        <label for="string">Enter a string</label>
+        <input type="text" id="string" />
+        <input type="button" value="Reverse the string" id="button" />
+    </form>
+    <div id="js-console"></div>
+
+    <!--Java script code -->
+    <script src="scripts/js-console.js"></script>
+    <script>
+        //Make listener on the button
+        var button = document.getElementById('button');
+        button.addEventListener('click', function () {
+            var string = jsConsole.read("#string");
+            //reverses algorithm
+            for (var i = string.toString().length - 1; i >= 0; i--) {
+                jsConsole.write(string.toString().charAt(i));
+            }
+            jsConsole.writeLine();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>03. Count Substring</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <script src="scripts/string-extensions.js"></script>
+</head>
+<body>
+    <label for="tb-text">String: </label>
+    <input id="tb-text" type="text" class="js-console-input" value="We are living in an yellow submarine. We don't have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days."/>
+    <label for="tb-sub">String: </label>
+    <input id="tb-sub" type="text" class="js-console-input" value="in"/>
+    <a href="#" class="js-console-btn" onclick="Solve()">Find</a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Solve() {
+            var inputText = jsConsole.read("#tb-text");
+            var inputSubstring = jsConsole.read("#tb-sub");
+            var result = CountSubstring(inputText, inputSubstring);
+
+            // Print the result
+            jsConsole.writeLine(result);
+        }
+
+        // Search in a text using regular expression
+        function CountSubstring(text, sub) {
+
+            //Create new case insensitive regular expression
+            var re = new RegExp(sub, "gi");
+            var matches = text.match(re);
+
+            return matches.length;
+        }
+    </script>
+</body>
+</html>

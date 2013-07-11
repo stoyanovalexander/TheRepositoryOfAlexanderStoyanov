@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>12. Create HTML UL</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <script src="scripts/string-extensions.js"></script>
+</head>
+<body>
+    <div data-type="template" id="list-item" style="display: none">
+        <strong>-{name}-</strong> <span>-{age}-</span>
+    </div>
+    <br />
+    <a href="#" class="js-console-btn" onclick="Solve()">Create List</a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Solve() {
+            var people = [{ name: "Peter", age: 14 }, { name: "Pesho", age: 22 }, { name: "Li Ching-Yuen", age: 256 }];
+            var template = document.getElementById("list-item").innerHTML;
+            var peopleList = generateList(people, template);
+
+            // Print the result
+            jsConsole.writeLine(peopleList);
+        }
+
+        // Create UL
+        function generateList(ppl, tmpl) {
+            tmpl = tmpl.trim();
+            var re = /-{(\w+)}-/g;
+            var match;
+            var arr = [];
+            var result = "<ul>";
+
+            for (var i = 0; i < ppl.length; i++) {
+                var tmp = tmpl;
+                if (i <= ppl.length) {
+                    result += "<li>";
+                }
+                for (var key in ppl[i]) {
+                    while (match = re.exec(tmpl)) {
+                        if (match[1] == key) {
+                            tmp = tmp.replace(match[0], ppl[i][key]);
+                        }
+                    }
+                }
+                result += tmp;
+                result += "</li>";
+            }
+            result += "</ul>";
+            return result;
+        }
+    </script>
+</body>
+</html>

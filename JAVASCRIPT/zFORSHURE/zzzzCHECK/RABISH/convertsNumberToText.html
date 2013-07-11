@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Converts Number to Text</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <form>
+            <label for="number">
+                Enter number:
+            </label>
+            <input type="text" id="number" />
+        </form>
+    </header>
+    <nav>
+        <a href="#" onclick="convertNumber()" >Convert</a>
+    </nav>
+    <div id="js-console">
+        <script src="scripts/js-console.js"></script>
+        <script>
+            function convertNumber() {
+                var read = (parseInt(jsConsole.read("#number")));
+                var hundreds = (parseInt(read / 100));
+                var tens = parseInt(((read / 10) % 10));
+                var units = (read % 10);
+                var teenCheck = parseInt(read % 100);
+                if ((read < 1000) && (read >= 0)) {
+                    if (read == 0) {
+                        jsConsole.writeLine('zero');
+                    }
+                    var teen;
+                        switch (teenCheck) {
+                            case 10: teen = "ten"; break;
+                            case 11: teen = "eleven"; break;
+                            case 12: teen = "twelve"; break;
+                            case 13: teen = "thirteen"; break;
+                            case 14: teen = "fourteen"; break;
+                            case 15: teen = "fifteen"; break;
+                            case 16: teen = "sixteen"; break;
+                            case 17: teen = "seventeen"; break;
+                            case 18: teen = "eighteen"; break;
+                            case 19: teen = "nineteen"; break;
+                            default: teen = "stop"; break;
+                        }
+                        var hundWord;
+                        switch (hundreds) {
+                            case 0: hundWord = ""; break;
+                            case 1: hundWord = "one hundred"; break;
+                            case 2: hundWord = "two hundred"; break;
+                            case 3: hundWord = "three hundred"; break;
+                            case 4: hundWord = "four hundred"; break;
+                            case 5: hundWord = "five hundred"; break;
+                            case 6: hundWord = "six hundred"; break;
+                            case 7: hundWord = "seven hundred"; break;
+                            case 8: hundWord = "eight hundred"; break;
+                            case 9: hundWord = "nine hundred"; break;
+                            default: hundWord = "stop"; break;
+                        }
+                        var tenWord;
+                        switch (tens) {
+                            case 0: tenWord = ""; break;
+                            case 2: tenWord = "twenty"; break;
+                            case 3: tenWord = "thirty"; break;
+                            case 4: tenWord = "forty"; break;
+                            case 5: tenWord = "fifty"; break;
+                            case 6: tenWord = "sixty"; break;
+                            case 7: tenWord = "seventy"; break;
+                            case 8: tenWord = "eighty"; break;
+                            case 9: tenWord = "ninety"; break;
+                            default: tenWord = "define"; break;
+                        }
+                        
+                        var unitWord;
+                        switch (units) {
+                            case 0: unitWord = ""; break;
+                            case 1: unitWord = "one"; break;
+                            case 2: unitWord = "two"; break;
+                            case 3: unitWord = "three"; break;
+                            case 4: unitWord = "four"; break;
+                            case 5: unitWord = "five"; break;
+                            case 6: unitWord = "six"; break;
+                            case 7: unitWord = "seven"; break;
+                            case 8: unitWord = "eight"; break;
+                            case 9: unitWord = "nine"; break;
+                            default: unitWord = "undefine"; break;
+                        }
+
+                        if ((teenCheck > 9) && (teenCheck < 20)) {
+                            tenWord = teen;
+                            unitWord = '';
+                        }
+                        
+                        jsConsole.writeLine(hundWord + ' ' + tenWord + ' ' + unitWord);
+
+                } else if ((read > 1000) || (read < 0)) {
+                    jsConsole.writeLine('Invalid number !!');
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

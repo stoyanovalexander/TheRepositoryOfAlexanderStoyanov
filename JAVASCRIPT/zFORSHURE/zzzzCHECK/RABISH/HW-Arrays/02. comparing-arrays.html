@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+	    <title>Arrays</title>
+        <link href="styles/js-console.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <p>First array: ['a', 'b', 'c', 'd', 'e']</p>
+        <p>Second array: ['a', 'b','c', 'd', 'e']</p>
+        <p>Third array: ['a', 'b', 'c', 'd', 'e', 'f']</p>
+        <p>Fourth array: ['A', 'B','C', 'T', 'R']</p>
+        <p>Fifth array: ['a', 'b', 'c', 'd', 'e', 'f']</p>
+        <p>Sixth array: [34, 12,-45, 2, 0, 56, 32]</p>
+        <br />
+        <div id="js-console"></div>
+        <script src="scripts/js-console.js"></script>
+
+	    <script>
+	        var arr1 = ['a', 'b', 'c', 'd', 'e'];
+	        var arr2 = ['a', 'b', 'c', 'd', 'e'];
+
+	        var arr3 = ['a', 'b', 'c', 'd', 'e', 'f'];
+	        var arr4 = ['A', 'B', 'C', 'T', 'R'];
+
+	        var arr5 = ['a', 'b', 'c', 'd', 'e', 'f'];
+	        var arr6 = [34, 12, -45, 2, 0, 56, 32];
+
+            //Comparing Function
+	        function comparingArrays(a, b) {
+	            var result = true;
+
+	            if (a.length > b.length) {
+	                jsConsole.writeLine("Array: [" + a + "] is longer than array: [" + b + "]");
+	            }
+	            else if (a.length < b.length) {
+	                jsConsole.writeLine("Array: [" + a + "] is shorter than array: [" + b + "]");
+	            }
+	            else {
+	                for (var i = 0; i < length.a; i++) {
+	                    if (a[i] != b[i]) {
+	                        result = false;
+	                    }
+	                }
+	                if (result == true) {
+	                    jsConsole.writeLine("Array: [" + a + "] is equal to array: [" + b + "]");
+	                }
+	                else {
+	                    jsConsole.writeLine("Array: [" + a + "] is NOT equal to array: [" + b + "]");
+	                }
+	            }
+	            
+	        }
+
+            //Printing the result
+	        comparingArrays(arr1, arr2);
+	        comparingArrays(arr3, arr4);
+	        comparingArrays(arr5, arr6);
+	    </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+
+<head>
+	<title> 04. </title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+
+
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<div> </div>
+	<div>Gogo</div>
+	<script>
+		jsConsole.writeLine("Write a function to count the number of divs on the web page");
+		jsConsole.writeLine("");
+		jsConsole.writeLine("======================================");
+				
+		countDivs();
+
+       function countDivs(){
+       var count=document.getElementsByTagName("div").length;
+	   
+       jsConsole.writeLine("The number of divs is " + count);
+       }
+		
+		
+	</script>
+</body>
+</html>

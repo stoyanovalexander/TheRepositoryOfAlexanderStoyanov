@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Parses URL</title>
+    <link href="AllTasks.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a script that parses an URL address 
+         and extracts from it the [protocol], [server] and [resource] elements. 
+         Return the elements in a JSON object.-->
+
+    <div id="js-console"></div>
+
+    <!--Java script code -->
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var url = 'http://www.devbg.org/forum/index.php ';
+
+        //testing
+        jsConsole.writeLine(url);
+        text = parse(url);
+        
+        function parse(url) {
+            var protokol = url.substring(0, url.indexOf(":"));
+            var server = url.substring(url.indexOf(":") + 3, url.indexOf("/", url.indexOf(":") + 3));
+            var resource = url.substr(url.indexOf("/", url.indexOf(":") + 3) + 1)
+            //JSON
+            var URL = {
+                "Protokol": protokol, "Server": server, "Resource": resource
+            };
+
+            //printing
+            jsConsole.writeLine("Protokol :  " + URL.Protokol);
+            jsConsole.writeLine("Server :    " + URL.Server);
+            jsConsole.writeLine("Resource :  " + URL.Resource);
+        }
+
+    </script>
+</body>
+</html>

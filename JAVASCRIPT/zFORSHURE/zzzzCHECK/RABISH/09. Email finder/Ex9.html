@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>09. Email finder</title>
+
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            function emailFinder(str) {
+                var start = 0;
+                var emailStr = "";
+                str = str.split(" ");
+
+                for (var i = 0, len = str.length; i < len; i++) {
+                    if (str[i].substring(str[i].lastIndexOf(".", str[i].length)) == ".") {
+                        str[i] = str[i].substring(0, str[i].length - 1);
+                    }
+                    while (str[i].indexOf("@") != -1) {
+                        emailStr += str[i] + ", ";
+                        break;
+                    }
+                }
+                return emailStr.substring(0, emailStr.length - 2);
+            }
+               
+            text = "Hello, I'm Stefan, my email is: stefan@abv.bg. If you prefer to use gmail here is my alternative email: stefan@gmail.com. If those email addresses are deactivated you can use: stefan@yahoo.co.uk.";
+
+            document.write("Text: " + text);
+            document.write("<br><br>Emails: " + emailFinder(text) + ".");
+        </script>
+    </body>
+</html>

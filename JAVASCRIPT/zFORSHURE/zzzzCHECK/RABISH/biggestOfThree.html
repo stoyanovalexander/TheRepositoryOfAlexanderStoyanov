@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Biggest of three</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="form">
+    <form>
+        <label for="a">A:</label>
+        <input type="text" id="a" />
+        <label for="b">B:</label>
+        <input type="text" id="b" />
+        <label for="c">C:</label>
+        <input type="text" id="c" />
+     </form>
+        <a href="#" onclick="ShowBiggest()">Show Biggest</a>
+    </div>
+    <div id="js-console">
+        <script src="scripts/js-console.js"></script>
+        <script>
+            function ShowBiggest() {
+                var a = jsConsole.readFloat("#a");
+                var b = jsConsole.readFloat("#b");
+                var c = jsConsole.readFloat("#c");
+                var bigger = a ;
+                if (b > a) {
+                    bigger = b;
+                    if (c > b) {
+                        bigger = c;
+                    }
+                } else if (c > a) {
+                    bigger = c;
+                }
+
+                jsConsole.writeLine('Bigger is: ' + bigger);
+            }
+        </script>
+    </div>
+</body>
+</html>

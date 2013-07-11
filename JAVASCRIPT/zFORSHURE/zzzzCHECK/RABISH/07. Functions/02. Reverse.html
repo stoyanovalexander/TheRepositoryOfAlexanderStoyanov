@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function reverse() {
+            var number = document.getElementById("last").value;
+            var symbols = number.split("");
+            symbols.reverse(); 
+            document.getElementById("resultArea").innerHTML = "The reversed number is " + symbols.join('');
+        }
+    </script>
+</head>
+<body>
+    <label>Input number: </label><input type="text" id="last" value="" />    
+    <button id="calculate" onclick="reverse()">The reversed number is </button>
+    <h1 id="resultArea" />
+</body>
+</html>

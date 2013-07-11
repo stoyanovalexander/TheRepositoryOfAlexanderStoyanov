@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div class="input">
+			<label for="tb-first">First number: </label>
+			<input type="text" id="tb-first"/>
+		</div>							  
+		<div class="input">		
+			<label for="tb-second">Second number: </label>
+			<input type="text" id="tb-second"/>
+		</div>
+		<div class="input">		
+			<label for="tb-second">Third number: </label>
+			<input type="text" id="tb-third"/>
+		</div>
+		<div id="inputbutton">
+			<a href="#" onclick="onFindBiggerButtonClick()">Check sign</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onFindBiggerButtonClick() {
+			var first = jsConsole.readFloat("#tb-first");
+			var second = jsConsole.readFloat("#tb-second");
+			var third = jsConsole.readFloat("#tb-third");
+			var countNegativNumbers = 0;
+	    if (first < 0)
+            {
+                countNegativNumbers++;
+            }
+            if (second < 0)
+            {
+                countNegativNumbers++;
+            }
+            if (third< 0)
+            {
+                countNegativNumbers++;
+            }
+	        var printStr = "The sign of the sum of ";
+		printStr += first + "; ";
+		printStr += second + "; " ;
+		printStr += third;
+            if (countNegativNumbers % 2 == 0)
+            {
+                jsConsole.writeLine(printStr + " is '+'");
+            }
+            else
+            {
+                jsConsole.writeLine(printStr + " is '-'");
+            }
+
+		}											
+	</script>			  
+</body>
+</html>
+ody>
+</html>
+</body>
+</html>

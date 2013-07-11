@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Neigbours check</title>
+	<link href="../console-styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <p>Write a Function that returns the index of the first element in array that is bigger than its neighbors, or -1, if there’s no such element.
+    </p>
+    <button onclick="countAppTest()">Function test.</button>
+    <br>
+	<div id="js-console"></div>
+	<script src="../console-js/js-console.js"></script>
+	<script>
+        function onClick() {
+            var arr = document.getElementById("input-array").value;
+            arr = arr.split(" ");
+            for (var i = 0; i < arr.length; i += 1) {
+                arr[i] = parseInt(arr[i]);
+            }
+
+            jsConsole.writeLine("Index: " + findFirstElIndex(arr));
+        }
+
+        function findFirstElIndex(arr) {
+            if (arr.length < 3)
+                return -1;
+            for (var i = 1; i < arr.length-1; i += 1) {
+                if (isBiggerThanNeighbours(arr[i], arr))
+                    return i;
+            }
+            return -1;
+        }
+
+        function isBiggerThanNeighbours(index, arr) {
+            if (arr.length < 3 || index < 1 || index > (arr.length - 2))
+                return false;
+            if (arr[index - 1] < arr[index] && arr[index + 1] < arr[index])
+                return true;
+            return false;
+        }
+
+        function countAppTest() {
+            var arr = [1,2,2,3];
+            jsConsole.writeLine(findFirstElIndex(arr) == -1);
+            arr = [1,2,3,4,3];
+            jsConsole.writeLine(findFirstElIndex(arr) > 0);
+            arr = [1,2];
+            jsConsole.writeLine(findFirstElIndex(arr) == -1);
+            arr = [1,2,4,3];
+            jsConsole.writeLine(findFirstElIndex(arr) > 0);
+        }
+	</script>
+</body>
+</html>
+                                                                                 
+

@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="js-console.js"></script>
+
+<!--    Write a function that makes a deep copy of an object
+The function should work for both primitive and reference types-->
+
+    <script>
+
+        //function deepCopy(obj) {
+        //    if (typeof obj === typeof new Object) {
+
+        //        var res = new Object(obj);
+        //        return res;
+        //    }
+        //    else {
+
+        //        return obj;
+        //    }
+        //    return null;
+        //}
+
+        function deepCopy(obj) {
+            var obj2 = new Object();
+
+            for (key in obj) {
+
+                var newKey = key;
+                obj2[newKey] = obj[key];
+
+                if ((typeof obj2[newKey]) == "object") {
+                    deepCopy(obj[key]);
+                }
+            }
+            return obj2;
+        }
+
+        var student1 = {
+            name: "petko",
+            age: 30
+        }
+
+        var student2 = deepCopy(student1);
+        student2.name = "stoqn";
+
+        jsConsole.writeLine(student1.name)
+        jsConsole.writeLine(student2.name)
+
+        var arr = [1,2,3];
+        var newArr = arr;//deepCopy(arr);
+        newArr = [0, 0, 0];
+
+        // print after we change the second array
+        jsConsole.writeLine(arr.join(", "));
+        //jsConsole.writeLine(typeof new Array === typeof new Object);
+
+        var number = 5;
+        var newNumber = deepCopy(number);
+        newNumber = 7;
+
+        jsConsole.writeLine(number);
+
+    </script>
+
+
+</body>
+</html>

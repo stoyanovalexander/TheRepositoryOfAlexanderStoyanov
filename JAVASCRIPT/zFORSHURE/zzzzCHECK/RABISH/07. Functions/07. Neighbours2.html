@@ -1,0 +1,61 @@
+<html>
+
+<head>
+	<title> 07. Neigh2 </title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+
+
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		jsConsole.writeLine("Write a Function that returns the index of the first element in array that is bigger than its neighbors, or -1, if there’s no such element. Use the function from the previous exercise.");
+		jsConsole.writeLine("");
+		jsConsole.writeLine("======================================");
+				
+		var a = [-4, 1, 6, 13, 3, 3, 1, 7, 2];		
+		var b = [-13, -5, 12, 13, -4, -4, -0, 9, -4];
+		var c = [-3, -1, 0, 4, 4];
+		var d = [];
+
+		function big(arr){
+			var exist = false;
+			var l = arr.length - 1;
+			if (arr[0] > arr[1])
+			{
+				exist = true;
+				return 0;
+			}
+				
+			for (var i = 1; i < l; i++) 
+			{
+				if ( arr[i] > arr[i+1] && arr[i] > arr[i-1])
+				{
+					exist = true;
+					return i;
+				}					
+			}
+			if (arr[l] > arr[l-1])
+			{
+				exist = true;
+				return l;
+			}
+			
+			if (!exist)
+			{
+				return -1;
+			}
+		}
+
+		jsConsole.writeLine("The element bigger than its neighbours is with index " + big(a));
+		jsConsole.writeLine("The array is [" + a.join(" ") + "]");
+		jsConsole.writeLine("The element bigger than its neighbours is with index " + big(b));		
+		jsConsole.writeLine("The array is [" + b.join(" ") + "]");
+		jsConsole.writeLine("The element bigger than its neighbours is with index " + big(c));
+		jsConsole.writeLine("The array is [" + c.join(" ") + "]");
+		jsConsole.writeLine("The element bigger than its neighbours is with index " + big(d));
+		jsConsole.writeLine("The array is [" + d.join(" ") + "]");
+				
+	</script>
+</body>

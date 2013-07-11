@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>03. Find word</title>
+
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            function countSubstr (str, substr) {
+                str = str.toLowerCase();
+                var  j = 0, count = 0;
+
+                while (true) {
+                    if (str.indexOf(substr,j) != -1) {
+                        j = str.indexOf(substr,j) + 1;
+                        count++;
+                    } else {
+                        break;
+                    }
+                }
+                return count;
+            }
+
+            var str = "We are living in an yellow submarine. We don't have anything else Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days.";
+            var substrSearch = "In";
+            substrSearch = substrSearch.toLowerCase();
+
+            document.write(str + "<br><br>");
+            
+            if (substrSearch != "") {
+            document.write("The substring <strong><em>" + substrSearch + "</em></strong> is contained " + countSubstr(str, substrSearch) + " time(s) in the text.")
+            } else {
+                alert("You must enter something to search!");
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>5.ThirdBitCheck</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+    <script src="scripts/js-console.js"></script>
+    <style>
+		#number {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+     <label for="number">Please enter a number: </label>
+	<input type="text" id="number" />
+	<br />
+	<a href="#" onclick="checkThirdBit()">Check</a>
+
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+	<script>
+	    function checkThirdBit() {
+	        var number = jsConsole.readInteger("#number");
+	        var mask = 1 << 2;
+	        var nAndMask = number & mask;
+	        var bit = nAndMask >> 2;
+
+	        if (bit == 1)
+	        {
+	            jsConsole.writeLine("The third bit is 1");
+	        }
+	        else
+	        {
+	            jsConsole.writeLine("The third bit is 0");
+	        }
+	    }
+	</script>
+
+</body>
+</html>

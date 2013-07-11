@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var number = 1234567891;
+        var dividedOn100 = parseInt( number / 100);
+        var reminder = dividedOn100 % 10;
+        var is7OrNot = true;
+        if (reminder != 7)
+        {
+            is7OrNot = false;
+        }
+        jsConsole.writeLine("the third digit  right to left is 7 in " + number + "→"+is7OrNot);
+
+        
+    </script>
+</body>
+</html>

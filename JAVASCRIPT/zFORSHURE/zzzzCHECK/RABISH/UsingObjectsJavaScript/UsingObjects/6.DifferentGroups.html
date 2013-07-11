@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="js-console.js"></script>
+
+<!--    Write a function that groups an array of persons by age, first or last name. 
+The function must return an associative array, with keys - the groups, and values -arrays with persons in this groups
+Use function overloading (i.e. just one function)-->
+
+    <script>
+ 
+        // function that group
+        function group(arr, value) {
+
+            var newGroup = [];
+            var property =  value;
+
+            for (var i = 0; i < arr.length; i++) {
+                var isAdded = false;
+                var prop = arr[i][property];
+
+                for (var k = 0; k < newGroup.length; k++) {
+                    var newProp = newGroup[k][0][property];
+
+                    if (newProp === prop) {
+                        newGroup[k].push(arr[i]);
+                        isAdded = true;
+                    }
+                }
+
+                // if there is no such group we make it
+                if (!isAdded) {
+                    newGroup.push([arr[i]]);
+                }
+            }
+
+            return newGroup;
+        }
+
+        // function for constructor for person
+        function createPerson(fname, lname, age) {
+            return {
+                fname: fname,
+                lname: lname,
+                age: age,
+                toString: function(){return this.fname + " " + this.lname + " " + age}
+            }
+        }
+
+        // function for print groups
+        function print(group) {
+
+            for (var i = 0; i < group.length; i++) {
+
+                jsConsole.writeLine("--------------- Group number: " + i);
+
+                for (var k = 0; k < group[i].length; k++) {
+
+                    jsConsole.writeLine(group[i][k].toString());
+                }
+            }
+        }
+
+        var people = [
+            createPerson("Ivan", "Ivanov", 20),
+            createPerson("Pesho", "Ivanov", 20),
+            createPerson("Dragan", "Rosenov", 20),
+            createPerson("Ivan", "Ivanov", 23),
+            createPerson("Asen", "Ivanov", 18)
+        ]
+        
+        var groupByAge = group(people, "age");
+        var groupByFName = group(people, "fname");
+        var groupByLName = group(people, "lname");
+
+        print(groupByAge);
+        print(groupByFName);
+        print(groupByLName);
+
+    </script>
+
+
+</body>
+</html>

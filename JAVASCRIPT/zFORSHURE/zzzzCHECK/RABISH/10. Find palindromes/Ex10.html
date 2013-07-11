@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>10. Find palindromes</title>
+
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            function findPalindromes(str) {
+                var reversedTextArr = textArr = [];
+                var foundPalin = ""
+                str = str.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, ' ').toLowerCase();
+                reversedTextArr = str.split("").reverse().join("").split(" ").reverse();
+                textArr = str.split(" ");
+                for (var i = 0, len = textArr.length; i < len; i++) {
+                    while (textArr[i].length == reversedTextArr[i].length && textArr[i].length > 2) {
+                        if (textArr[i] == reversedTextArr[i]) {
+                            foundPalin += textArr[i] + ", ";
+                            break;
+                        }
+                        break; 
+                    }
+                }
+                return foundPalin.substring(0, foundPalin.length - 2);
+            }
+               
+            text = "Honda Civic is a great car; Start the 'exe' file; Pop is a modern music ganre; Mom is the female parent, dad is the male parent; Guitar solos are great";
+
+            document.write("Text: " + text);
+            document.write("<br><br>Palindromes: " + findPalindromes(text) + ".");
+        </script>
+    </body>
+</html>

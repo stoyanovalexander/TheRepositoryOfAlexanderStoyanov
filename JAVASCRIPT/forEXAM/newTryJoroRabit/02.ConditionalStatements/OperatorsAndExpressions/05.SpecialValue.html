@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function Solve(args)
+	    {
+	        var i = 0, j = 0, k = 0, l = 0, tempArr, maxSpecialValue = 0, tempSpecialValue = 1;
+	        var row, col;
+	        var n = parseInt(args[0]);
+	        var arr = new Array();
+	        var visitedArr = new Array(n);
+	        for (i = 1; i <= n; i++)
+	        {
+	            tempArr = args[i].split(", ");
+	            visitedArr[i - 1] = new Array();
+	            for (j = 0; j < tempArr.length; j++)
+	            {
+	                tempArr[j] = parseInt(tempArr[j]);
+	                visitedArr[i - 1][j] = 0;
+	            }
+	            arr.push(tempArr);
+	        }
+
+	        for (i = 0; i < arr[0].length; i++)
+	        {
+	            row = 0;
+	            col = i;
+	            while (arr[row][col] >= 0 && visitedArr[row][col] !== 1)
+	            {
+	                visitedArr[row][col] = 1;
+	                col = arr[row][col];
+	                row++;
+	                if (row === n)
+	                {
+	                    row = 0;
+	                }
+	                tempSpecialValue++;	            
+	            }
+	            if (visitedArr[row][col]===0)
+	            {
+	                tempSpecialValue += Math.abs(arr[row][col]);
+	                if (maxSpecialValue < tempSpecialValue)
+	                {
+	                    maxSpecialValue = tempSpecialValue;
+	                }
+	            }
+
+	            for (k = 0; k < n; k++)
+	            {
+	                for (l = 0; l < visitedArr[k].length; l++)
+	                {
+	                    if (visitedArr[k][l] === 1)
+	                    {
+	                        visitedArr[k][l] = 0;
+	                    }
+	                }
+	            }
+	            tempSpecialValue = 1;
+	        }
+	        return maxSpecialValue;
+	    }
+
+	    function handleIO()
+	    {
+	        var args = [];
+	        args[0] = "2";
+	        args[1] = "0, -3, 0, 3";
+	        args[2] = "-3, 3, 0, 2, 0",
+	        jsConsole.writeLine(Solve(args));
+	    }
+	    handleIO();
+	</script>  
+</body>
+</html>

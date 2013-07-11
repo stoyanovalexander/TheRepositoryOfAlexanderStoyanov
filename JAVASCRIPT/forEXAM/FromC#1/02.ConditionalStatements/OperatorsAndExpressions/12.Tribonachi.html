@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function Solve(args)
+	    {
+	        var t1 = parseInt(args[0]);
+	        var t2 = parseInt(args[1]);
+	        var t3 = parseInt(args[2]);
+	        var n=parseInt(args[3]);
+	        var tNew = 0;
+	        if (n == 1)
+	        {
+	            return t1;
+	        }
+	        else if (n == 2)
+	        {
+	            return t2;
+	        }
+	        else if (n == 3) {
+	            return t3;
+	        }
+	        else
+	        {
+	            for (var i = 4; i <= n; i++)
+	            {
+	                tNew = t1 + t2 + t3;
+	                t1 = t2;
+	                t2 = t3;
+	                t3 = tNew;
+	            }
+	            return tNew;
+	        }
+
+	    }
+
+	    function handleIO()
+	    {
+	        var args = [];
+	        args[0] = "2";
+	        args[0] = "3";
+	        args[0] = "4";
+	        args[0] = "10";
+	        jsConsole.writeLine(Solve(args));
+	    }
+	    handleIO();
+	    
+	</script>			  
+</body>
+</html>

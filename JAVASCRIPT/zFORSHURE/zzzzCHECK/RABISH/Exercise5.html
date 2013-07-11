@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+
+</head>
+<body>
+<div id="input">
+    <div class="input">
+    <label for="first">Input number: </label>
+    <input type="text" id="first"/>
+    </div>    
+    <div id="button">
+    <button type="button"
+        onclick="onClickPrintResult()">Result</button>
+    </div>
+    </div>
+<div id="js-console">
+</div>
+<script src="scripts/js-console.js">	
+</script>	
+<script>
+    function findYoungest(arr) {
+        var youngest = Number.MAX_VALUE;
+        var index;
+        var youngestPerson;
+        for (var i = 0; i < arr.length ; i++) {
+            if (arr[i].age < youngest) {
+                youngest = arr[i].age
+                index = i;
+            }
+            
+        }
+        return arr[index].firstname + " " + arr[index].lastname + "   Age: " + youngest;
+        
+
+    }
+
+    var persons = [
+  { firstname : "Gosho", lastname: "Petrov", age: 32}, 
+  { firstname: "Bay", lastname: "Ivan", age: 81 },
+  { firstname: "Pesho", lastname: "Goshov", age: 33 },
+  { firstname: "Baba", lastname: "Yaga", age: 22 },
+  { firstname: "Haralampi", lastname: "Pishkomerev", age: 45 },
+    ];
+
+    jsConsole.writeLine(findYoungest(persons));
+
+
+</script>	
+</body>
+</html>

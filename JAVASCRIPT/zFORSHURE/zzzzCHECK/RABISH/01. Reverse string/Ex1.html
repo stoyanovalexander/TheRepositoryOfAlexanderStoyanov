@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>01. Reverse string</title>
+
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+        	String.prototype.reverse = function () {
+    			return this.split("").reverse().join("");
+			}
+
+			str = "reversed";
+            
+            if (str == "") {
+                document.write("There's no string to reverse!");
+            } else {
+			document.write("The string: " + str + ".<br>");
+			document.write("The reversed string: " + str.reverse() + ".");
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Brackets correctly</title>
+    <link href="AllTasks.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a JavaScript function to check if in a given expression the brackets are put correctly.
+        Example of correct expression: ((a+b)/5-d).
+        Example of incorrect expression: )(a+b)).-->
+
+    <!--Create label text area and button for reading of the number-->
+    <form>
+        <label for="string">Enter a expression</label>
+        <input type="text" id="string" />
+        <input type="button" value="Check" id="button" />
+    </form>
+    <div id="js-console"></div>
+
+    <!--Java script code -->
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+        //Make listener on the button
+        var button = document.getElementById('button');
+        button.addEventListener('click', function () {
+            var string = jsConsole.read("#string");
+
+            //algorithm
+            var openBrack = 0, closeBrack = 0;
+            for (var i = 0; i < string.length; i++) {
+                if (string[i] == '(') {
+                    openBrack++;
+                }
+                if (string[i] == ')') {
+                    closeBrack++;
+                }
+                //check if have close bracket before the brackets to be open
+                if (closeBrack>openBrack) {
+                    jsConsole.writeLine('The brackets are NOT put correctly');
+                    return;
+                }
+            }
+
+            //Printing of the result
+            if (closeBrack==openBrack) {
+                jsConsole.writeLine('The brackets are put correctly');
+                return;
+            }
+            jsConsole.writeLine('The brackets are NOT put correctly');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function Solve(args)
+	    {
+	        var n = parseInt(args[0]);
+	        var result="";
+	        for (var i = 1; i <= n; i++)
+	        {
+	            for (var j = 1; j <= n; j++)
+	            {
+	                if (i === j) {
+	                    result += "*";
+	                }
+	                else
+	                {
+	                    result+="."
+	                }
+	            }
+	            result += "\r\n";
+	        }
+	        for (var i = 1; i <= n - 1; i++)
+	        {
+	            for (var j = 1; j <= n; j++)
+	            {
+	                if (j === n - i) {
+	                    result += "*";
+	                }
+	                else
+	                {
+	                    result += ".";
+	                }
+	            }
+	            result += "\r\n";
+	        }
+	        return result;
+	    }
+	        
+	        //for (int i = 1; i <= n - 1; i++)
+	        //{
+	        //    for (int j = 1; j <= n; j++)
+	        //{
+	        //        if (j == n - i)
+	        //{
+	        //            Console.Write('*');
+	        //}
+	        //else
+	        //{
+	        //            Console.Write('.');
+	        //}
+	        //}
+	        //    Console.WriteLine();
+	        //}
+	        //}
+	    
+
+	    function handleIO()
+	    {
+	        var args = [];
+	        args[0] = 4;
+            jsConsole.writeLine(Solve(args))
+	    }
+	    handleIO();
+
+	    //int n = int.Parse(Console.ReadLine());
+
+	    //for (int i = 1; i <= n; i++)
+	    //{
+        //    for (int j = 1; j <= n; j++)
+	    //{
+        //        if (i == j)
+	    //{
+        //            Console.Write('*');
+	    //}
+	    //else
+	    //{
+        //            Console.Write('.');
+	    //}
+	    //}
+        //    Console.WriteLine();
+	    //}
+        //for (int i = 1; i <= n - 1; i++)
+	    //{
+        //    for (int j = 1; j <= n; j++)
+	    //{
+        //        if (j == n - i)
+	    //{
+        //            Console.Write('*');
+	    //}
+	    //else
+	    //{
+        //            Console.Write('.');
+	    //}
+	    //}
+        //    Console.WriteLine();
+	    //}
+	    //}
+	</script>			  
+</body>
+</html>

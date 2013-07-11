@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+
+</head>
+<body>
+<div id="js-console">
+</div>
+<script src="scripts/js-console.js">	
+</script>	
+<script>
+
+    function BuildPoint(x, y) {
+        return {
+            x:x,
+            y: y,
+            toString: function () { return "X -> " + this.x + "  Y -> " + this.y; }
+        }
+    }
+
+    function BuildLine(p1x, p1y, p2x,p2y) {
+        return {
+            p1x: p1x,
+            p1y: p1y,
+            p2x:p2x,
+            p2y: p2y,
+            toString: function () { return "P1x -> " + this.p1x + "  P1y -> " + this.p1y + "    P2x -> " + this.p2x + "  P2y -> " + this.p2y; }
+        }
+    }
+
+    var pointA = BuildPoint(2.5, 3.0);
+    var pointB = BuildPoint(2, 3);
+
+    
+    var lineA = BuildLine(1, 1, 2.5, 2.6);
+    var lineB = BuildLine(2.5, 2.6, 3, 0);
+    var lineC = BuildLine(3, 0, 1, 1);
+
+    jsConsole.writeLine(CalcDistance(pointA, pointB));
+
+    function CalcDistance(point1, point2) {       
+         return   Math.sqrt(((point1.x - point2.x) * (point1.x - point2.x)) + (point1.y - point2.y) * (point1.y - point2.y));
+    }
+
+
+    
+
+</script>	
+</body>
+</html>

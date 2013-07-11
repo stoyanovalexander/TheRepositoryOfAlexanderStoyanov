@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>9.PointsInCircleAndRectangle</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+    <script src="scripts/js-console.js"></script>
+    <style>
+		#x, #y {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+     <label for="x">X: </label>
+	<input type="text" id="x" />
+
+     <label for="y">Y: </label>
+	<input type="text" id="y" />
+
+	<br />
+	<a href="#" onclick="isInTheFigures()">Check</a>
+
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>
+	<script>
+	    function isInTheFigures() {
+	        var x = jsConsole.readInteger("#x");
+	        var y = jsConsole.readInteger("#y");
+
+	        var circleRadius = 5;
+	        var circleA = 0;
+	        var circleB = 0;
+
+	        var rectangleX1 = -1;
+	        var rectangleX2 = 5;
+	        var rectangleY1 = 1;
+	        var rectangleY2 = -1;
+
+	        if (Math.pow(x - circleA, 2) + Math.pow(y - circleB, 2) <= circleRadius * circleRadius) {
+	            if (((x >= rectangleX1) && (x <= rectangleX2)) && ((y <= rectangleY1) && (y >= rectangleY2))) {
+	                jsConsole.writeLine("The given coordinates are within the circle K and within the rectangle R");
+	            }
+	            else {
+	                jsConsole.writeLine("The given coordinates are within the circle K and outside the rectangle R");
+	            }
+	        }
+	        else {
+	            jsConsole.writeLine("The given coordinates are outside the circle K");
+	        }
+	    }
+	</script>
+
+</body>
+</html>

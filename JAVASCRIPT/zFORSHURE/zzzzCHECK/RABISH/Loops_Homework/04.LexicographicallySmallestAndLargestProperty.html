@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Lexicographically smallest and largest property</title>
+
+</head>
+<body>
+<div>
+<span><label for="check">Show task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a script that finds the lexicographically smallest and largest property in document, window and navigator objects.</span>
+<textarea id="output1" type="text" placeholder="window min and max properties" disabled></textarea><br>
+<textarea id="output2" placeholder="navigator min and max properties" disabled></textarea><br>
+<textarea id="output3" placeholder="document min and max properties" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here
+var arr1 = [window, navigator, document];	
+
+for(var i = 0; i<3; i++){
+	var outTxt = "";
+	var arr;
+for(var property in arr1[i]){
+	outTxt += property+" ";
+}
+arr = outTxt.split(" ");
+arr.sort();	
+		outTxt = "Min: "+arr[1]+";\nMax: "+arr[arr.length-1]+";";
+var id = "output" + (i+1);
+//ends here	
+	document.getElementById(id).innerHTML = outTxt;
+}
+}
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Most Frequent Number</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>
+            Write a program that finds the most frequent number in an array. 
+        </p>
+    </div>
+    <label for="tb-numbers">Enter numbers, separated by comma ",": </label>
+	<input id="tb-numbers" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="onBtnClickFindMostFrequent()">Find the most frequent number in the array!</a>
+	<br />
+    <div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+    <script>
+
+        function onBtnClickFindMostFrequent() {
+            var count = 1;
+            var tempcount = 1;
+            var index = 0;
+            var replace;
+            var arr = jsConsole.readNumbersArray("#tb-numbers", ",");
+            for (var j = 0; j < arr.length; j++) {
+                for (var i = j + 1; i < arr.length; i++) {
+                    if (arr[j] > arr[i]) {
+                        replace = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = replace;
+                    }
+                }
+            }
+            for (var i = 1; i < arr.length; i++) {
+                if (arr[i] == arr[i - 1]) {
+                    ++tempcount;
+                    if (tempcount > count) {
+                        count = tempcount;
+                        index = i;
+                    }
+                }
+                else {
+                    tempcount = 1;
+                }
+            }
+            jsConsole.write(arr[index] + " -> " + count + " times");
+        }
+    </script>
+</body>
+</html>

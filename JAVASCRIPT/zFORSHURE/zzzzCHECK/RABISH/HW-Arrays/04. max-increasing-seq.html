@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+	    <title>Arrays</title>
+        <link href="styles/js-console.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <p>Our array: [3, 2, 3, 4, 2, 2, 4]</p>
+        <p>The biggest increasing sequence: </p>
+        <br />
+        <div id="js-console"></div>
+        <script src="scripts/js-console.js"></script>
+
+	    <script>
+	        var myArr = [3, 2, 3, 4, 2, 2, 4];
+	        var length = 1;
+	        var lastElement = 0;
+	        var bestLength = 0;
+
+	        for (var i = 0; i < myArr.length - 1; i++) {
+	            if (myArr[i+1] - myArr[i] == 1) {
+	                length++;
+	            }
+	            else {
+	                length = 1;
+	            }
+	            if (length > bestLength) {
+	                bestLength = length;
+	                lastElement = i + 1;
+	            }
+	        }
+
+	        //Print the result
+	        jsConsole.write(" --> ");
+	        for (var i = lastElement - (bestLength - 1) ; i <= lastElement; i++) {
+	            jsConsole.write(myArr[i] + " ");
+	        }
+	    </script>
+    </body>
+</html>

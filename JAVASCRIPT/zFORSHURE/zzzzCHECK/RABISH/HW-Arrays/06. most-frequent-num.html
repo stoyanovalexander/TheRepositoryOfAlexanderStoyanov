@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+	    <title>Arrays</title>
+        <link href="styles/js-console.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <p>Our array: [9, 6, 4, 1, 3, 6, 7, 6, 7, 7, 7]</p>
+        <p>Finding the most frequent number: </p>
+        <br />
+        <div id="js-console"></div>
+        <script src="scripts/js-console.js"></script>
+
+	    <script>
+	        var arr = [9, 6, 4, 1, 3, 6, 7, 6, 7, 7, 7];
+	        var bestFreq = 0;
+	        var currentFreq = 1;
+	        var element = 0;
+            //Finding the most freq number
+	        for (var i = 0; i < arr.length - 1; i++) {
+	            for (var j = 1; j < arr.length; j++) {
+	                if (arr[i] == arr[j]) {
+	                    currentFreq++;
+	                    if (currentFreq > bestFreq) {
+	                        bestFreq = currentFreq;
+	                        element = arr[i];
+	                    }
+	                }
+	            }
+	            currentFreq = 0;
+	        }
+            //Print
+	        jsConsole.writeLine(arr + "--> " + "most frequent value: " + element + " (" + bestFreq + " times)");
+	    </script>
+    </body>
+</html>

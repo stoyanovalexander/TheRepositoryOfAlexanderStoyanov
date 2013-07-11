@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sort</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="form">
+        <form>
+            <label for="a">
+                A:
+            </label>
+            <input type="text" id="a"/>
+            <label for="b">
+                B:
+            </label>
+            <input type="text" id="b" />
+            <label for ="c">
+                C:
+            </label>
+            <input type="text" id="c" />
+        </form>
+   </div>
+    <a href="#" onclick="SortValues()" >Sort</a>
+    <div id="js-console">
+        <script src="scripts/js-console.js"></script>
+        <script>
+            function SortValues() {
+                var a = jsConsole.readInteger("#a");
+                var b = jsConsole.readInteger("#b");
+                var c = jsConsole.readInteger("#c");
+                //test
+                //var a = Math.floor((Math.random() * 10));
+                //var b = Math.floor((Math.random() * 10));
+                //var c = Math.floor((Math.random() * 10));
+                var first = a;
+                var second = b;
+                var third = c;
+                if (b >= a) {
+                    first = b;
+                    second = a;
+                    if (c >= b) {
+                        first = c;
+                        second = b;
+                        third = a;
+                    } else if (c >= a) {
+                        second = c;
+                        third = a;
+                    }
+                } else if (c >= a) {
+                    first = c;
+                    third = a;
+                    if (b >= c) {
+                        first = b;
+                        second = c;
+                        third = a;
+                     }
+                    if (a >= b) {
+                        first = c;
+                        second = a;
+                        third = b;
+                    }
+                } else if (a >= c) {
+                    first = a;
+                    second = b;
+                    third = c;
+                    if (c >= b) {
+                        first = a;
+                        second = c;
+                        third = b;
+                    }
+                }
+                //jsConsole.writeLine(a + ' ' + b + ' ' + c);
+                jsConsole.writeLine(first);
+                jsConsole.writeLine(second);
+                jsConsole.writeLine(third);
+             }
+
+                
+            
+
+        </script>
+
+
+
+    </div>
+
+
+</body>
+</html>

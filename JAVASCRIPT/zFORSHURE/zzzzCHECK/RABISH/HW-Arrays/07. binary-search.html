@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+	    <title>Arrays</title>
+        <link href="styles/js-console.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <p>Our array: [1, 9, 23, 44, 50, 73, 86, 91, 100]</p>
+        <br />
+        <div id="js-console"></div>
+        <script src="scripts/js-console.js"></script>
+
+	    <script>
+	        var arr = [1, 9, 23, 44, 50, 73, 86, 91, 100];
+	        var num = 50;
+
+	        var start = 0;
+	        var end = arr.length - 1;
+	        var middle;
+
+	        while (start <= end) {
+	            middle = parseInt((start + end) / 2);
+
+	            if (arr[middle] < num) {
+	                start = middle + 1;
+	            }
+
+	            if (arr[middle] > num) {
+	                end = middle - 1;
+	            }
+
+	            if (arr[middle] == num) {
+	                jsConsole.writeLine("The index of " + num + " is "+ middle);
+	                break;
+	            }
+	        }
+	        
+	    </script>
+    </body>
+</html>

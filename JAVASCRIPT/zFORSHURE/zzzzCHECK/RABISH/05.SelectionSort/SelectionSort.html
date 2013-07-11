@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Selection Sort</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>
+            Sorting an array means to arrange its elements in increasing order. Write a script to sort an array. Use the "selection sort" algorithm: Find the smallest element, move it at the first position, find the smallest from the rest, move it at the second position, etc.Hint: Use a second array.
+        </p>
+    </div>
+    <label for="tb-numbers">Enter numbers, separated by comma ",": </label>
+	<input id="tb-numbers" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="onBtnClickSort()">Sort the array!</a>
+	<br />
+    <div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+    <script>
+        function onBtnClickSort() {
+            var replace;
+            var arr = jsConsole.readNumbersArray("#tb-numbers", ",");
+            for (var j = 0; j < arr.length; j++)
+            {
+                for (var i = j + 1; i < arr.length; i++)
+                {
+                    if (arr[j] > arr[i])
+                    {
+                        replace = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = replace;
+                    }
+                }
+            }   
+            for (var i = 0; i < arr.length; i++)
+            {
+                jsConsole.write(arr[i] + " ");
+            }
+        }
+    </script>
+</body>
+</html>

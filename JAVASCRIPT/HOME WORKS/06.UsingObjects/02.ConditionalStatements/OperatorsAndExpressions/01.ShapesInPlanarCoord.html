@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function createPoint(x, y)
+	    {
+	        return {
+	            x: x,
+	            y: y
+	        };
+	    }
+	    function createLine(firstPoint, secondPoint) {
+	        return { firstPoint: firstPoint, secondPoint: secondPoint };
+	    }
+	    function calculateDistance(pointOne, pointTwo) {
+	        return Math.sqrt( (pointOne.x - pointTwo.x)*(pointOne.x - pointTwo.x)
+            +(pointOne.y - pointTwo.y)*(pointOne.y - pointTwo.y) );
+	    }
+	    function checkForTriangle(lineOne, lineTwo, lineThree) {
+	        var a = calculateDistance(lineOne.firstPoint, lineOne.secondPoint);
+	        var b = calculateDistance(lineTwo.firstPoint, lineTwo.secondPoint);
+	        var c = calculateDistance(lineThree.firstPoint, lineThree.secondPoint);
+	        if ( (a + b > c) && (a + c > b) && (b + c > a) ) {
+	            jsConsole.writeLine("this three lines CAN produce triangle");
+	        } else {
+	            jsConsole.writeLine("this three lines CAN'T produce triangle");
+	        }
+	    }
+	    var p1 = createPoint(1, 6);
+	    var p2 = createPoint(2, 4);
+	    var p3 = createPoint(3, 8);
+
+	    var l1 = createLine(p1, p2);
+	    var l2 = createLine(p2, p3);
+	    var l3 = createLine(p1, p3);
+	    jsConsole.writeLine("distance between p1 and p2 is: "+calculateDistance(p2, p3));
+	    checkForTriangle(l1, l2, l3);
+	</script>			  
+</body>
+</html>

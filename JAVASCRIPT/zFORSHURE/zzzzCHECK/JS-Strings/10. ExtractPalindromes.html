@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>09. Extract Emails</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <script src="scripts/string-extensions.js"></script>
+</head>
+<body>
+    <label for="tb-text">String: </label>
+    <input id="tb-text" type="text" class="js-console-input" value="evitative Hannah kayak kinnikinnik lemel level madam Malayalam minim murdrum peeweep racecar radar" />
+    <a href="#" class="js-console-btn" onclick="Solve()">Extract</a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Solve() {
+            var inputStr = jsConsole.read("#tb-text");
+            var outputStr = ExtractPalindromes(inputStr);
+
+            // Print the result
+            jsConsole.writeLine(outputStr);
+        }
+
+        // Extract Palindromes
+        function ExtractPalindromes(str) {
+            var regex = /\b\w+\b/g;
+
+            var matches = [];
+            var match;
+            while (match = regex.exec(str)) {
+                if (match[0] === match[0].split("").reverse().join("")) {
+                    matches.push(match[0]);
+                }
+            }
+
+            return matches;
+        }
+    </script>
+</body>
+</html>

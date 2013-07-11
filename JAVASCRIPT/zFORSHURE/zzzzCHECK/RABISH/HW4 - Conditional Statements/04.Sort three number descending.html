@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div class="input">
+			<label for="tb-first">First number: </label>
+			<input type="text" id="tb-first"/>
+		</div>							  
+		<div class="input">		
+			<label for="tb-second">Second number: </label>
+			<input type="text" id="tb-second"/>
+		</div>
+		<div class="input">		
+			<label for="tb-second">Third number: </label>
+			<input type="text" id="tb-third"/>
+		</div>
+		<div id="inputbutton">
+			<a href="#" onclick="onFindBiggerButtonClick()">Sort</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onFindBiggerButtonClick() {
+			var first = jsConsole.readFloat("#tb-first");
+			var second = jsConsole.readFloat("#tb-second");
+			var third = jsConsole.readFloat("#tb-third");
+			var buffer = 0;
+			var i = 0;
+			
+			for (i = 0; i < 2; i++)
+            {
+                if (first < second)
+                {
+                    buffer = second;
+                    second = first;
+                    first = buffer;
+                    if (first < third)
+                    {
+                        buffer = third;
+                        third = first;
+                        first = buffer;
+                    }
+                }
+                else
+                {
+                    if (second < third)
+                    {
+                        buffer = third;
+                        third = second;
+                        second = buffer;
+                    }
+                }
+            }
+			
+			var printStr = "The descending order of tree values is ";
+			printStr += first + "; ";
+			printStr += second + "; " ;
+			printStr += third;
+			
+			jsConsole.writeLine(printStr);
+			
+
+		}											
+	</script>			  
+</body>
+</html>
+

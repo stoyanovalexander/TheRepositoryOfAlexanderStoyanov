@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+
+</head>
+<body>
+<div id="js-console">
+</div>
+<script src="scripts/js-console.js">	
+</script>	
+<script>
+    
+    function CopyObject(object) {
+       
+        if (object !== "Obejct") {
+            var newVal = object
+            return newVal;
+        }
+
+        if (object === "Object") {
+            var copy = {};
+            for (var attr in object) {
+                copy[attr] = object[attr];
+            }
+            return copy;
+        }      
+    }
+   
+    var a = {
+        name: "pesho",
+        age: 15,
+        grades: [6, 5, 4]
+    };
+    var str = "gosho"
+
+    var b = CopyObject(a);
+    jsConsole.writeLine(b.age);
+    jsConsole.writeLine(b.grades);
+    jsConsole.writeLine(b.name);
+
+    var newStr = CopyObject(str);
+    jsConsole.writeLine(newStr);
+
+</script>	
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Maximal Sequence</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>
+            Write a script that finds the maximal sequence of equal elements in an array.
+        </p>
+    </div>
+    <label for="tb-numbers">Enter numbers, separated by comma ",": </label>
+	<input id="tb-numbers" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="onBtnClickFindMaxSequence()">Find maximal sequence of equal elements!</a>
+	<br />
+    <div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+    <script>
+        
+        function onBtnClickFindMaxSequence() {
+            var count = 1;
+            var tempcount = 1;
+            var index = 0;
+            var arr = jsConsole.readNumbersArray("#tb-numbers", ",");
+            for (var i = 1; i < arr.length; i++)
+            {
+                if (arr[i] == arr[i - 1])
+                {
+                    ++tempcount;
+                    if (tempcount > count)
+                    {
+                        count = tempcount;
+                        index = i;
+                    }   
+                }
+                else
+                {
+                    tempcount = 1;
+                }
+            }
+            for (var i = 0; i < count; i++)
+            {
+                jsConsole.write(arr[index] + " ");
+            }
+        }
+    </script>
+</body>
+</html>

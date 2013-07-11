@@ -1,0 +1,41 @@
+﻿body #tb-input{
+  font-family: Consolas, Monospace;
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+ }
+#js-console {
+  margin: 0;
+}
+body #js-console {
+  margin: 0;
+  padding: 5px 10px;
+  background-color: black;
+  width: 800px;
+  height: 500px;
+  font-family: Consolas, Monospace;
+  font-size: 16px;
+  color: rgb(0,255,0);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  word-break: break-all;
+}
+body #js-console > p {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+}
+body #js-console > p > span {
+  margin: 0;
+  padding: 0;
+}
+body #js-console > p > br {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+
+body #js-console > #consoleCursor {
+ background-color: rgb(0,255,0);
+}

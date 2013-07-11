@@ -1,0 +1,65 @@
+<html>
+
+<head>
+	<title> 06. Neigh </title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+
+
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		jsConsole.writeLine("Write a function that checks if the element at given position in given array of integers is bigger than its two neighbors (when such exist).");
+		jsConsole.writeLine("");
+		jsConsole.writeLine("======================================");
+				
+		var a = [4, 1, 6, 3, 3, 3, 1, 7, 2];		
+		var b = [-3, -5, 12, 3, -4, -4, -0, 9, -4];
+
+		function f(index, arr)
+		{
+			if (index == 0)
+			{
+				if(arr[index] > arr[index + 1])
+				{
+					return true;
+				}
+				else
+					return false;
+			}
+			else if(index == arr.length - 1)
+			{
+				if(arr[index] > arr[index - 1])
+				{
+					return true;
+				}
+				else
+					return false;
+			}
+			else if (index > -1 && index < arr.length)
+				if (arr[index] > arr[index - 1] && arr[index] > arr[index + 1])
+				{
+					return true;
+				}
+				else
+					return false;
+			else (index < 0 || index > arr.length)
+			{
+				return "Wrong index my friend";
+			}						
+		}	
+
+		jsConsole.writeLine(f(3, a));
+		jsConsole.writeLine("The array is [" + a.join(" ") + "]");
+		jsConsole.writeLine(f(30, a));
+		jsConsole.writeLine("The array is [" + a.join(" ") + "]");
+		jsConsole.writeLine(f(7, b));
+		jsConsole.writeLine("The array is [" + b.join(" ") + "]");
+		jsConsole.writeLine(f(0, b));
+		jsConsole.writeLine("The array is [" + b.join(" ") + "]");
+		jsConsole.writeLine(f(8, b));
+		jsConsole.writeLine("The array is [" + b.join(" ") + "]");
+				
+	</script>
+</body>

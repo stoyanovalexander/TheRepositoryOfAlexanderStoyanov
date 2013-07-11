@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+
+</head>
+<body>
+	<div id="inputdiv">
+		<div class="input">
+			<label for="tb-first">Number: </label>
+			<input type="text" id="tb-first"/>
+		</div>
+		<div id="inputbutton">
+			<a href="#" onclick="onFindBiggerButtonClick()">Is number a prime</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onFindBiggerButtonClick() {
+			var number = jsConsole.readInteger("#tb-first");
+			var isPrime = true;
+			if (number < 2)
+                {
+                    jsConsole.writeLine("Numbers smaller than 2 is not prime numbers.");
+                    isPrime = false;
+                }
+                else
+                {
+                    for (var i = 2; i < number; i++)
+                    {
+                        if (number % i == 0)
+                        {
+                            isPrime = false;
+                        }
+                    }
+                }
+               
+                if( isPrime == true)
+				{
+                    jsConsole.writeLine("Number " + number + " is prime number.");
+				}
+                else
+				{
+                    jsConsole.writeLine("Number " + number + " is NOT prime number.", number);
+				}
+
+		}											
+	</script>			  
+</body>
+</html>

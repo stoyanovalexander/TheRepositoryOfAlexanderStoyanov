@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text]{
+			border:1px solid black;
+			padding:5px 15px;
+			background-color:black;
+			color:white;
+			font-family:Consolas;		   
+			margin-bottom:5px;
+		}
+
+		a{
+			color:black;
+			border:1px solid black;
+			padding:5px 15px;						
+			text-decoration:none;	   
+			display:inline-block;		 
+			margin: 15px 0;
+		}
+
+		a:hover{
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function Solve(args)
+	    {
+	        var field = args[0].split(", ");
+	        for (var i = 0; i < field.length; i++)
+	        {
+	            field[i] = parseInt(field[i]);
+	        }
+	        var patternCount = parseInt(args[1]);
+	        var patterns = [];
+	        for (var i = 0; i < patternCount; i++)
+	        {
+	            var currentPattern = args[i + 2].split(", ");
+	            patterns.push(currentPattern);
+	            for (var k = 0; k < currentPattern.length; k++)
+	            {
+	                currentPattern[k] = parseInt(currentPattern[k]);
+	            }
+	        }
+
+	        var maxSum = Number.NEGATIVE_INFINITY; //Number.MIN_VALUE;
+	        for (var patternsIndex = 0; patternsIndex < patternCount; patternsIndex++)
+	        {
+	            var sum = 0;
+	            var visited = {};
+	            var fieldIndex = 0;
+	            var stepIndex = 0;
+	            while (fieldIndex >= 0 && fieldIndex < field.length && !visited[fieldIndex])
+	            {
+	                sum = sum + field[fieldIndex];
+	                visited[fieldIndex] = true;
+	                fieldIndex = fieldIndex + patterns[patternsIndex][stepIndex];
+	                stepIndex++;
+	                if (stepIndex == patterns[patternsIndex].length)
+	                {
+	                    stepIndex = 0;
+	                }
+	            }
+	            if (sum > maxSum)
+	            {
+	                maxSum = sum;
+	            }
+	        }
+	        return maxSum;
+	    }
+
+	    function handleSolveIO()
+	    {
+	        var args = [];
+	        args[0] = "1, 3, -6, 7, 4, 1, 12";
+	        args[1] = "3";
+	        args[2] = "1, 2, -3";
+	        args[3] = "1, 3, -2"
+	        args[4] = "1, -1";
+	        jsConsole.writeLine(Solve(args));
+	    }
+
+	    handleSolveIO();
+	</script>			  
+</body>
+</html>

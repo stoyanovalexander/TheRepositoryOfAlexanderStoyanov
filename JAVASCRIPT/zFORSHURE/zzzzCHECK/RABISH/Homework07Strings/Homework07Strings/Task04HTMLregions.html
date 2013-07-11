@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HTML regions</title>
+    <link href="AllTasks.css" rel="stylesheet" />
+</head>
+<body>
+    <!--You are given a text. Write a function that changes the text in all regions:
+        <upcase>text</upcase> to uppercase.
+        <lowcase>text</lowcase> to lowercase
+        <mixcase>text</mixcase> to mix casing(random)-->
+
+    <div id="js-console"></div>
+
+    <!--Java script code -->
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var text = 'We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>. We <mixcase>don\'t</mixcase> have <lowcase>anything</lowcase> else.';
+
+        //testing
+        jsConsole.writeLine(text);
+        text = toLower(text);
+        text = toUpper(text);
+        text = toMix(text);
+        jsConsole.writeLine(text);
+
+        //upper casing
+        function toUpper(text) {
+            var start = text.indexOf('<upcase>');
+            var end = text.indexOf('</upcase>');
+            while (start != -1) {
+                text = text.replace(text.substring(start + 8, end), text.substring(start + 8, end).toUpperCase());
+                start = text.indexOf('<upcase>', start + 1);
+                end = text.indexOf('</upcase>', end + 1);
+            }
+            return text;
+        }
+
+        //lower casing
+        function toLower(text) {
+            var start = text.indexOf('<lowcase>');
+            var end = text.indexOf('</lowcase>');
+            while (start != -1) {
+                text = text.replace(text.substring(start + 9, end), text.substring(start + 9, end).toLowerCase());
+                start = text.indexOf('<lowcase>', start + 1);
+                end = text.indexOf('</lowcase>', end + 1);
+            }
+            return text;
+        }
+
+        //mix casing
+        function toMix(text) {
+            var start = text.indexOf('<mixcase>');
+            var end = text.indexOf('</mixcase>');
+            while (start != -1) {
+                var substring = text.substring(start + 9, end);
+                for (var i = 0; i < substring.length; i++) {
+                    var random = Math.floor(Math.random() * 2);
+                    if (random == 1) {
+                        substring = substring.replace(substring[i], substring[i].toUpperCase());
+                    } else {
+                        substring = substring.replace(substring[i], substring[i].toLowerCase());
+                    }
+                }
+                text = text.replace(text.substring(start + 9, end), substring);
+                start = text.indexOf('<mixcase>', start + 1);
+                end = text.indexOf('</mixcase>', end + 1);
+            }
+            return text;
+        }
+
+    </script>
+</body>
+</html>

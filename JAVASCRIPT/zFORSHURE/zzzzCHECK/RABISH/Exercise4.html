@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+
+</head>
+<body>
+<div id="js-console">
+</div>
+<script src="scripts/js-console.js">	
+</script>	
+<script>
+
+    function hasProperty(obj, property) {       
+            if (obj[property] != undefined) {
+                return true;
+            }       
+        return false;
+    }
+
+    var student = {
+        fname: "pesho",
+        age: 25,
+        location: "Sofia"
+    }
+
+    var arr = [1, 2, 3, 6];
+  
+    jsConsole.writeLine(hasProperty(student, "fname"));
+    jsConsole.writeLine(hasProperty(student, "age"));
+    jsConsole.writeLine(hasProperty(arr, "age"));
+
+</script>	
+</body>
+</html>

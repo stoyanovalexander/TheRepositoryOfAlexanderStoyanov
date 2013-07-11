@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Count divs</title>
+	<link href="../console-styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <p>Count divs</p>
+    <button onclick="onClick()">Count</button>
+    <br>
+	<div id="js-console"></div>
+	<script src="../console-js/js-console.js"></script>
+	<script>
+        function onClick() {
+                jsConsole.writeLine("Divs count: " + countDivs());
+        }
+
+        function countDivs() {
+        	return document.getElementsByTagName("div").length;
+        }
+                 
+	</script>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

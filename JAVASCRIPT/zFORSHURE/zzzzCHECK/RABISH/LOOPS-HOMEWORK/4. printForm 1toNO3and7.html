@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+    </div>
+    <script src="scripts/js-console.js">	  
+    </script>
+    <script>
+        //for window
+        var smallest = "zzzzzzz";
+        var largest = "";
+
+        for (var p in window) {
+            if (p < smallest) {
+                smallest = p;
+            }
+            if (p>largest) {
+                largest = p;
+            }
+        }
+        jsConsole.writeLine("For window:");
+        jsConsole.writeLine("Largest : " + largest);
+        jsConsole.writeLine("Smallest : " + smallest);
+        jsConsole.writeLine();
+        //for document
+        var smallest = "zzzzzzz";
+        var largest = "";
+
+        for (var p in document) {
+            if (p < smallest) {
+                smallest = p;
+            }
+            if (p > largest) {
+                largest = p;
+            }
+        }
+        jsConsole.writeLine("For document:");
+        jsConsole.writeLine("Largest : " + largest);
+        jsConsole.writeLine("Smallest : " + smallest);
+        jsConsole.writeLine();
+
+        //for navigator
+        var smallest = "zzzzzzz";
+        var largest = "";
+
+        for (var p in navigator) {
+            if (p < smallest) {
+                smallest = p;
+            }
+            if (p > largest) {
+                largest = p;
+            }
+        }
+        jsConsole.writeLine("For navigator:");
+        jsConsole.writeLine("Largest : " + largest);
+        jsConsole.writeLine("Smallest : " + smallest);
+    </script>
+</body>
+</html>

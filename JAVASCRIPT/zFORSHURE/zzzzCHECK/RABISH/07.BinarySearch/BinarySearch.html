@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Binary Search</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <p>
+            Write a program that finds the index of given element in a sorted array of integers by using the binary search algorithm (find it in Wikipedia)
+        </p>
+    </div>
+    <label for="tb-numbers">Enter numbers, separated by comma ",": </label>
+	<input id="tb-numbers" type="text" class="js-console-input" />
+    <br />
+    <label for="tb-number">Enter element:</label>
+	<input id="tb-number" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="onBtnClickFindIndex()">Find the index of given element in the sorted array!</a>
+	<br />
+    <div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+    <script>
+        function onBtnClickFindIndex() {
+            var index;
+            var replace;
+            var arr = jsConsole.readNumbersArray("#tb-numbers", ",")
+            var minIndex = 0;
+            var maxIndex = arr.length;
+            var midIndex;
+            var element = jsConsole.readInteger("#tb-number");
+            for (var j = 0; j < arr.length; j++) {
+                for (var i = j + 1; i < arr.length; i++) {
+                    if (arr[j] > arr[i]) {
+                        replace = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = replace;
+                    }
+                }
+            }
+            jsConsole.writeLine("Sorted array:");
+            for (var i = 0; i < arr.length; i++) {
+                jsConsole.write(arr[i] + " ");
+            }
+            jsConsole.writeLine();
+            for (var i = 0; i <= arr.length; i++) {
+                midIndex = (Math.ceil((maxIndex + minIndex) / 2)) - 1;
+                if (arr[midIndex] == element) {
+                    index = midIndex;
+                    jsConsole.writeLine("Index of the element in sorted array is " + index);
+                    break;
+                }
+                else if (arr[arr.length - 1] == element) {
+                    jsConsole.writeLine("Index of the element in sorted array is " + (arr.length - 1));
+                    break;
+                }
+                else if (arr[midIndex] > element) {
+                    maxIndex = midIndex;
+                }
+                else if (arr[midIndex] < element) {
+                    minIndex = midIndex;
+                }
+                
+                else if (i == arr.length){
+                    jsConsole.writeLine("There is no such element in the array");
+                }
+            }
+            //Can't find error..
+        }
+    </script>
+</body>
+</html>

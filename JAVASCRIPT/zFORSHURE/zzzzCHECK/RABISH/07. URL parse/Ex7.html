@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>07. URL parse</title>
+
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            function parseURL(url) {
+                var output = "";
+                var protocol = url.substring(0, url.indexOf(":"));
+                var server = url.substring(url.indexOf(":") + 3, url.indexOf("/", url.indexOf(":") + 3));
+                var resource = url.substring(url.indexOf("/", url.indexOf(":") + 3), url.length);
+                var urlToJson = {
+                         protocol: protocol, 
+                         server: server, 
+                         resource: resource 
+                };
+
+                for (prop in urlToJson) {
+                    output += prop + ": " + urlToJson[prop]+ ", <br>";
+                }
+
+                    document.write("{<br>" + output + "}<br> ");
+            }
+
+            text = "http://forums.academy.telerik.com/web-design-with-html5-css-and-javascript";
+            document.write("Link: " + text + "<br><br>");
+            parseURL(text);
+        </script>
+    </body>
+</html>

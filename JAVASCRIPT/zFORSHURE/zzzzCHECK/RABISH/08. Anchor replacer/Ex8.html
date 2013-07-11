@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>08. Anchor replacer</title>
+
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            function anchorReplacer(str) {
+                var start = 0;
+                 while (true) {
+                    if (str.indexOf("<a href",start) != -1) {
+                        start = str.indexOf("<a href", start) + 1;
+                        str = str.replace("<a href", "[URL");
+                        str = str.replace("</a>", "[/URL]")
+                    } else {
+                        break;
+                    }
+                }
+                return str;
+            }
+               
+            text = '<p>Please visit <a href="http://academy.telerik.com">our site</a> to choose a training course. Also visit <a href="www.devbg.org">our forum</a> to discuss the courses.</p>';
+
+            document.write("Text: " + text);
+            document.write("After replacement: " + anchorReplacer(text));
+        </script>
+    </body>
+</html>

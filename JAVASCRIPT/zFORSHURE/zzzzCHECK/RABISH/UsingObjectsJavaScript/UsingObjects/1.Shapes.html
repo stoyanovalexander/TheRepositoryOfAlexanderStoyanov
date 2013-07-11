@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="js-console.js"></script>
+
+<!--    Write functions for working with shapes in  standard Planar coordinate system
+        Points are represented by coordinates P(X, Y)
+        Lines are represented by two points, marking their beginning and ending
+        L(P1(X1,Y1),P2(X2,Y2))
+        Calculate the distance between two points
+        Check if three segment lines can form a triangle-->
+
+
+    <script>
+        // pseudo constructor for points
+        function makePoint(x, y) {
+            return {
+                x: x,
+                y: y,
+                toString: function () {return x + " : " + y }
+            }
+        }
+
+        // pseudo constructor for lines
+        function makeLine(pointA, pointB) {
+            return {
+                pointA: pointA,
+                pointB: pointB,
+                toString: function(){return "Point A:[" + pointA.toString() + "]" + " - Point B:[" + pointB.toString() + "]"}
+            }
+        }
+
+        // calculate distance between 2 points
+        function calculateDistance(pointA, pointB) {
+
+            var result = (Math.sqrt((pointA.x - pointB.x) * (pointA.x - pointB.x) + (pointA.y - pointB.y) * (pointA.y - pointB.y)));
+            return result;
+        }
+
+        // checks if we can make triangle from 3 lines
+        function checkIsTriangle(line1, line2, line3) {
+
+            if ((line1 + line2 > line3) && (line1 + line3 > line2) && (line2 + line3 > line1)) {
+
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        var a = makeLine(makePoint(1, 1), makePoint(3, 3));
+        var b = makeLine(makePoint(2, 2), makePoint(5, 7));
+        var c = makeLine(makePoint(2, 2), makePoint(5, 5));
+
+        var sideA = calculateDistance(a.pointA, a.pointB);
+        var sideB = calculateDistance(b.pointA, b.pointB);
+        var sideC = calculateDistance(c.pointA, c.pointB);
+
+        jsConsole.writeLine("Side A is long: " + sideA.toFixed(2)); // toFixed help us to print 2 digits after point, example (0.12)
+        jsConsole.writeLine("Side B is long: " + sideB.toFixed(2));
+        jsConsole.writeLine("Side C is long: " + sideC.toFixed(2));
+
+        jsConsole.writeLine("We can make traingle: " + checkIsTriangle(sideA, sideB, sideC));
+    </script>
+</body>
+</html>

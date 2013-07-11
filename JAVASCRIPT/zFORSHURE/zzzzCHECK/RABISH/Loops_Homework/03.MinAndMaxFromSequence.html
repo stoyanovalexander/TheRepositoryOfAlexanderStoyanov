@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Min and max from sequence</title>
+</head>
+<body>
+<div>
+	<span><label for="check">Show task condition.</label><input type="checkbox" id="check" name="check"></span>
+	<span id="task">Write a script that finds the max and min number from a sequence of numbers</span>
+	<textarea id="input1" placeholder="Enter some numbers separated by spaces."></textarea><br>
+	<textarea id="output" placeholder="output" disabled></textarea><br>
+	<input id="enter" type="submit" value="EXECUTE">
+</div>
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var input = document.getElementById("input1").value;
+var arr = input.split(" ");
+arr.sort(function(a,b){return a - b});	
+var outTxt = "Min:"+arr[0]+"; Max:"+arr[arr.length-1]+";";
+//check for n
+if((isNaN(parseInt(arr[arr.length-1])) && isNaN(parseFloat(arr[arr.length-1]))) || (isNaN(parseInt(arr[0])) && isNaN(parseFloat(arr[0])))){
+	outTxt = "Invalid input!";
+}
+//ends here	
+	document.getElementById("output").innerHTML = outTxt;
+}
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</body>
+</html>

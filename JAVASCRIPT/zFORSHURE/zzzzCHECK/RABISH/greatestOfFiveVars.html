@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Find Greater</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <form>
+            <label for="a">
+                a:
+            </label>
+            <input type="text" id="a" />
+            <label for="b">
+                b:
+            </label>
+            <input type="text" id="b" />
+            <label for="c">
+                c:
+            </label>
+            <input type="text" id="c" />
+            <label for="d">
+                d:
+            </label>
+            <input type="text" id="d" />
+            <label for="e">
+                e:
+            </label>
+            <input type="text" id="e" />
+        </form>
+    </header>
+    <nav>
+        <a href="#" onclick="findGreatest()">Find</a>
+    </nav>
+    <article>
+        <div id="js-console">
+            <script src="scripts/js-console.js"></script>
+            <script>
+                function findGreatest() {
+                    var a = jsConsole.readFloat("#a");
+                    var b = jsConsole.readFloat("#b");
+                    var c = jsConsole.readFloat("#c");
+                    var d = jsConsole.readFloat("#d");
+                    var e = jsConsole.readFloat("#e");
+                    var biggest = 0;
+                    var numbers = [a, b, c, d, e];
+                    var length = numbers.length;
+                    for (var index = 0; index < length; index++) {
+                        var value = numbers[index];
+                        if (value > biggest) {
+                            biggest = value;
+                         }
+                    }
+                    
+                    jsConsole.writeLine('Greatest number is: ' + biggest);
+                }
+            </script>
+        </div>
+    </article>
+</body>
+</html>

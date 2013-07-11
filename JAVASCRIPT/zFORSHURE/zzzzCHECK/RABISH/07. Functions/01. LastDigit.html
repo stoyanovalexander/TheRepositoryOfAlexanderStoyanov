@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function digit() {
+            var number = parseInt(document.getElementById("last").value);
+            if (number < 0)
+            {
+                number = -number; 
+            }                       
+            var l = number % 10;
+            var toWrite;
+            switch (l)
+            {
+                case 0 : toWrite = "zero"; break;
+                case 1 : toWrite = "one"; break;
+                case 2 : toWrite = "two"; break;
+                case 3 : toWrite = "three"; break;
+                case 4 : toWrite = "four"; break;
+                case 5 : toWrite = "five"; break;
+                case 6 : toWrite = "six"; break;
+                case 7 : toWrite = "seven"; break;
+                case 8 : toWrite = "eight"; break;
+                case 9 : toWrite = "nine"; break;
+            }
+            document.getElementById("resultArea").innerHTML = "The last digit of the number is " + toWrite;
+        }
+    </script>
+</head>
+<body>
+    <label>Input number: </label><input type="text" id="last" value="" />    
+    <button id="calculate" onclick="digit()">Last digit of the number is </button>
+    <h1 id="resultArea" />
+</body>
+</html>

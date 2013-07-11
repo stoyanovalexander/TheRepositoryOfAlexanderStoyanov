@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Reverse digits (and everything else :))</title>
+	<link href="../console-styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <p>Write a function that reverses the digits of given decimal number. Example: 256 ? 652</p>
+    <label for="input-number">Enter number: </label>
+    <input type="text" id="input-number">
+    <br>
+    <button onclick="onClick()">Enter :)</button>
+    <br>
+	<div id="js-console"></div>
+	<script src="../console-js/js-console.js"></script>
+	<script>
+        function onClick() {
+            var number = document.getElementById("input-number").value;;
+            jsConsole.writeLine("Reversed thing: " + reverseString(number));
+        }
+
+        function reverseString(str) {
+            var arr = [];
+            for (var i = str.length - 1; i >= 0 ; i -= 1) {
+            	arr.push(str[i]);
+            }
+            return arr.join("");
+        }
+	</script>
+</body>
+</html>

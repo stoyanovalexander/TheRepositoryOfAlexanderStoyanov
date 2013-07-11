@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+
+</head>
+<body>
+<div id="js-console">
+</div>
+<script src="scripts/js-console.js">	
+</script>	
+<script>
+
+    Array.prototype.removeElement = function (value) {
+        var tmpArr = this;
+        for (var i = 0; i < tmpArr.length ; i++){          
+             if (tmpArr[i] === value) {
+
+                 while (tmpArr[i] === value) {
+                    tmpArr.splice(i, 1);
+                }             
+            }
+        }
+       return tmpArr;
+    }
+     
+    var array = [1, 3, 2,1, 5, 4, 1,1, 111, 3, 6,1, 5, 8, 9];
+    array.removeElement(1);   
+    jsConsole.writeLine(array);
+   
+</script>	
+</body>
+</html>

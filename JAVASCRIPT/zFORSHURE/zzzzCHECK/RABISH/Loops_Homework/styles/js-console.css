@@ -1,0 +1,66 @@
+.js-console {
+  margin: 0;
+}
+body .js-console {
+  margin: 0;
+  padding: 5px 10px;
+  background-color: black;
+  width: 800px;
+  height: 500px;
+  font-family: Consolas;
+  font-size: 18px;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  word-break: break-all;
+}
+body .js-console > p {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+}
+body .js-console > p > span {
+  margin: 0;
+  padding: 0;
+}
+body .js-console > p > br {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+body #inputdiv{
+	background-color:black;
+	width: 780px;
+	padding-left:20px;
+}
+
+body #inputdiv > .input > label{
+	color:white;
+	width: 140px;
+	display:inline-block;
+}
+body #inputdiv > .input > input[type=text]{
+	border:2px solid lightgray;
+	padding:5px 15px;
+	margin:5px;
+	background-color:white;
+	color:black;
+	font-family:Consolas;		   
+	margin-bottom:5px;
+}
+body #inputdiv > #inputbutton {
+	margin-left: 150px;
+}
+body #inputdiv > #inputbutton > a{
+	color:black;
+	background-color:white;
+	border:2px solid lightgray;
+	padding:5px 15px;						
+	text-decoration:none;	   
+	display:inline-block;		 
+	margin: 15px 0;
+}
+
+body #inputdiv > #inputbutton > a:hover{
+	text-decoration:underline;
+}
