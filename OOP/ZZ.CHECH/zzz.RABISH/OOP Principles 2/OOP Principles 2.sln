@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shapes", "OOP Principles 2\Shapes.csproj", "{A6EAB623-191B-49B9-9464-550740092CEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank Accounts", "Bank Accounts\Bank Accounts.csproj", "{5782ADFB-A74B-4FC1-9AE2-614AE476FF0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6EAB623-191B-49B9-9464-550740092CEA}.Debug|x86.ActiveCfg = Debug|x86
+		{A6EAB623-191B-49B9-9464-550740092CEA}.Debug|x86.Build.0 = Debug|x86
+		{A6EAB623-191B-49B9-9464-550740092CEA}.Release|x86.ActiveCfg = Release|x86
+		{A6EAB623-191B-49B9-9464-550740092CEA}.Release|x86.Build.0 = Release|x86
+		{5782ADFB-A74B-4FC1-9AE2-614AE476FF0D}.Debug|x86.ActiveCfg = Debug|x86
+		{5782ADFB-A74B-4FC1-9AE2-614AE476FF0D}.Debug|x86.Build.0 = Debug|x86
+		{5782ADFB-A74B-4FC1-9AE2-614AE476FF0D}.Release|x86.ActiveCfg = Release|x86
+		{5782ADFB-A74B-4FC1-9AE2-614AE476FF0D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

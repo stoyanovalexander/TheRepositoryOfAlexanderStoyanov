@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00.ObjectOrientedProgrammingTwo", "05.ObjectOrientedProgrammingTwo\00.ObjectOrientedProgrammingTwo.csproj", "{47A3D480-3DA4-46F0-83E0-33982C4B780F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.CalculateSurface", "01.CalculateSurface\01.CalculateSurface.csproj", "{8CB97DDA-47A0-4A14-A542-7320B3F29622}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.InvalidRangeException", "03.InvalidRangeException\03.InvalidRangeException.csproj", "{EB488C38-DA2B-4724-94EC-DFD675B627EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.BankSystem", "02.BankSystem\02.BankSystem.csproj", "{9BD3E434-DA7F-46BE-BF69-6D4AB145F645}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47A3D480-3DA4-46F0-83E0-33982C4B780F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47A3D480-3DA4-46F0-83E0-33982C4B780F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47A3D480-3DA4-46F0-83E0-33982C4B780F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47A3D480-3DA4-46F0-83E0-33982C4B780F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CB97DDA-47A0-4A14-A542-7320B3F29622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CB97DDA-47A0-4A14-A542-7320B3F29622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CB97DDA-47A0-4A14-A542-7320B3F29622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CB97DDA-47A0-4A14-A542-7320B3F29622}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB488C38-DA2B-4724-94EC-DFD675B627EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB488C38-DA2B-4724-94EC-DFD675B627EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB488C38-DA2B-4724-94EC-DFD675B627EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB488C38-DA2B-4724-94EC-DFD675B627EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BD3E434-DA7F-46BE-BF69-6D4AB145F645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BD3E434-DA7F-46BE-BF69-6D4AB145F645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BD3E434-DA7F-46BE-BF69-6D4AB145F645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BD3E434-DA7F-46BE-BF69-6D4AB145F645}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

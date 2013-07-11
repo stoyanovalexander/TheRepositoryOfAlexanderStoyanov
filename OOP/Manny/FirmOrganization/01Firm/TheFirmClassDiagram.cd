@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="_01Firm.BossMood">
+    <Position X="11.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAIAEAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BossMood.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_01Firm.InvalidRangeException&lt;T&gt;">
+    <Position X="6" Y="10.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InvalidRangeException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FirmOrganization.FirmOrganizationTest">
+    <Position X="13.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>FirmOrganizationTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FirmOrganization.Human">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAAAAAAAQAAAAAAAACAAAAIAAAAAA=</HashCode>
+      <FileName>Human.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FirmOrganization.MachinalEngineeringFirm" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="6.25" Width="2" />
+    <AssociationLine Name="Owner" Type="FirmOrganization.Worker">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.296" Y="0.404" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAACDAAAAAAAAAAEAAAAQAQAAAAAACAAAgAAAAAAA=</HashCode>
+      <FileName>MachinalEngineeringFirm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+      <Property Name="TheDeclaration" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FirmOrganization.Machine" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAQAAAEAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Machine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FirmOrganization.MachinesType" BaseTypeListCollapsed="true">
+    <Position X="9" Y="3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Monitor" Type="FirmOrganization.Worker">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.275" Y="0.175" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAEECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MachinesType.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Monitor" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FirmOrganization.Product" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAgAAAAAAABAAAAMAAAAQAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="TheMatirial" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FirmOrganization.Section" BaseTypeListCollapsed="true">
+    <Position X="5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAECAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Section.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Monitor" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FirmOrganization.Store">
+    <Position X="5" Y="6.5" Width="1.5" />
+    <AssociationLine Name="KeyOwner" Type="FirmOrganization.Worker">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.338" Y="0.778" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAIAAAAAEAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Store.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="KeyOwner" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FirmOrganization.Tool" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAQAAAEAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Tool.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FirmOrganization.ToolsType" BaseTypeListCollapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAgAQAAAAAAAAAA=</HashCode>
+      <FileName>ToolsType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FirmOrganization.Worker">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAQAEAAAAAAAAAAAAAQACAgAIAAAAA=</HashCode>
+      <FileName>Worker.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="_01Firm.GiveTakeForMounthDeclare">
+    <Position X="11" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAACAEAAAAAAAA=</HashCode>
+      <FileName>GiveTakeForMounthDeclare.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="_01Firm.IImportantMassegable">
+    <Position X="9.25" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IImportantMassegable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FirmOrganization.IGainable">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IGainable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FirmOrganization.IPrintable">
+    <Position X="0.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPrintable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FirmOrganization.IProductGainable">
+    <Position X="1.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IProductGainable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="FirmOrganization.Matirial">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAABAAAAABAAIAA=</HashCode>
+      <FileName>Matirial.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,13 @@
+01.CreateSides: Its done.
+02.PutSleepInConstructor: As I see you make sleep=200, so its done.
+03.AddRacket: I am do not uderstand what they wont so here so I take all dane from you correct
+04.EngineForShootingRacket: Its done.
+05.TrailObjectClass:(+).Its done.
+06.MeteoritBall:(+). Its done.
+07.TestMeteoritBall:(+).Its done.
+08.UnstopableBallandUnPasableBlock:(+).Its done.
+09.TestUnstopableBallandUnPasableBlock:(+). Its done.
+10.ExplodingBlock: (+). Its done.
+11.GiftClass:(+).Its Done.
+12.GiftBlock: (+).Its done.
+13.ShootingRacket: (-).As I see shootingPlayerRacket method is empty. 
