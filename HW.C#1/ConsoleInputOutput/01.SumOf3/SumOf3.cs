@@ -10,6 +10,8 @@
             Console.Write("Enter third int: ");
             int c = int.Parse(Console.ReadLine());
             long sum = a + b + c;
+            
+            
             Console.WriteLine("sum="+sum);
         }
     }
